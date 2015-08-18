@@ -68,20 +68,59 @@
 </div>
 
 <div id="instrucciones" class="hidden seccion fondo-instrucciones">
-    <div class="roboto-bold">Instrucciones</div>
-    <p><span class="roboto-bold">1.-</span><span class="roboto-light">Regístrate con tus datos completos</span></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="roboto-bold titulo text-center"><p>INSTRUCCIONES</p></div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class=" conten-instrucciones">
+                        <div class="text-center texto20">
+                            <p><span class="roboto-bold">1.- </span><span
+                                    class="roboto-light">Regístrate con tus datos completos</span></p>
+                        </div>
+                        <div class="text-center texto20">
+                            <p><span class="roboto-bold">2.- </span><span class="roboto-light">Selecciona una de tus canciones
+                            favoritas de la mejor década, 1990, graba y sube tu video de maximo 15 segundos
+                            directo a tu galeria. Tu canción formará parte de nuestra playlist.</span></p>
+                        </div>
+                        <div class="text-center texto20">
 
-    <p><span class="roboto-bold">2.-</span><span class="roboto-light">Selecciona una de tus canciones favoritas
-        de la mejor década, 1990, graba y sube tu video de maximo 15 segundos directo a tu galeria.
-        Tu canción formará parte de nuestra playlist.</span></p>
+                            <p><span class="roboto-bold">3.- </span><span class="roboto-light">Comparte tus videos con
+                            tus amigos usando el HT </span><span class="roboto-bold">#KaraokeGalaxyA.</span></p>
+                        </div>
+                    </div>
+                </div>
 
-    <p><span class="roboto-bold">3.-</span><span class="roboto-light">Comparte tus videos con tus amigos usando el
-            HT </span><span class="roboto-bold">#KaraokeGalaxyA.</span></p>
+                <div class="col-md-1 col-sm-1 col-xs-1">
+                </div>
+                <div class="col-md-10 col-sm-10 col-xs-10">
+                    <div class="col-md-4 col-sm-4 col-xs-4 ">
+                        <div class="btn-home-home ">
+                            <img src="imagenes/karaokegalaxya/intrucciones/boton_home.png" class="img-responsive "/>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 ">
+                        <div class="btn-home-subir-video">
+                            <img src="imagenes/karaokegalaxya/intrucciones/boton_subirvideo.png"
+                                 class="img-responsive"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 ">
+                        <div class="btn-home-galeria">
+                            <img src="imagenes/karaokegalaxya/intrucciones/boton_galeria.png" class="img-responsive"/>
+                        </div>
+                        <div class="btn-home-registro"></div>
+                    </div>
 
-    <div class="btn-home-home">Home</div>
-    <div class="btn-home-subir-video">Subir video</div>
-    <div class="btn-home-galeria">Galería</div>
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-1">
+                </div>
 
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="recorder" class="hidden seccion fondo-recorder">
@@ -106,11 +145,37 @@
 </div>
 
 <div id="galeria" class="hidden seccion fondo-galeria">
-    <div class="roboto-bold">GALERÍA</div>
-    <div class="">Buscar videos</div>
-    <div id="galeria-imagenes"></div>
-    <div class="btn-home-home">Home</div>
-    <div class="btn-home-subir-video">Subir video</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12">
+                    <div class="logo-karaoke-galeria">
+                        <img src="imagenes/karaokegalaxya/galeria/logo_karaoke.png" class="img-responsive"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="text-right"><p>Buscar videos</p></div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div id="galeria-imagenes"></div>
+                </div>
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                        <div class="btn-home-subir-video"> Grabar Video</div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                        <div class="btn-home-home text-right ">Regresar al inicio</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="registro" class="hidden seccion fondo-registro">

@@ -128,8 +128,8 @@ function generaGaleria(data) {
     var htmlGaleria = "";
     for (i = 0; i < data.length; i++) {
         nombreimagen = data[i]["filename"];
-        imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif">';
-        link = '<a href="' + nombreimagen + '.html" data-title="Page 1" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a>';
+        imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
+        link = '<div class="col-md-4 col-sm-4 col-xs-4"><a href="' + nombreimagen + '.html" data-title="Page 1" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
         htmlGaleria = htmlGaleria + link;
     }
     $("#galeria-imagenes").html(htmlGaleria);

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto-Bold';
+    font-family: 'Roboto-Light';
     color: #fff;
     background-color: #000000;
     margin: 0;
@@ -35,6 +35,7 @@ a:hover, a:visited {
     height: 100%;
     background-size: cover;
     position: absolute;
+    padding-top: 15%;
 }
 
 .fondo-home {
@@ -74,8 +75,8 @@ a:hover, a:visited {
     height: 56px;
     float: left;
     position: absolute;
-    left: 20px;
-    top: 20px;
+    left: 30px;
+    top: 30px;
 }
 
 .logo-samsung {
@@ -85,8 +86,8 @@ a:hover, a:visited {
     height: 31px;
     float: right;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 30px;
+    top: 30px;
 }
 
 .terminos-condiciones {
@@ -97,18 +98,19 @@ a:hover, a:visited {
     bottom: 15px;
 }
 
-
-
-.btn-home-instrucciones , .btn-home-subir-video, .btn-home-galeria {
+.btn-home-instrucciones, .btn-home-subir-video, .btn-home-galeria, .btn-home-home {
     cursor: pointer;
 }
 
-.logo-karaoke img, .btn-home-instrucciones img , .btn-home-subir-video img, .btn-home-galeria img {
+.logo-karaoke img,.logo-karaoke-galeria img, .btn-home-instrucciones img, .btn-home-subir-video img, .btn-home-galeria img {
     margin: 0 auto;
 }
 
 .logo-karaoke {
     padding-bottom: 70px;
+}
+.logo-karaoke-galeria {
+    padding-bottom: 0px;
 }
 
 p.texto-home {
@@ -116,6 +118,35 @@ p.texto-home {
     padding-top: 60px;
 }
 
-.fondo-home {
-    padding-top: 15% ;
+.titulo {
+    font-size: 24px;
 }
+
+.titulo-der {
+    font-size: 24px;
+}
+
+.titulo p {
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+}
+
+.texto20 {
+    font-size: 20px;
+
+}
+
+.conten-instrucciones {
+    margin: 30px 5%;
+    padding: 30px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.imagen-galeria {
+    margin: 0 auto 20px;
+}
+
+#galeria-imagenes {
+    margin: 10px 0;
+    display: inline-block;
+}
+
