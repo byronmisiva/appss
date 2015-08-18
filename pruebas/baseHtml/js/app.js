@@ -12,9 +12,34 @@ $(document).ready(function () {
 });
 
 function crearBotonesInterface (){
-// btn-home-instrucciones">Instrucciones</div>
-// btn-home-subir-video">Subir video</div>
-// btn-home-galeria">Galería</div>
+    //botones home
+    $('.btn-home-home').click (function(){
+        ocultarTodosSeccion ();
+        $('#home').removeClass( "hidden" ).show();
+    })
+     $('.btn-home-instrucciones').click (function(){
+        ocultarTodosSeccion ();
+        $( "#instrucciones" ).removeClass( "hidden" ).show();
+    })
+    $('.btn-home-subir-video').click (function(){
+        ocultarTodosSeccion ();
+        $( "#recorder" ).removeClass( "hidden" ).show();
+        cargarWebCam();
+
+    })
+    $('.btn-home-galeria').click (function(){
+        ocultarTodosSeccion ();
+        $( "#galeria" ).removeClass( "hidden" ).show();
+        cargarGaleria();
+    })
+    $('.btn-home-registro').click (function(){
+        ocultarTodosSeccion ();
+        $( "#registro" ).removeClass( "hidden" ).show();
+    })
+}
+
+function ocultarTodosSeccion () {
+    $('.seccion').hide();
 }
 function cargarWebCam() {
     $("#webcam").scriptcam({
@@ -93,9 +118,7 @@ function cargarGaleria() {
             if ("object" != typeof data)
                 var data = JSON.parse(data);
             generaGaleria(data);
-
             cargarLigthbox();
-
         });
 }
 
@@ -109,7 +132,7 @@ function generaGaleria(data) {
         link = '<a href="' + nombreimagen + '.html" data-title="Page 1" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a>';
         htmlGaleria = htmlGaleria + link;
     }
-    $("#galeria").html(htmlGaleria);
+    $("#galeria-imagenes").html(htmlGaleria);
 };
 
 function grabarBaseDatosVideo(filename, fileNameNoExtension) {
