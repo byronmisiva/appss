@@ -40,26 +40,31 @@ a:hover, a:visited {
 .fondo-home {
     background-image: url("../../imagenes/karaokegalaxya/home/fondo_home.png");
     background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .fondo-instrucciones {
     background-image: url("../../imagenes/karaokegalaxya/intrucciones/fondo_intrucciones.png");
     background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .fondo-recorder {
     background-image: url("../../imagenes/karaokegalaxya/web-cam/fondo_webcam.png");
     background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .fondo-galeria {
     background-image: url("../../imagenes/karaokegalaxya/galeria/fondo_galeria.png");
     background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .fondo-registro {
     background-image: url("../../imagenes/karaokegalaxya/registro/fondo_registro.png");
     background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .logo-samsung-galaxya {
@@ -92,10 +97,25 @@ a:hover, a:visited {
     bottom: 15px;
 }
 
-.logo-karaoke {
-    background-image: url("../../imagenes/karaokegalaxya/home/logo_karaoke.png");
-    background-repeat: no-repeat;
-    width: 489px;
-    height: 168px;
 
+
+.btn-home-instrucciones , .btn-home-subir-video, .btn-home-galeria {
+    cursor: pointer;
+}
+
+.logo-karaoke img, .btn-home-instrucciones img , .btn-home-subir-video img, .btn-home-galeria img {
+    margin: 0 auto;
+}
+
+.logo-karaoke {
+    padding-bottom: 70px;
+}
+
+p.texto-home {
+    font-size: 22px;
+    padding-top: 60px;
+}
+
+.fondo-home {
+    padding-top: 15% ;
 }

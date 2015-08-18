@@ -23,11 +23,47 @@
 
 <div id="home" class="seccion fondo-home">
     <div class="container">
-        <div class="roboto-light">Home</div>
-        <div class="btn-home-instrucciones">Instrucciones</div>
-        <div class="btn-home-subir-video">Subir video</div>
-        <div class="btn-home-galeria">Galería</div>
-        <div class="btn-home-registro">Registro</div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="logo-karaoke">
+                    <img src="imagenes/karaokegalaxya/home/logo_karaoke.png" class="img-responsive"/>
+                </div>
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1">
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-10">
+                <div class="col-md-4 col-sm-4 col-xs-4 ">
+                    <div class="btn-home-instrucciones ">
+                        <img src="imagenes/karaokegalaxya/home/boton_instrucciones.png" class="img-responsive "/>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 ">
+                    <div class="btn-home-subir-video">
+                        <img src="imagenes/karaokegalaxya/home/boton_subirvideo.png" class="img-responsive"/>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 ">
+                    <div class="btn-home-galeria">
+                        <img src="imagenes/karaokegalaxya/home/boton_galeria.png" class="img-responsive"/>
+                    </div>
+                    <div class="btn-home-registro"></div>
+                </div>
+
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1">
+
+
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <p class="roboto-light texto-home text-center">
+                    Canta como si nadie estuviera viendo con le <span class="roboto-bold"> #KaraokeGalaxyA.</span> Sube
+                    tu video, compártelo con tus
+                    amigos y revive los 90s como un verdadero A de corazón.
+                </p>
+
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -82,12 +118,14 @@
     <form action="demo_form.asp">
         <ul class="login_wid">
 
-            <li><input class="box-text" type="text" id="nombre" name="nombre" required="required" placeholder="Nombre:">
+            <li><input class="box-text" type="text" id="nombre" name="nombre" required="required"
+                       placeholder="Nombre:">
             </li>
             <li><input class="box-text" type="text" id="telefono" name="telefono" required="required"
                        placeholder="Teléfono:"></li>
             <li><input class="box-text" type="text" id="ci" name="ci" required="required" placeholder="CI:"></li>
-            <li><input class="box-text" type="email" id="email" name="email" required="required" placeholder="Email:">
+            <li><input class="box-text" type="email" id="email" name="email" required="required"
+                       placeholder="Email:">
             </li>
             <li>
                 <div><input class="btn-ingreso" name="login" type="submit" value="Enviar"></div>
