@@ -22,11 +22,13 @@
 <body>
 
 <div id="home" class="seccion fondo-home">
-    <div class="roboto-light">Home</div>
-    <div class="btn-home-instrucciones">Instrucciones</div>
-    <div class="btn-home-subir-video">Subir video</div>
-    <div class="btn-home-galeria">Galería</div>
-    <div class="btn-home-registro">Registro</div>
+    <div class="container">
+        <div class="roboto-light">Home</div>
+        <div class="btn-home-instrucciones">Instrucciones</div>
+        <div class="btn-home-subir-video">Subir video</div>
+        <div class="btn-home-galeria">Galería</div>
+        <div class="btn-home-registro">Registro</div>
+    </div>
 </div>
 
 <div id="instrucciones" class="hidden seccion fondo-instrucciones">
@@ -101,9 +103,9 @@
 </div>
 
 <div id="comunes" class="">
-    <div id="logo-samsung-galaxya" class=""></div>
-    <div id="logo-samsung" class=""></div>
-    <div id="terminos-condiciones" class="roboto-light">Términos y condiciones</div>
+    <div id="" class="logo-samsung-galaxya"></div>
+    <div id="" class="logo-samsung"></div>
+    <div id="" class="roboto-light terminos-condiciones"><a href="" target="_blank">Términos y condiciones</a></div>
 </div>
 
 </body>
