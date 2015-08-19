@@ -110,6 +110,7 @@ function cargarLigthbox() {
     });
 }
 
+
 function cargarGaleria() {
     $.post("listado.json")
         .done(function (data) {
