@@ -38,6 +38,10 @@ a:hover, a:visited {
     padding-top: 5%;
 }
 
+.fondo-recorder {
+    padding-top: 2%;
+}
+
 .fondo-home {
     background-image: url("../../imagenes/karaokegalaxya/home/fondo_home.png");
     background-repeat: no-repeat;
@@ -100,15 +104,17 @@ a:hover, a:visited {
 
 .btn-home-instrucciones, .btn-home-subir-video, .btn-home-galeria, .btn-home-home {
     cursor: pointer;
+    font-size: 13px;
 }
 
-.logo-karaoke img,.logo-karaoke-galeria img, .btn-home-instrucciones img, .btn-home-subir-video img, .btn-home-galeria img {
+.logo-karaoke img, .logo-karaoke-galeria img, .btn-home-instrucciones img, .btn-home-subir-video img, .btn-home-galeria img {
     margin: 0 auto;
 }
 
 .logo-karaoke {
     padding-bottom: 70px;
 }
+
 .logo-karaoke-galeria {
     padding-bottom: 0px;
 }
@@ -150,3 +156,17 @@ p.texto-home {
     display: inline-block;
 }
 
+#webcam-container, #mediaplayer-container {
+    width: 480px;
+}
+
+#recordStartButton {
+    margin: 0 auto;
+    width: 150px;
+    display: block;
+    padding: 20px 0 6px;
+}
+
+p.texto-interno {
+    font-size: 22px;
+}

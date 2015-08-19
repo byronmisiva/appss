@@ -51,7 +51,7 @@ function cargarWebCam() {
         showMicrophoneErrors: false,
         onWebcamReady: onWebcamReady,
         //setVolume: setVolume,
-        setVolume: 60,
+        setVolume: 80,
         timeLeft: timeLeft,
         fileName: 'demofilename',
         connected: showRecord,
@@ -158,7 +158,7 @@ function closeCamera() {
     $("#recordPauseResumeButton").attr("disabled", true);
     $("#recordStopButton").attr("disabled", true);
     $.scriptcam.closeCamera();
-    $('#message').html('Un momento conversión del vídeo en proceso..');
+    $('#message').html('Un momento conversión del vídeo en proceso...');
 }
 function pauseResumeCamera() {
     if ($("#recordPauseResumeButton").html() == 'Pausa') {
@@ -170,9 +170,11 @@ function pauseResumeCamera() {
         $.scriptcam.resumeRecording();
     }
 }
+// cuando termina de convertir el archivo
 
 function fileReady(fileName) {
-    $('#recorder').hide();
+    //$('#recorder').hide();
+    $('#webcam-container').hide();
     var fileName = fileName.replace("http://europe.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
     //$('#message').html('This file is now dowloadable for five minutes over <a href="'+fileName+'">here</a>.');
     $('#message').html('');
@@ -213,7 +215,8 @@ function promptWillShow() {
 }
 
 function timeLeft(value) {
-    $('#timeLeft').val(value);
+   // $('#timeLeft').val(value);
+    $('#message').html("Grabando " + value + " seg.");
 }
 function changeCamera() {
     $.scriptcam.changeCamera($('#cameraNames').val());

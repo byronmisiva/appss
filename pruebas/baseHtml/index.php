@@ -124,24 +124,61 @@
 </div>
 
 <div id="recorder" class="hidden seccion fondo-recorder">
-    <div class="roboto-bold">WEB CAM</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12">
+                    <div class="logo-karaoke-galeria">
+                        <img src="imagenes/karaokegalaxya/web-cam/logo_karaoke.png" class="img-responsive"/>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="roboto-bold titulo text-center"><p>WEB CAM</p></div>
+                    <div id="message" class="roboto-light text-center"></div>
+                </div>
 
-    <div id="message" class="roboto-light"></div>
+                <div class="col-md-12 col-sm-12 col-xs-12 center-block text-center">
+                    <div id="webcam-container" class="center-block">
+                        <div id="webcam"></div>
+                    </div>
+                    <div id="mediaplayer-container" class="center-block">
+                        <div id="mediaplayer" class="center-block"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <p>
+                        <class id="recordStartButton"><img src="imagenes/karaokegalaxya/web-cam/boton_grabar.png"
+                                                           width="150" class="img-responsive"></class>
+                    </p>
+                    <!--<button id="recordStartButton" class="btn btn-small" disabled>Grabar</button>-->
+                    <button id="recordPauseResumeButton" class="btn btn-small hidden" disabled>Pausar</button>
+                    <button id="recordStopButton" class="btn btn-small hidden" disabled>Detener</button>
+                    <span><input type="text" id="timeLeft" class="hidden"></span>
+                </div>
+            </div>
 
-    <div id="webcam"></div>
-    <div style="clear:both">
-        <span><input type="text" id="timeLeft"></span>
-        <button id="recordStartButton" class="btn btn-small" disabled>Grabar</button>
-        <button id="recordPauseResumeButton" class="btn btn-small" disabled>Pausar
-        </button>
-        <button id="recordStopButton" class="btn btn-small" disabled>Detener</button>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="text-center"><p class="texto-interno"><span
+                            class="roboto-light">Activa tu web-cam y grábate cantando en el </span><span
+                            class="roboto-bold">#KaraokeGalaxyA.</span>
+                    </p></div>
+            </div>
+
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                    <div class="btn-home-galeria pull-left">Galería</div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                    <div class="btn-home-home text-right pull-right"><img
+                            src="imagenes/karaokegalaxya/galeria/regresar_inicio.png" class="img-responsive"></div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div id="mediaplayer" class></div>
-    <p><span class="roboto-light">Activa tu web-cam y grábate cantando en el </span><span class="roboto-bold">#KaraokeGalaxyA.</span>
-    </p>
+</div>
 
-    <div class="btn-home-home">Home</div>
-    <div class="btn-home-galeria">Galería</div>
 </div>
 
 <div id="galeria" class="hidden seccion fondo-galeria">
@@ -163,13 +200,14 @@
                     <div id="galeria-imagenes"></div>
                 </div>
 
-
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="col-md-6 col-sm-6 col-xs-6 ">
-                        <div class="btn-home-subir-video"> Grabar Video</div>
+                        <div class="btn-home-subir-video pull-left"><img
+                                src="imagenes/karaokegalaxya/galeria/grabarvideo.png" class="img-responsive"></div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6 ">
-                        <div class="btn-home-home text-right ">Regresar al inicio</div>
+                        <div class="btn-home-home text-right pull-right"><img
+                                src="imagenes/karaokegalaxya/galeria/regresar_inicio.png" class="img-responsive"></div>
                     </div>
                 </div>
 
