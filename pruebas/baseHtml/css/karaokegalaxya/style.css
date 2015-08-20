@@ -73,25 +73,13 @@ a:hover, a:visited {
 }
 
 .logo-samsung-galaxya {
-    background-image: url("../../imagenes/karaokegalaxya/home/logo_galaxya.png");
-    background-repeat: no-repeat;
-    width: 177px;
-    height: 56px;
-    float: left;
-    position: absolute;
-    left: 30px;
-    top: 30px;
+    margin-left: 20px;
+    margin-top: 30px;
 }
 
 .logo-samsung {
-    background-image: url("../../imagenes/karaokegalaxya/home/logo_samsung.png");
-    background-repeat: no-repeat;
-    width: 195px;
-    height: 31px;
-    float: right;
-    position: absolute;
-    right: 30px;
-    top: 30px;
+    margin-right: 20px;
+    margin-top: 30px;
 }
 
 .terminos-condiciones {

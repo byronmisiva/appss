@@ -21,7 +21,7 @@
 
 <body>
 
-<div id="home" class="seccion fondo-home">
+<div id="home" class="seccion hidden fondo-home">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -29,9 +29,9 @@
                     <img src="imagenes/karaokegalaxya/home/logo_karaoke.png" class="img-responsive"/>
                 </div>
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-1">
+            <div class="col-md-1 col-sm-1 ">
             </div>
-            <div class="col-md-10 col-sm-10 col-xs-10">
+            <div class="col-md-10 col-sm-10 col-xs-12">
                 <div class="col-md-4 col-sm-4 col-xs-4 ">
                     <div class="btn-home-instrucciones ">
                         <img src="imagenes/karaokegalaxya/home/boton_instrucciones.png" class="img-responsive "/>
@@ -50,7 +50,7 @@
                 </div>
 
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-1">
+            <div class="col-md-1 col-sm-1 ">
 
 
             </div>
@@ -179,7 +179,7 @@
     </div>
 </div>
 
-</div>
+
 
 <div id="galeria" class="hidden seccion fondo-galeria">
     <div class="container">
@@ -216,7 +216,7 @@
     </div>
 </div>
 
-<div id="registro" class="hidden seccion fondo-registro">
+<div id="registro" class="  seccion fondo-registro">
     <div class="roboto-bold">REGISTRO</div>
     <form action="demo_form.asp">
         <ul class="login_wid">
@@ -241,11 +241,52 @@
     </form>
     <div class="btn-home-home">Home</div>
     <div class="btn-home-subir-video">Subir video</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12">
+                    <div class="logo-karaoke-galeria">
+                        <img src="imagenes/karaokegalaxya/galeria/logo_karaoke.png" class="img-responsive"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="text-right"><p>Buscar videos</p></div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div id="galeria-imagenes"></div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                        <div class="btn-home-subir-video pull-left"><img
+                                src="imagenes/karaokegalaxya/galeria/grabarvideo.png" class="img-responsive"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                        <div class="btn-home-home text-right pull-right"><img
+                                src="imagenes/karaokegalaxya/galeria/regresar_inicio.png" class="img-responsive"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div id="comunes" class="">
-    <div id="" class="logo-samsung-galaxya"></div>
-    <div id="" class="logo-samsung"></div>
+    <div class="col-md-4 col-sm-4 col-xs-5">
+        <div class="logo-samsung-galaxya "><img src="imagenes/karaokegalaxya/home/logo_galaxya.png" class="img-responsive"></div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-2">
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-5">
+        <div class="logo-samsung pull-right "><img src="imagenes/karaokegalaxya/home/logo_samsung.png" class="img-responsive"></div>
+    </div>
+
     <div id="" class="roboto-light terminos-condiciones"><a href="" target="_blank">Términos y condiciones</a></div>
 </div>
 
