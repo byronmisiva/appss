@@ -38,6 +38,14 @@ a:hover, a:visited {
     padding-top: 5%;
 }
 
+.fondo-registro {
+    padding-top: 0;
+}
+
+.cien {
+    width: 100%;
+}
+
 .fondo-recorder {
     padding-top: 2%;
 }
@@ -95,7 +103,7 @@ a:hover, a:visited {
     font-size: 13px;
 }
 
-.logo-karaoke img, .logo-karaoke-galeria img, .btn-home-instrucciones img, .btn-home-subir-video img, .btn-home-galeria img {
+.logo-karaoke img, .logo-karaoke-galeria img, .btn-home-instrucciones img, .btn-home-subir-video img, .btn-home-galeria img, .btn-home-home img {
     margin: 0 auto;
 }
 
@@ -157,4 +165,92 @@ p.texto-home {
 
 p.texto-interno {
     font-size: 22px;
+}
+input[type="text"], input[type="email"] {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-family: sans-serif;
+    font-size: 14px;
+    appearance: none;
+    box-shadow: none;
+    border: none;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+ul.login_wid li {list-style-type: none;}
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+
+    display: flex;
+    align-items: center;
+}
+
+ul.login_wid {
+    margin: 0;
+    padding: 0;
+}
+
+input.btn-ingreso {
+    background: url("../../imagenes/karaokegalaxya/registro/boton_continuar.png") no-repeat scroll 0 0 transparent;
+    color: #000000;
+    width: 150px;
+    height: 41px;
+    border: none;
+    margin-top: 20px;
+}
+
+.margen-0 {
+    padding: 0;
+    margin: 0;
+}
+
+@media(max-width:767px){
+
+    .titulo {
+        font-size: 20px;
+    }
+    .texto20 {
+        font-size: 16px;
+    }
+    .conten-instrucciones {
+        background-color: rgba(0, 0, 0, 0.4);
+        margin: 5px 0;
+        padding: 20px;
+    }
+    .btn-home-instrucciones, .btn-home-subir-video, .btn-home-galeria, .btn-home-home {
+        margin-top: 10px;
+    }
+    .logo-samsung img, .logo-samsung-galaxya img {
+        margin: 0 auto;
+    }
+
+    .logo-samsung-galaxya , .logo-samsung {
+        margin: 50px 0 0;
+    }
+
+    .fondo-home, .fondo-instrucciones, .fondo-recorder, .fondo-galeria, .fondo-registro {
+        position: inherit;
+    }
+
+    .terminos-condiciones {
+        text-align: center;
+        position: inherit;
+        bottom: 0;
+        margin-top: 50px;
+    }
+}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}
+@media(min-width:768px) and (max-width:992px){
+    .margen-0-md {
+        margin: 0;
+        padding: 0;
+    }
 }
