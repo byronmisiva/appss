@@ -217,47 +217,38 @@
 </div>
 
 <div id="registro" class="  seccion fondo-registro">
-    <div class="roboto-bold">REGISTRO</div>
-    <form action="demo_form.asp">
-        <ul class="login_wid">
 
-            <li><input class="box-text" type="text" id="nombre" name="nombre" required="required"
-                       placeholder="Nombre:">
-            </li>
-            <li><input class="box-text" type="text" id="telefono" name="telefono" required="required"
-                       placeholder="Teléfono:"></li>
-            <li><input class="box-text" type="text" id="ci" name="ci" required="required" placeholder="CI:"></li>
-            <li><input class="box-text" type="email" id="email" name="email" required="required"
-                       placeholder="Email:">
-            </li>
-            <li>
-                <div><input class="btn-ingreso" name="login" type="submit" value="Enviar"></div>
-            </li>
-            <li>
-                <div id="mensaje-envio"></div>
-            </li>
-
-        </ul>
-    </form>
-    <div class="btn-home-home">Home</div>
-    <div class="btn-home-subir-video">Subir video</div>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <div class="col-md-12 col-sm-12">
-                    <div class="logo-karaoke-galeria">
-                        <img src="imagenes/karaokegalaxya/galeria/logo_karaoke.png" class="img-responsive"/>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <div class="text-right"><p>Buscar videos</p></div>
-                </div>
+
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div id="galeria-imagenes"></div>
+                    <div class="roboto-bold titulo text-center"><p>REGISTRO</p></div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <form action="demo_form.asp">
+                        <ul class="login_wid">
+
+                            <li><input class="box-text" type="text" id="nombre" name="nombre" required="required"
+                                       placeholder="Nombre:">
+                            </li>
+                            <li><input class="box-text" type="text" id="telefono" name="telefono" required="required"
+                                       placeholder="Teléfono:"></li>
+                            <li><input class="box-text" type="text" id="ci" name="ci" required="required" placeholder="CI:"></li>
+                            <li><input class="box-text" type="email" id="email" name="email" required="required"
+                                       placeholder="Email:">
+                            </li>
+                            <li>
+                                <div><input class="btn-ingreso" name="login" type="submit" value="Enviar"></div>
+                            </li>
+                            <li>
+                                <div id="mensaje-envio"></div>
+                            </li>
+
+                        </ul>
+                    </form>
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
