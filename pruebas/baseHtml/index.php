@@ -256,7 +256,7 @@
     </div>
 </div>
 
-<div id="galeria" class="  seccion fondo-galeria">
+<div id="galeria" class="hidden seccion fondo-galeria">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
