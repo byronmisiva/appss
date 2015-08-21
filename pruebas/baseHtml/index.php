@@ -29,7 +29,7 @@
 
 <body>
 
-<div id="home" class="hidden seccion fondo-home">
+<div id="home" class=" seccion fondo-home">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -383,7 +383,6 @@
 
     <div id="" class="roboto-light terminos-condiciones"><a href="" target="_blank">Términos y condiciones</a></div>
 </div>
-
 
 </body>
 </html>
