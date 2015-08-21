@@ -128,7 +128,7 @@
                         <div class="text-center texto20">
                             <p><span class="roboto-bold">2.- </span><span class="roboto-light">Selecciona una de tus canciones
                             favoritas de la mejor década, 1990, graba y sube tu video de máximo 15 segundos
-                            directo a tu galeria. Tu canción formará parte de nuestra playlist.</span></p>
+                            directo a tu galería. Tu canción formará parte de nuestra playlist.</span></p>
                         </div>
                         <div class="text-center texto20">
 
@@ -272,7 +272,28 @@
                     <div class="text-right"><p>Buscar videos</p></div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div id="galeria-imagenes"></div>
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+
+                            <div id="galeria-imagenes"></div>
+
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button"
+                           data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button"
+                           data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">

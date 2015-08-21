@@ -264,3 +264,27 @@ input.btn-ingreso {
         padding: 0;
     }
 }
+
+.modal-content {
+    background-color: rgba(1, 169, 206, 0.71)
+}
+
+.close {
+    color: #fff;
+    opacity: 1;
+}
+
+.modal-header {
+    border-bottom: medium none;
+    min-height: 13.43px;
+    padding: 7px;
+}
+
+.carousel-control {
+    width: 5%;
+    opacity: .9;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    margin: 0;
+}

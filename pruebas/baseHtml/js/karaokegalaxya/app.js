@@ -5,40 +5,40 @@ $(document).ready(function () {
 
     // todo desactivado temporaltemen
     //crear botones
-    crearBotonesInterface ();
+    crearBotonesInterface();
     //cargarWebCam();
     //cargarGaleria();
 
 });
 
-function crearBotonesInterface (){
+function crearBotonesInterface() {
     //botones home
-    $('.btn-home-home').click (function(){
-        ocultarTodosSeccion ();
-        $('#home').removeClass( "hidden" ).show();
+    $('.btn-home-home').click(function () {
+        ocultarTodosSeccion();
+        $('#home').removeClass("hidden").show();
     })
-     $('.btn-home-instrucciones').click (function(){
-        ocultarTodosSeccion ();
-        $( "#instrucciones" ).removeClass( "hidden" ).show();
+    $('.btn-home-instrucciones').click(function () {
+        ocultarTodosSeccion();
+        $("#instrucciones").removeClass("hidden").show();
     })
-    $('.btn-home-subir-video').click (function(){
-        ocultarTodosSeccion ();
-        $( "#recorder" ).removeClass( "hidden" ).show();
+    $('.btn-home-subir-video').click(function () {
+        ocultarTodosSeccion();
+        $("#recorder").removeClass("hidden").show();
         cargarWebCam();
 
     })
-    $('.btn-home-galeria').click (function(){
-        ocultarTodosSeccion ();
-        $( "#galeria" ).removeClass( "hidden" ).show();
+    $('.btn-home-galeria').click(function () {
+        ocultarTodosSeccion();
+        $("#galeria").removeClass("hidden").show();
         cargarGaleria();
     })
-    $('.btn-home-registro').click (function(){
-        ocultarTodosSeccion ();
-        $( "#registro" ).removeClass( "hidden" ).show();
+    $('.btn-home-registro').click(function () {
+        ocultarTodosSeccion();
+        $("#registro").removeClass("hidden").show();
     })
 }
 
-function ocultarTodosSeccion () {
+function ocultarTodosSeccion() {
     $('.seccion').hide();
 }
 function cargarWebCam() {
@@ -127,12 +127,26 @@ function cargarGaleria() {
 function generaGaleria(data) {
     //todo link archivo
     var htmlGaleria = "";
-    for (i = 0; i < data.length; i++) {
-        nombreimagen = data[i]["filename"];
-        imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
-        link = '<div class="col-md-4 col-sm-4 col-xs-4"><a href="' + nombreimagen + '.html" data-title="Page 1" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
-        htmlGaleria = htmlGaleria + link;
+    var iteraciones = Math.ceil(data.length / 6);
+    console.log(iteraciones);
+    for (j = 0; j < iteraciones; j++) {
+        console.log(j);
+        var divimagen = "";
+        for (i = 0 + (j * 6); i < 6 + (j * 6); i++) {
+            console.log(i);
+            nombreimagen = data[i]["filename"];
+            imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
+            link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="' + nombreimagen + '.html" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
+            divimagen = divimagen + link;
+        }
+        // pegamos item
+        if (j == 0) primero = "active" ;
+        else
+            primero = "";
+        htmlGaleria = htmlGaleria + '<div class="item '+ primero + '">' + divimagen + '</div>';
     }
+
+
     $("#galeria-imagenes").html(htmlGaleria);
 };
 
@@ -211,11 +225,11 @@ function onWebcamReady(cameraNames, camera, microphoneNames, microphone, volume)
 }
 
 function promptWillShow() {
-    alert('A security dialog will be shown. Please click on ALLOW.');
+    alert('Se mostrará un cuadro de diálogo de seguridad. Por favor, haga clic en PERMITIR.');
 }
 
 function timeLeft(value) {
-   // $('#timeLeft').val(value);
+    // $('#timeLeft').val(value);
     $('#message').html("Grabando " + value + " seg.");
 }
 function changeCamera() {
