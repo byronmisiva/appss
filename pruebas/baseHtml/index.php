@@ -29,7 +29,7 @@
 
 <body>
 
-<div id="home" class="seccion hidden  fondo-home">
+<div id="home" class="hidden seccion fondo-home">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -37,34 +37,50 @@
                     <img src="imagenes/karaokegalaxya/home/logo_karaoke.png" class="img-responsive"/>
                 </div>
             </div>
-            <div class="col-md-1 col-sm-1 ">
+
+            <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
             </div>
-            <div class="col-md-10 col-sm-10 col-xs-12">
-                <div class="col-md-4 col-sm-4 col-xs-4 ">
-                    <div class="btn-home-instrucciones ">
-                        <img src="imagenes/karaokegalaxya/home/boton_instrucciones.png" class="img-responsive "/>
+            <div class="col-md-10 col-sm-10 col-xs-10  ">
+                <div class="col-md-4 col-sm-4 col-xs-12  margen-0-md">
+                    <div class="row">
+                        <div class="col-xs-1 margen-0"></div>
+                        <div class="col-xs-10 margen-0-md">
+                            <div class="btn-home-instrucciones ">
+                                <img src="imagenes/karaokegalaxya/home/boton_instrucciones.png"
+                                     class="img-responsive "/>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 margen-0"></div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-4 ">
-                    <div class="btn-home-subir-video">
-                        <img src="imagenes/karaokegalaxya/home/boton_subirvideo.png" class="img-responsive"/>
+                <div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
+                    <div class="row">
+                        <div class="col-xs-1 margen-0"></div>
+                        <div class="col-xs-10 margen-0-md">
+                            <div class="btn-home-subir-video">
+                                <img src="imagenes/karaokegalaxya/home/boton_subirvideo.png" class="img-responsive"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-1"></div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-4 ">
-                    <div class="btn-home-galeria">
-                        <img src="imagenes/karaokegalaxya/home/boton_galeria.png" class="img-responsive"/>
+                <div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
+                    <div class="row">
+                        <div class="col-xs-1 margen-0"></div>
+                        <div class="col-xs-10 margen-0-md">
+                            <div class="btn-home-galeria">
+                                <img src="imagenes/karaokegalaxya/home/boton_galeria.png" class="img-responsive"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 margen-0"></div>
                     </div>
-                    <div class="btn-home-registro"></div>
                 </div>
-
             </div>
-            <div class="col-md-1 col-sm-1 ">
-
-
+            <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <p class="roboto-light texto-home text-center">
-                    Canta como si nadie estuviera viendo con le <span class="roboto-bold"> #KaraokeGalaxyA.</span> Sube
+                    Canta como si nadie estuviera viendo con el <span class="roboto-bold"> #KaraokeGalaxyA.</span> Sube
                     tu video, compártelo con tus
                     amigos y revive los 90s como un verdadero A de corazón.
                 </p>
@@ -72,10 +88,26 @@
             </div>
 
         </div>
+        <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg">
+            <div class="col-xs-12">
+                <div class="logo-samsung-galaxya "><img src="imagenes/karaokegalaxya/home/logo_galaxya.png"
+                                                        class="img-responsive"></div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="logo-samsung "><img src="imagenes/karaokegalaxya/home/logo_samsung.png"
+                                                class="img-responsive"></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                        condiciones</a></div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<div id="instrucciones" class=" seccion fondo-instrucciones">
+<div id="instrucciones" class="hidden seccion fondo-instrucciones">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -158,10 +190,11 @@
 
             <div class="col-xs-12">
                 <div class="logo-samsung "><img src="imagenes/karaokegalaxya/home/logo_samsung.png"
-                                                           class="img-responsive"></div>
+                                                class="img-responsive"></div>
             </div>
             <div class="col-xs-12">
-                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y condiciones</a></div>
+                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                        condiciones</a></div>
             </div>
         </div>
     </div>
@@ -223,8 +256,7 @@
     </div>
 </div>
 
-
-<div id="galeria" class="hidden seccion fondo-galeria">
+<div id="galeria" class="  seccion fondo-galeria">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -256,13 +288,34 @@
 
             </div>
         </div>
+        <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg">
+            <div class="col-xs-12">
+                <div class="logo-samsung-galaxya "><img src="imagenes/karaokegalaxya/home/logo_galaxya.png"
+                                                        class="img-responsive"></div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="logo-samsung "><img src="imagenes/karaokegalaxya/home/logo_samsung.png"
+                                                class="img-responsive"></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                        condiciones</a></div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<div id="registro" class="hidden  seccion fondo-registro">
+<div id="registro" class="hidden   seccion fondo-registro">
     <div class="container vertical-center">
-        <div class="cien">
+        <div class="cien ">
             <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12">
+                    <div class="logo-karaoke">
+                        <img src="imagenes/karaokegalaxya/home/logo_karaoke.png" class="img-responsive"/>
+                    </div>
+                </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="roboto-bold titulo text-center"><p>REGISTRO</p></div>
                 </div>
@@ -295,7 +348,25 @@
                 </div>
             </div>
         </div>
+
+
+        <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg">
+            <div class="col-xs-12">
+                <div class="logo-samsung-galaxya "><img src="imagenes/karaokegalaxya/home/logo_galaxya.png"
+                                                        class="img-responsive"></div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="logo-samsung "><img src="imagenes/karaokegalaxya/home/logo_samsung.png"
+                                                class="img-responsive"></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                        condiciones</a></div>
+            </div>
+        </div>
     </div>
+
 </div>
 
 <div id="comunes" class="hidden-xs">
