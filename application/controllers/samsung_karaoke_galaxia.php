@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Samsung_escuela extends CI_Controller{
+class Samsung_karaoke_galaxia extends CI_Controller{
 	
 	public $data;
 	var $folderView;
@@ -12,13 +12,13 @@ class Samsung_escuela extends CI_Controller{
 	public function __construct(){
 		parent::__construct();		
 		$this->load->model('samsung_usuario','usuario_samsung');
-		$this->load->model('mdl_escuela_samsung','modelo');
+		$this->load->model('mdl_samsung_karaoke_galaxia','modelo');
 		$this->load->helper('form');
-		$this->folderView="escuela_samsung";				
-		$this->data['controlador']="samsung_escuela";
+		$this->folderView="samsung_karaoke_galaxia";
+		$this->data['controlador']="samsung_karaoke_galaxia";
 		$this->data['idApp']="1435753433388451";
 		$this->data['secretApp']="93e182c582deafb8818fd2ade519ec15";		
-		$this->data['condiciones'] = "<a href='".base_url()."archivos/escuela/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Escuela-Samsung.pdf' target='_blank' >T&eacute;rminos y Condiciones</a>";
+		$this->data['condiciones'] = "<a href='".base_url()."archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf' target='_blank' >Términos y condiciones</a>";
 	}
 	
 	function index(){
@@ -136,11 +136,11 @@ class Samsung_escuela extends CI_Controller{
 	function savePuntage(){
 		if( isset($_POST['puntos']) ){
 			$this->db->where("fbid",$_POST['participante']);
-			$this->db->update("escuela_registro",array("puntaje"=>$_POST['puntos']));
+			$this->db->update("karaoke_galaxia_registro",array("puntaje"=>$_POST['puntos']));
 					
 			$this->db->select('edad');
 			$this->db->where("fbid",$_POST['participante']);
-			$this->db->from("escuela_registro");
+			$this->db->from("karaoke_galaxia_registro");
     		$consulta = $this->db->get();	    	
 	    	$registro =current($consulta->result());	    	
 	    	echo $registro->edad;
@@ -162,7 +162,7 @@ class Samsung_escuela extends CI_Controller{
 				$this->db->update( 'usuarios', $updateUser, array( 'fbid' => $_POST['fbid'] ));
 				$participante=$this->usuario_samsung->getUserFbid($_POST['fbid']);
 				$id = $participante->id;
-				$this->db->insert("escuela_registro",array(
+				$this->db->insert("karaoke_galaxia_registro",array(
 															"id_user"=>$id, 
 															"edad"=>$_POST['edad'],
 															"fbid"=>$_POST['fbid']));				
@@ -178,7 +178,7 @@ class Samsung_escuela extends CI_Controller{
 				);				
 				$this->db->insert( 'usuarios', $insertUser );
 				$id = $this->db->insert_id();
-				$this->db->insert("escuela_registro",array(
+				$this->db->insert("karaoke_galaxia_registro",array(
 															"id_user"=>$id,
 															"edad"=>$_POST['edad'],
 															"fbid"=>$_POST['fbid']));				
@@ -248,7 +248,7 @@ class Samsung_escuela extends CI_Controller{
 		$compartidos=(int)$participante->compartidos;		
 		$compartidos=$compartidos+1;		
 		$this->db->where("id",$participante->id);
-		$this->db->update("escuela_registro",array("compartidos"=>$compartidos));
+		$this->db->update("karaoke_galaxia_registro",array("compartidos"=>$compartidos));
 	}
 
 	function sumarCompartidaPosteo($id){
@@ -256,7 +256,7 @@ class Samsung_escuela extends CI_Controller{
 		$compartidos=(int)$participante->posteos;
 		$compartidos=$compartidos+1;
 		$this->db->where("fbid",$id);
-		$this->db->update("escuela_registro",array("posteos"=>$compartidos));
+		$this->db->update("karaoke_galaxia_registro",array("posteos"=>$compartidos));
 	}
 	
 	function registrarInvitados($id){
@@ -277,7 +277,7 @@ class Samsung_escuela extends CI_Controller{
 	}
 	
 	function agradecimiento(){
-		$this->load->view($this->$folderView.'/agradecimiento');
+		$this->load->view($this->folderView.'/agradecimiento');
 	}
 	
 
