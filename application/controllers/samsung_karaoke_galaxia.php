@@ -18,7 +18,7 @@ class Samsung_karaoke_galaxia extends CI_Controller{
 		$this->data['controlador']="samsung_karaoke_galaxia";
 		$this->data['idApp']="1435753433388451";
 		$this->data['secretApp']="93e182c582deafb8818fd2ade519ec15";		
-		$this->data['condiciones'] = "<a href='".base_url()."archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf' target='_blank' >Términos y condiciones</a>";
+		$this->data['condiciones'] = "<a href='".base_url()."archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf' target='_blank' >Tï¿½rminos y condiciones</a>";
 	}
 	
 	function index(){
@@ -33,8 +33,17 @@ class Samsung_karaoke_galaxia extends CI_Controller{
 	}
 	//listado Videos
 	function listadojson(){
+		$this->db->select('id, filename');
+		$this->db->from("karaoke_galaxia");
+		$this->db->order_by("creado", "desc");
+		$consulta = $this->db->get();
+		if ($consulta->num_rows() > 0){
+			$data['videos'] =  $consulta->result() ;
+			//$this->load->view($this->folderView.'/listadojson', $data );
+			echo json_encode($data['videos']);
+		}else
+		return FALSE;
 
-		$this->load->view($this->folderView.'/listadojson' );
 	}
 
 	function video(){

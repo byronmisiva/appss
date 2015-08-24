@@ -118,6 +118,7 @@ function cargarGaleria() {
             // en caso que data regrese como str convertimos en objeto json
             if ("object" != typeof data)
                 var data = JSON.parse(data);
+
             generaGaleria(data);
             cargarLigthbox();
         });
@@ -130,36 +131,38 @@ function generaGaleria(data) {
         '<div class="carousel-inner" role="listbox">';
 
     var finGaleria = '</div>' +
-       '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">' +
+        '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">' +
         '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> ' +
-       '<span class="sr-only">Previous</span></a>' +
-       ' <a class="right carousel-control" href="#carousel-example-generic" role="button"  data-slide="next">' +
+        '<span class="sr-only">Previous</span></a>' +
+        ' <a class="right carousel-control" href="#carousel-example-generic" role="button"  data-slide="next">' +
         '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>' +
         '<span class="sr-only">Next</span></a>' +
         '</div>';
 
     var htmlGaleria = "";
     var iteraciones = Math.ceil(data.length / 6);
-
+    console.log(data);
     for (j = 0; j < iteraciones; j++) {
-        console.log(j);
         var divimagen = "";
         for (i = 0 + (j * 6); i < 6 + (j * 6); i++) {
-            console.log(i);
-            nombreimagen = data[i]["filename"];
-            idimagen = data[i]["id"];
-            imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
-            link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="samsung_karaoke_galaxia/video/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
-            divimagen = divimagen + link;
+            if (typeof data[i] != 'undefined'   ) {
+                nombreimagen = data[i]["filename"];
+                idimagen = data[i]["id"];
+                imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
+                link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="samsung_karaoke_galaxia/video/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
+                divimagen = divimagen + link;
+            }
         }
         // pegamos item
-        if (j == 0) primero = "active" ;
+        if (j == 0) primero = "active";
         else
             primero = "";
-        htmlGaleria = cabeceraGaleria + htmlGaleria + '<div class="item '+ primero + '">' + divimagen + '</div> ' + finGaleria;
+        htmlGaleria = cabeceraGaleria + htmlGaleria + '<div class="item ' + primero + '">' + divimagen + '</div> ' + finGaleria;
+
+
     }
     $("#galeria-imagenes").html(htmlGaleria);
-    $('.carousel').carousel();
+  //  $('.carousel').carousel();
 };
 
 function grabarBaseDatosVideo(filename, fileNameNoExtension) {

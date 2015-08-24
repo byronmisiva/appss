@@ -210,8 +210,8 @@
 						<img src="<?php echo base_url()?>imagenes/karaokegalaxya/web-cam/logo_karaoke.png" class="img-responsive"/>
 					</div>
 				</div>
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="roboto-bold titulo text-center"><p>WEB CAM</p></div>
+				<div class="col-md-12 col-sm-12 col-xs-12  ">
+					<div class="hidden roboto-bold titulo text-center"><p>WEB CAM</p></div>
 					<div id="message" class="roboto-light text-center"></div>
 				</div>
 
@@ -243,14 +243,44 @@
 			</div>
 
 
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="col-md-6 col-sm-6 col-xs-6 ">
-					<div class="btn-home-galeria pull-left">Galería</div>
+			<div class="col-md-1 col-sm-1 col-xs-1 margen-0">
+			</div>
+			<div class="col-md-10 col-sm-10 col-xs-10  ">
+				<div class="col-md-4 col-sm-4 col-xs-12  margen-0-md">
+					<div class="row">
+						<div class="col-xs-1 margen-0"></div>
+						<div class="col-xs-10 margen-0-md">
+							<div class="btn-home-home ">
+								<img src="<?php echo base_url()?>imagenes/karaokegalaxya/intrucciones/boton_home.png"
+									 class="img-responsive "/>
+							</div>
+						</div>
+						<div class="col-xs-1 margen-0"></div>
+					</div>
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-6 ">
-					<div class="btn-home-home text-right pull-right"><img
-							src="<?php echo base_url()?>imagenes/karaokegalaxya/galeria/regresar_inicio.png" class="img-responsive"></div>
+				<div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
+					<div class="row">
+						<div class="col-xs-1 margen-0"></div>
+						<div class="col-xs-10 margen-0-md">
+
+						</div>
+						<div class="col-xs-1"></div>
+					</div>
 				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
+					<div class="row">
+						<div class="col-xs-1 margen-0"></div>
+						<div class="col-xs-10 margen-0-md">
+							<div class="btn-home-galeria">
+								<img src="<?php echo base_url()?>imagenes/karaokegalaxya/intrucciones/boton_galeria.png"
+									 class="img-responsive"/>
+							</div>
+						</div>
+						<div class="col-xs-1 margen-0"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1 col-sm-1 col-xs-1 margen-0">
 			</div>
 
 		</div>
@@ -278,16 +308,47 @@
 
 				</div>
 
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="col-md-6 col-sm-6 col-xs-6 ">
-						<div class="btn-home-subir-video pull-left"><img
-								src="<?php echo base_url()?>imagenes/karaokegalaxya/galeria/grabarvideo.png" class="img-responsive"></div>
+				<div class="col-md-1 col-sm-1 col-xs-1 margen-0">
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-10  ">
+					<div class="col-md-4 col-sm-4 col-xs-12  margen-0-md">
+						<div class="row">
+							<div class="col-xs-1 margen-0"></div>
+							<div class="col-xs-10 margen-0-md">
+								<div class="btn-home-home ">
+									<img src="<?php echo base_url()?>imagenes/karaokegalaxya/intrucciones/boton_home.png"
+										 class="img-responsive "/>
+								</div>
+							</div>
+							<div class="col-xs-1 margen-0"></div>
+						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6 ">
-						<div class="btn-home-home text-right pull-right"><img
-								src="<?php echo base_url()?>imagenes/karaokegalaxya/galeria/regresar_inicio.png" class="img-responsive"></div>
+					<div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
+						<div class="row">
+							<div class="col-xs-1 margen-0"></div>
+							<div class="col-xs-10 margen-0-md">
+
+							</div>
+							<div class="col-xs-1 margen-0"></div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
+						<div class="row">
+							<div class="col-xs-1 margen-0"></div>
+							<div class="col-xs-10 margen-0-md">
+								<div class="btn-home-subir-video">
+									<img src="<?php echo base_url()?>imagenes/karaokegalaxya/intrucciones/boton_subirvideo.png"
+										 class="img-responsive"/>
+								</div>
+							</div>
+							<div class="col-xs-1"></div>
+						</div>
 					</div>
 				</div>
+				<div class="col-md-1 col-sm-1 col-xs-1 margen-0">
+				</div>
+
 
 			</div>
 		</div>
