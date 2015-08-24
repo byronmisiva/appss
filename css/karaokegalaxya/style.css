@@ -1,0 +1,290 @@
+body {
+    font-family: 'Roboto-Light';
+    color: #fff;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+a, a:hover, a:visited {
+    color: #ffffff;
+}
+
+a:hover, a:visited {
+    font-weight: bold;
+}
+
+.roboto-light {
+    font-family: 'Roboto-Light';
+}
+
+.roboto-bold {
+    font-family: 'Roboto-Bold';
+}
+
+#webcam {
+    float: left;
+}
+
+.fondo-home,
+.fondo-instrucciones,
+.fondo-recorder,
+.fondo-galeria,
+.fondo-registro {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    padding-top: 5%;
+}
+
+.fondo-registro {
+    padding-top: 0;
+}
+
+.cien {
+    width: 100%;
+}
+
+.fondo-recorder {
+    padding-top: 2%;
+}
+
+.fondo-home {
+    background-image: url("../../imagenes/karaokegalaxya/home/fondo_home.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.fondo-instrucciones {
+    background-image: url("../../imagenes/karaokegalaxya/intrucciones/fondo_intrucciones.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.fondo-recorder {
+    background-image: url("../../imagenes/karaokegalaxya/web-cam/fondo_webcam.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.fondo-galeria {
+    background-image: url("../../imagenes/karaokegalaxya/galeria/fondo_galeria.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.fondo-registro {
+    background-image: url("../../imagenes/karaokegalaxya/registro/fondo_registro.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.logo-samsung-galaxya {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.logo-samsung {
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.terminos-condiciones {
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+}
+
+.btn-home-instrucciones, .btn-home-subir-video, .btn-home-galeria, .btn-home-home {
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.logo-karaoke img, .logo-karaoke-galeria img, .btn-home-instrucciones img, .btn-home-subir-video img, .btn-home-galeria img, .btn-home-home img {
+    margin: 0 auto;
+}
+
+.logo-karaoke {
+    padding-bottom: 40px;
+}
+
+.logo-karaoke-galeria {
+    padding-bottom: 0px;
+}
+
+p.texto-home {
+    font-size: 22px;
+    padding-top: 60px;
+}
+
+.titulo {
+    font-size: 24px;
+}
+
+.titulo-der {
+    font-size: 24px;
+}
+
+.titulo p {
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+}
+
+.texto20 {
+    font-size: 20px;
+
+}
+
+.conten-instrucciones {
+    margin: 30px 5%;
+    padding: 30px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.imagen-galeria {
+    margin: 0 auto 20px;
+}
+
+#galeria-imagenes {
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#webcam-container, #mediaplayer-container {
+    width: 480px;
+}
+
+#recordStartButton {
+    margin: 0 auto;
+    width: 150px;
+    display: block;
+    padding: 20px 0 6px;
+}
+
+p.texto-interno {
+    font-size: 22px;
+}
+input[type="text"], input[type="email"] {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-family: sans-serif;
+    font-size: 14px;
+    appearance: none;
+    box-shadow: none;
+    border: none;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+ul.login_wid li {list-style-type: none;}
+
+
+ul.login_wid {
+    margin: 0;
+    padding: 0;
+}
+
+input.btn-ingreso {
+    background: url("../../imagenes/karaokegalaxya/registro/boton_continuar.png") no-repeat scroll 0 0 transparent;
+    color: #000000;
+    width: 150px;
+    height: 41px;
+    border: none;
+    margin-top: 20px;
+}
+
+.margen-0 {
+    padding: 0;
+    margin: 0;
+}
+
+@media(max-width:767px){
+
+    .titulo {
+        font-size: 20px;
+    }
+    .texto20 {
+        font-size: 16px;
+    }
+    .conten-instrucciones {
+        background-color: rgba(0, 0, 0, 0.4);
+        margin: 5px 0;
+        padding: 20px;
+    }
+    .btn-home-instrucciones, .btn-home-subir-video, .btn-home-galeria, .btn-home-home {
+        margin-top: 10px;
+    }
+    .logo-samsung img, .logo-samsung-galaxya img {
+        margin: 0 auto;
+    }
+
+    .logo-samsung-galaxya , .logo-samsung {
+        margin: 50px 0 0;
+    }
+
+    .fondo-home, .fondo-instrucciones, .fondo-recorder, .fondo-galeria, .fondo-registro {
+        position: inherit;
+    }
+
+    .terminos-condiciones {
+        text-align: center;
+        position: inherit;
+        bottom: 0;
+        margin-top: 50px;
+    }
+    .logo-karaoke {
+        padding-bottom: 10px;
+        padding: 0px 20px 10px;
+    }
+    p.texto-home {
+        font-size: 18px;
+        padding-top: 30px;
+    }
+}
+@media(min-width:768px){
+    .vertical-center {
+        min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+        min-height: 100vh; /* These two lines are counted as one :-)       */
+
+        display: flex;
+        align-items: center;
+    }
+}
+@media(min-width:992px){}
+@media(min-width:1200px){}
+@media(min-width:768px) and (max-width:992px){
+    .margen-0-md {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.modal-content {
+    background-color: rgba(1, 169, 206, 0.71)
+}
+
+.close {
+    color: #fff;
+    opacity: 1;
+}
+
+.modal-header {
+    border-bottom: medium none;
+    min-height: 13.43px;
+    padding: 7px;
+}
+
+.carousel-control {
+    width: 5%;
+    opacity: .9;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    margin: 0;
+}

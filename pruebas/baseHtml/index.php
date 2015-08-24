@@ -99,7 +99,7 @@
                                                 class="img-responsive"></div>
             </div>
             <div class="col-xs-12">
-                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                <div class="roboto-light text-center terminos-condiciones "><a href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
                         condiciones</a></div>
             </div>
         </div>
@@ -193,7 +193,7 @@
                                                 class="img-responsive"></div>
             </div>
             <div class="col-xs-12">
-                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                <div class="roboto-light text-center terminos-condiciones "><a href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
                         condiciones</a></div>
             </div>
         </div>
@@ -272,27 +272,8 @@
                     <div class="text-right"><p>Buscar videos</p></div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
 
                             <div id="galeria-imagenes"></div>
-
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button"
-                           data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button"
-                           data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-
 
                 </div>
 
@@ -320,7 +301,7 @@
                                                 class="img-responsive"></div>
             </div>
             <div class="col-xs-12">
-                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                <div class="roboto-light text-center terminos-condiciones "><a href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
                         condiciones</a></div>
             </div>
         </div>
@@ -382,7 +363,7 @@
                                                 class="img-responsive"></div>
             </div>
             <div class="col-xs-12">
-                <div class="roboto-light text-center terminos-condiciones "><a href="" target="_blank">Términos y
+                <div class="roboto-light text-center terminos-condiciones "><a href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
                         condiciones</a></div>
             </div>
         </div>
@@ -402,7 +383,7 @@
                                                    class="img-responsive"></div>
     </div>
 
-    <div id="" class="roboto-light terminos-condiciones"><a href="" target="_blank">Términos y condiciones</a></div>
+    <div id="" class="roboto-light terminos-condiciones"><a href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y condiciones</a></div>
 </div>
 
 </body>
