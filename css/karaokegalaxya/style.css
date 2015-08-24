@@ -288,3 +288,28 @@ input.btn-ingreso {
 .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
     margin: 0;
 }
+
+.fondo-video{
+    background-color: #000000;
+    border-radius: 20px;
+    height: 39px;
+    line-height: 39px;
+    padding: 0 0 0 15px;
+    width: 215px;
+
+}
+
+.boton-buscar-video {
+    margin: 0 10px 0 0 ;
+    cursor: pointer;
+}
+
+.div-buscar-video input[type="text"] {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.btn_compartir, .btn_votar {
+    cursor: pointer;
+}

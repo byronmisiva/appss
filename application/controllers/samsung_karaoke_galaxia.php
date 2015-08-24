@@ -33,9 +33,18 @@ class Samsung_karaoke_galaxia extends CI_Controller{
 	}
 	//listado Videos
 	function listadojson(){
+
+		$filtro = $this->uri->segment(3);
+
 		$this->db->select('id, filename');
+		$this->db->where('aprobado', '1');
+
 		$this->db->from("karaoke_galaxia");
 		$this->db->order_by("creado", "desc");
+		//en caso que se defina filtro
+		if ($filtro != false)
+			$this->db->like('nombre',  $filtro);
+
 		$consulta = $this->db->get();
 		if ($consulta->num_rows() > 0){
 			$data['videos'] =  $consulta->result() ;
@@ -46,8 +55,55 @@ class Samsung_karaoke_galaxia extends CI_Controller{
 
 	}
 
+//samsung_karaoke_galaxia/grabavideo
+	function grabavideo (){
+		$nombrevideo = $_POST['filename'];
+
+		if (isset($nombrevideo )){
+//			$nombrevideo ="prueba";
+			$this->db->insert("karaoke_galaxia",array(
+				"filename"=>$nombrevideo,
+				"id_user"=>$_POST['filename'],
+				"fbid"=>$_POST['fbid'],
+				"nombre"=>$_POST['nombre']));
+		}
+	}
+
 	function video(){
-		$this->load->view($this->folderView.'/video' );
+		$data['video'] = $this->uri->segment(3);
+		$data['id'] = $this->uri->segment(4);
+		$this->load->view($this->folderView.'/video' , $data);
+	}
+
+	function votar(){
+		$id = $_POST['id'];
+		$fbid= $_POST['fbid'];
+		// 1 validar si el usuario ya voto
+		$this->db->select('*');
+		$this->db->where('id_video', $id);
+		$this->db->where('fbid', $fbid);
+
+		$this->db->from("karaoke_galaxia_votos");
+		$consulta = $this->db->get();
+		$resultado = $consulta->result();
+		if ($consulta->num_rows() > 0){
+			echo "Solo puede realizar un voto por video";
+		} else {
+			$this->db->where('id', $id);
+			$this->db->set('votos', 'votos+1', FALSE);
+			$this->db->update('karaoke_galaxia');
+			$test = $this->db->last_query();
+
+			//insertamos registro en votos
+
+			$data = array(
+				'fbid' => $fbid,
+				'id_video' => $id
+			);
+			$this->db->insert('karaoke_galaxia_votos', $data);
+			echo "Voto realizado con éxito";
+
+		}
 	}
 
 

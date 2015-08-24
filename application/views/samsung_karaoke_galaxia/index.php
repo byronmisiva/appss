@@ -299,12 +299,20 @@
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-6">
-					<div class="text-right"><p>Buscar videos</p></div>
+				<div class="col-md-6 col-sm-6 col-xs-6 ">
+					<div class="fondo-video pull-right">
+					<div class="col-md-10 col-sm-10 col-xs-10 margen-0 ">
+						<div class="pull-left div-buscar-video"><input class="" type="text" id="box-buscar-video" name="box-buscar-video"
+													  placeholder="Buscar video"></div>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2 margen-0">
+						<div class="pull-right boton-buscar-video"><p><img src="imagenes/karaokegalaxya/galeria/icono_buscar.png"></p></div>
+					</div>
+					</div>
 				</div>
 				<div class="col-md-12 col-sm-12 col-xs-12">
 
-					<div id="galeria-imagenes"></div>
+					<div id="galeria-imagenes" class="col-md-12 col-sm-12 col-xs-12"></div>
 
 				</div>
 

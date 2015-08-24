@@ -1,16 +1,64 @@
-<div style="max-width: 480px; width: 100%; margin: 0 auto" >
+<div style="max-width: 480px; width: 100%; margin: 0 auto">
 
     <div class="col-md-6 col-sm-6 col-xs-6 " style="margin-bottom: 15px">
-        <img src="<?php echo base_url()?>imagenes/karaokegalaxya/galeria/boton_compartir.png" class="img-responsive center-block">
+        <div class=" center-block btn_compartir" idvideo="<?php echo $id; ?>">
+            <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/galeria/boton_compartir.png"
+                 class="img-responsive">
+        </div>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6" style="margin-bottom: 15px">
-        <img src="<?php echo base_url()?>imagenes/karaokegalaxya/galeria/boton_votar.png" class="img-responsive center-block">
+        <div class=" btn_votar center-block" idvideo="<?php echo $id; ?>">
+            <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/galeria/boton_votar.png"
+                 class="img-responsive  "  >
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <p style="text-align: center">
+
+        <div class="mensajevotar"></div>
+        </p>
     </div>
 
 
     <video width="100%" controls autoplay>
-        <source src="<?php echo base_url()?>videos/1144201_demofilename.mp4" type="video/mp4">
+        <source src="<?php echo base_url() ?>videos/<?php echo $video; ?>.mp4" type="video/mp4">
         Su navegador no soporta video HTML5.
     </video>
 
 </div>
+
+<script type="text/javascript">
+    var idvideo;
+    $(".btn_compartir").click(function () {
+        idvideo = $(this).attr('idvideo')
+        $.post("samsung_karaoke_galaxia/grabavideo", {filename: filenameOriginal, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
+            .done(function (data) {
+                FB.ui({
+                    method: 'feed', /***metodo facebook compartir en el muro**/
+                    picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190X190.png", /*carga de icono*/
+                    link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
+                    caption: 'Galaxy Karaoke A',
+                    description:'Mira mi video en Samsung Karaoke Galaxi A, y dame tu voto'}, function(response){
+                    if (response != undefined){
+                        $.ajax({
+                            type: "GET",
+                            url: accion+controladorApp+"/sumarCompartida/"+idvideo, /*contador suma de compartidos*/
+                            success: function(valor) {
+                                $(".btn_compartir").hide();
+                            }
+                        });
+                    }
+                });
+
+            });
+    });
+    $(".btn_votar").click(function () {
+        idvideo = $(this).attr('idvideo')
+        $.post("samsung_karaoke_galaxia/votar", {id : idvideo, fbid: "fbid123123"})
+            .done(function (data) {
+                $(".btn_votar").hide();
+                $(".mensajevotar").html(data);
+            });
+    });
+</script>

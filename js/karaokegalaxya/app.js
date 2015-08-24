@@ -121,9 +121,32 @@ function cargarGaleria() {
 
             generaGaleria(data);
             cargarLigthbox();
+            eventoBuscarVideo ();
+            botoenesVotarCompartir ()
         });
 }
 
+
+
+function eventoBuscarVideo () {
+    $(".boton-buscar-video").click (function(){
+        filtro = $("#box-buscar-video").val();
+        console.log (filtro);
+        $.post("samsung_karaoke_galaxia/listadojson/" + filtro)
+            .done(function (data) {
+                // Cargamos la informacion de la galeria
+                // en caso que data regrese como str convertimos en objeto json
+                if ("object" != typeof data)
+                    var data = JSON.parse(data);
+
+                generaGaleria(data);
+                cargarLigthbox();
+                eventoBuscarVideo ();
+                botoenesVotarCompartir ()
+            });
+    })
+
+}
 // en base al array data generamos la galeria de imagenes
 function generaGaleria(data) {
     //todo link archivo
@@ -149,7 +172,7 @@ function generaGaleria(data) {
                 nombreimagen = data[i]["filename"];
                 idimagen = data[i]["id"];
                 imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
-                link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="samsung_karaoke_galaxia/video/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
+                link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="samsung_karaoke_galaxia/video/' + nombreimagen + '/' + idimagen +  '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
                 divimagen = divimagen + link;
             }
         }
@@ -158,15 +181,14 @@ function generaGaleria(data) {
         else
             primero = "";
         htmlGaleria = cabeceraGaleria + htmlGaleria + '<div class="item ' + primero + '">' + divimagen + '</div> ' + finGaleria;
-
-
     }
     $("#galeria-imagenes").html(htmlGaleria);
   //  $('.carousel').carousel();
 };
 
-function grabarBaseDatosVideo(filename, fileNameNoExtension) {
-    $.post("test.php", {filename: filename, fileNameNoExtension: fileNameNoExtension})
+function grabarBaseDatosVideo(filename, filenameOriginal) {
+    $.post("samsung_karaoke_galaxia/grabavideo", {filename: filenameOriginal, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
+   // $.post("samsung_karaoke_galaxia/grabavideo", {filename: filename, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
         .done(function (data) {
             console.log("Data Loaded: " + data);
         });
@@ -204,12 +226,13 @@ function pauseResumeCamera() {
 function fileReady(fileName) {
     //$('#recorder').hide();
     $('#webcam-container').hide();
+    var filenameOriginal = fileName;
     var fileName = fileName.replace("http://europe.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
     //$('#message').html('This file is now dowloadable for five minutes over <a href="'+fileName+'">here</a>.');
     $('#message').html('');
     var fileNameNoExtension = fileName.replace(".mp4", "");
     muestraJwplayer('mediaplayer', fileName, fileNameNoExtension);
-    grabarBaseDatosVideo(fileName, fileNameNoExtension);
+    grabarBaseDatosVideo(fileName, filenameOriginal);
 }
 
 function muestraJwplayer(divContent, filename, fileNameNoExtension) {
