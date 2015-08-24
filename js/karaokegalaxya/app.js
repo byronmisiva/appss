@@ -57,7 +57,7 @@ function cargarWebCam() {
         connected: showRecord,
         maximumTime: 15,
         videoRoomThumbnails: true,
-        path: 'js/karaokegalaxya/scriptcam/',
+        path: 'http://localhost/appss/js/karaokegalaxya/scriptcam/',
         showDebug: false,
         width: 480,
         height: 360
@@ -112,7 +112,7 @@ function cargarLigthbox() {
 
 
 function cargarGaleria() {
-    $.post("listado.json")
+    $.post("samsung_karaoke_galaxia/listadojson")
         .done(function (data) {
             // Cargamos la informacion de la galeria
             // en caso que data regrese como str convertimos en objeto json
@@ -147,8 +147,9 @@ function generaGaleria(data) {
         for (i = 0 + (j * 6); i < 6 + (j * 6); i++) {
             console.log(i);
             nombreimagen = data[i]["filename"];
+            idimagen = data[i]["id"];
             imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
-            link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="' + nombreimagen + '.html" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
+            link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="samsung_karaoke_galaxia/video/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
             divimagen = divimagen + link;
         }
         // pegamos item

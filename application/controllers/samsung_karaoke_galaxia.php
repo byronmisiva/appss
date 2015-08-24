@@ -31,8 +31,19 @@ class Samsung_karaoke_galaxia extends CI_Controller{
 			$this->load->view($this->folderView.'/index', array( 'data' =>$this->data) );			
 		}
 	}
-	
-    function cargaCrop($nombre){
+	//listado Videos
+	function listadojson(){
+
+		$this->load->view($this->folderView.'/listadojson' );
+	}
+
+	function video(){
+		$this->load->view($this->folderView.'/video' );
+	}
+
+
+
+	function cargaCrop($nombre){
 		$data['imagen']=$nombre;
 		$this->load->view($this->folderView.'/view-crop', $data );
 	}
