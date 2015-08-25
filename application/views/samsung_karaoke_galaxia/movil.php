@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Escuela :: Samsung</title>
+	<title>Karaoke Galaxy A :: Samsung</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	 <meta http-equiv="X-UA-Compatible" content="IE=edge">    
     <meta name="viewport" content="width=device-width, user-scalable=no"/>    		
 	<title>Escuela :: Samsung</title>
 	<link href="<?php echo base_url()?>css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo base_url()?>css/escuela_samsung/app.css?frefresh=<?php echo rand(0,1000)?>" type="text/css" rel="stylesheet">
-	<link href="<?php echo base_url()?>fonts/samsung_regular_if/stylesheet.css" type="text/css" rel="stylesheet">
-	<link href="<?php echo base_url()?>fonts/samsung_bold_if/stylesheet.css" type="text/css" rel="stylesheet">			    
-	<script src="<?php echo base_url()?>js/escuela_samsung/app.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" charset="utf-8"></script>
-  	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-  	<script src="<?php echo base_url()?>js/escuela_samsung/jquery_path.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" charset="utf-8"></script>
+  	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>  	
 	<script type="text/javascript">
 	var usuarioFB;
 	var idParticipante=0;
@@ -31,8 +26,7 @@
 						idParticipante="1005762036104636";						
 			    	}else{
 			    		idParticipante=respuesta.id;
-			    		$(".login-caja").hide();
-			    		$(".btn-entrar").show();
+			    		$(".login-caja").hide();			    		
 			    		}		    			
 		    				    	
 			    });
@@ -45,27 +39,11 @@
 							
 <div class="row view-inicio">
 		<div class="col-lg-12 " >
-		<div class="fondo-seccion">
-			<div class="franja-amarilla">
-				<div class="logo-escuela"></div>
-				<div class="logo-samsung"></div>
-			</div>
-			<div class="pizarra"></div>
-			<div class="franja-celeste">
-				<div class="contenedor-texto espacio-texto">
-				Se cierran las inscripciones. Gracias a todos los que participaron en el examen de ingreso de la #EscuelaSamsung <br> 
-				¡Nuestro alumno estrella será anunciado pronto!'
-				<!-- Pasa las pruebas para ingresar a la <span class="acento">Escuela Samsung</span> <br>y 
-				¡gana kits escolares! Así, estarás listo para este regreso a clases. -->							
-				</div>					
-				
-			</div>
+			
 				<div class="login-caja">
 					<fb:login-button scope="email" onlogin="checkLoginState();"></fb:login-button>																
 				</div>
-				<!-- <div class="btn-fondo btn-entrar" style="display:none;"> INGRESAR</div> -->
-				
-			<div class="franja-amarilla-inferior2"></div>	
+					
 			
 		</div>
 			
@@ -197,7 +175,6 @@ function statusChangeCallback(response) {
     	onLogin();
     }else{
     	$(".login-caja").show();
-		$(".btn-entrar").hide();
     } 
   };
   
@@ -242,8 +219,7 @@ window.fbAsyncInit = function() {
 				   { name: 'apellido', display: 'apellido', rules: 'required'},
 	               { name: 'ciudad', display: 'ciudad', rules: 'required'},
 	               { name: 'cedula', display: 'cedula', rules: 'required|numeric||max_length[10]'},
-	               { name: 'telefono', display: 'telefono', rules: 'required|numeric|max_length[10]'},
-	               { name: 'edad', display: 'Edad', rules: 'required|numeric|max_length[2]'},	               
+	               { name: 'telefono', display: 'telefono', rules: 'required|numeric|max_length[10]'},	               	               
 	               { name: 'mail', display: 'mail', rules: 'required|valid_email'}	               	               
 	            ];    
 	
@@ -263,8 +239,7 @@ window.fbAsyncInit = function() {
 		});	  
 
 	var dis ="<?php  echo $data['dispositivo'];?>";		
-	</script>  
-<script src="<?php echo base_url()?>js/escuela_samsung/complemento.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" ></script>
+	</script> 
 
 </body>
 </html>

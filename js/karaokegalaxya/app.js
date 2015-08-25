@@ -57,7 +57,7 @@ function cargarWebCam() {
         connected: showRecord,
         maximumTime: 15,
         videoRoomThumbnails: true,
-        path: 'js/karaokegalaxya/scriptcam/',
+        path: 'http://localhost/appss/js/karaokegalaxya/scriptcam/',
         showDebug: false,
         width: 480,
         height: 360
@@ -122,7 +122,7 @@ function cargarGaleria() {
             generaGaleria(data);
             cargarLigthbox();
             eventoBuscarVideo ();
-            botoenesVotarCompartir ()
+            //botoenesVotarCompartir ()
         });
 }
 
@@ -142,7 +142,7 @@ function eventoBuscarVideo () {
                 generaGaleria(data);
                 cargarLigthbox();
                 eventoBuscarVideo ();
-                botoenesVotarCompartir ()
+                //botoenesVotarCompartir ()
             });
     })
 

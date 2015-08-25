@@ -14,7 +14,7 @@
 
 	<script type="text/javascript" src="<?php echo base_url()?>js/karaokegalaxya/jwplayer/jwplayer.js"></script>
 	<script language="JavaScript" src="<?php echo base_url()?>js/karaokegalaxya/scriptcam/scriptcam.js"></script>
-	<script type="text/javascript" src="<?php echo base_url('js/general/validate.js')?>"></script>
+
 	<script src="<?php echo base_url()?>js/karaokegalaxya/bootstrap.min.js"></script>
 	<script src="<?php echo base_url()?>js/karaokegalaxya/ligthbox/ekko-lightbox.min.js"></script>
 
@@ -27,25 +27,25 @@
 	<link href="<?php echo base_url()?>css/karaokegalaxya/style.css" rel="stylesheet" type="text/css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 	<script type="text/javascript">
-		var usuarioFB;
-		var idParticipante=0;
-		var modoDev=false;
-		if (modoDev == true)
-			idParticipante="1069749513039221";
+	var usuarioFB;
+	var idParticipante=0;
+	var modoDev=false;
+	if (modoDev == true)
+		idParticipante="1069749513039221";
 
-		var accion="<?php echo base_url()?>";
-		var controladorApp="<?php echo $data['controlador'];?>";
-		function onLogin(response) {
-			FB.api('/me', function(respuesta) {
-				usuarioFB = respuesta;
-				if (modoDev == true){
-					idParticipante ="1069749513039221";
-				}else{
-					idParticipante=respuesta.id;
-					usuarioFB=respuesta;
-				}
-			});
-		};
+	var accion="<?php echo base_url()?>";
+	var controladorApp="<?php echo $data['controlador'];?>";
+	function onLogin(response) {
+			    FB.api('/me', function(respuesta) {
+			    	usuarioFB = respuesta;
+			    	if (modoDev == true){
+						idParticipante ="1069749513039221";
+			    	}else{
+			    		idParticipante=respuesta.id;
+			    		usuarioFB=respuesta; 
+			    		}
+			    });
+			};
 
 	</script>
 </head>
@@ -107,7 +107,12 @@
 					tu video, compártelo con tus
 					amigos y revive los 90s como un verdadero A de corazón.
 				</p>
-
+			</div>
+			<!-- opciones comparit -->
+			<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="btn-compartir"></div>
+					<div class="btn-mensaje"></div>
+				</p>
 			</div>
 
 		</div>
@@ -321,20 +326,12 @@
 				<div class="col-md-6 col-sm-6 col-xs-6">
 					<div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-6 ">
-					<div class="fondo-video pull-right">
-					<div class="col-md-10 col-sm-10 col-xs-10 margen-0 ">
-						<div class="pull-left div-buscar-video"><input class="" type="text" id="box-buscar-video" name="box-buscar-video"
-													  placeholder="Buscar video"></div>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2 margen-0">
-						<div class="pull-right boton-buscar-video"><p><img src="imagenes/karaokegalaxya/galeria/icono_buscar.png"></p></div>
-					</div>
-					</div>
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					<div class="text-right"><p>Buscar videos</p></div>
 				</div>
 				<div class="col-md-12 col-sm-12 col-xs-12">
 
-					<div id="galeria-imagenes" class="col-md-12 col-sm-12 col-xs-12"></div>
+					<div id="galeria-imagenes"></div>
 
 				</div>
 
@@ -477,59 +474,61 @@
 
 	<div id="" class="roboto-light terminos-condiciones"><a href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y condiciones</a></div>
 </div>
+
 <script type="text/javascript" charset="utf-8">
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId      : <?php echo $data['idApp'] ?>,
-			xfbml      : true,
-			version    : 'v2.2'
-		});
+	 window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : <?php echo $data['idApp'] ?>,
+	      xfbml      : true,
+	      version    : 'v2.2'
+	    });
 
-		FB.getLoginStatus(function(response) {
-			if (response.status == 'connected') {
-				onLogin(response);
-			} else {
-				FB.login(function(response) {
-					onLogin(response);
-				}, {scope: 'email'});
-			}
-		});
-	};
+	    FB.getLoginStatus(function(response) {
+			  if (response.status == 'connected') {
+			    onLogin(response);
+			  } else {
+			    FB.login(function(response) {
+			      onLogin(response);
+			    }, {scope: 'email'});
+			  }
+			});
+	  };
 
-	(function(d, s, id){
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) {return;}
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/es_LA/sdk.js";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/es_LA/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
 
-	var rules = [
-		{ name: 'nombre', display: 'nombre', rules: 'required'},
-		{ name: 'apellido', display: 'apellido', rules: 'required'},
-		{ name: 'ciudad', display: 'ciudad', rules: 'required'},
-		{ name: 'cedula', display: 'cedula', rules: 'required|numeric||max_length[10]'},
-		{ name: 'telefono', display: 'telefono', rules: 'required|numeric|max_length[10]'},
-		{ name: 'mail', display: 'mail', rules: 'required|valid_email'}
-	];
+		var rules = [
+					   { name: 'nombre', display: 'nombre', rules: 'required'},
+					   { name: 'apellido', display: 'apellido', rules: 'required'},
+		               { name: 'ciudad', display: 'ciudad', rules: 'required'},
+		               { name: 'cedula', display: 'cedula', rules: 'required|numeric||max_length[10]'},
+		               { name: 'telefono', display: 'telefono', rules: 'required|numeric|max_length[10]'},
+		               { name: 'mail', display: 'mail', rules: 'required|valid_email'}
+		            ];
 
-	var validator = new FormValidator('register',rules, function(errors, event) {
-		if (errors.length > 0) {
-			var errorString = '';
-			for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
-				$('#'+errors[i].id).val("");
-				$('#'+errors[i].id).css({"color":"#42332a"});
-				errorString+=errors[i].id+"<br>";
-			};
-			alert("REGISTROS NO COMPLETADOS");
-		}else{
-			$(".btn-continuar-registro").hide();
-			$("#submit").hide();
-			enviarForma('register');
-		}
-	});
+		var validator = new FormValidator('register',rules, function(errors, event) {
+			 if (errors.length > 0) {
+			        var errorString = '';
+			        for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
+			        	$('#'+errors[i].id).val("");
+				        $('#'+errors[i].id).css({"color":"#42332a"});
+				        errorString+=errors[i].id+"<br>";
+			        };
+			        alert("REGISTROS NO COMPLETADOS");
+			    }else{
+			    	$(".btn-continuar-registro").hide();
+				    $("#submit").hide();
+			    	enviarForma('register');
+				    }
+			});
 
-	//var dis ="<?php  echo $data['dispositivo'];?>";
-</script>
+		//var dis ="<?php  echo $data['dispositivo'];?>";
+	</script>
+
 </body>
 </html>

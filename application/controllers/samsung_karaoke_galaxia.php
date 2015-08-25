@@ -16,8 +16,10 @@ class Samsung_karaoke_galaxia extends CI_Controller{
 		$this->load->helper('form');
 		$this->folderView="samsung_karaoke_galaxia";
 		$this->data['controlador']="samsung_karaoke_galaxia";
-		$this->data['idApp']="1435753433388451";
-		$this->data['secretApp']="93e182c582deafb8818fd2ade519ec15";		
+//		$this->data['idApp']="1435753433388451";
+//		$this->data['secretApp']="93e182c582deafb8818fd2ade519ec15";
+		$this->data['idApp']="1028780807152819";
+		$this->data['secretApp']="c6c9e1eadedcedad6a4e8bca4827253a";
 		$this->data['condiciones'] = "<a href='".base_url()."archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf' target='_blank' >T�rminos y condiciones</a>";
 	}
 	

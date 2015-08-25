@@ -32,26 +32,22 @@
     var idvideo;
     $(".btn_compartir").click(function () {
         idvideo = $(this).attr('idvideo')
-        $.post("samsung_karaoke_galaxia/grabavideo", {filename: filenameOriginal, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
-            .done(function (data) {
-                FB.ui({
-                    method: 'feed', /***metodo facebook compartir en el muro**/
-                    picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190X190.png", /*carga de icono*/
-                    link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
-                    caption: 'Galaxy Karaoke A',
-                    description:'Mira mi video en Samsung Karaoke Galaxi A, y dame tu voto'}, function(response){
-                    if (response != undefined){
-                        $.ajax({
-                            type: "GET",
-                            url: accion+controladorApp+"/sumarCompartida/"+idvideo, /*contador suma de compartidos*/
-                            success: function(valor) {
-                                $(".btn_compartir").hide();
-                            }
-                        });
+        FB.ui({
+            method: 'feed', /***metodo facebook compartir en el muro**/
+            picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190X190.png", /*carga de icono*/
+            link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
+            caption: 'Galaxy Karaoke A',
+            description:'Mira mi video en Samsung Karaoke Galaxi A, y dame tu voto'}, function(response){
+            if (response != undefined){
+                $.ajax({
+                    type: "GET",
+                    url: accion+controladorApp+"/sumarCompartida/"+idvideo, /*contador suma de compartidos*/
+                    success: function(valor) {
+                        $(".btn_compartir").hide();
                     }
                 });
-
-            });
+            }
+        });
     });
     $(".btn_votar").click(function () {
         idvideo = $(this).attr('idvideo')
