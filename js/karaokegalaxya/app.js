@@ -57,7 +57,7 @@ function cargarWebCam() {
         connected: showRecord,
         maximumTime: 15,
         videoRoomThumbnails: true,
-        path: 'http://localhost/appss/js/karaokegalaxya/scriptcam/',
+        path: 'js/karaokegalaxya/scriptcam/',
         showDebug: false,
         width: 480,
         height: 360
