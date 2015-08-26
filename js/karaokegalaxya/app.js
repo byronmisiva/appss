@@ -22,17 +22,30 @@ function crearBotonesInterface() {
         $("#instrucciones").removeClass("hidden").show();
     })
     $('.btn-home-subir-video').click(function () {
-        ocultarTodosSeccion();
-        $("#recorder").removeClass("hidden").show();
+        if (idParticipante != 0 ) {
+            $.post(accion + 'index.php/' +   controladorApp + "/verificarParticipante", { idParticipante: idParticipante})
+                .done(function (data) {
+                    if (data != 'F'){
+                        ocultarTodosSeccion();
+                        $("#recorder").removeClass("hidden").show();
 
-        $('#mediaplayer').hide();
-        $('#volverGrabar').hide();
-        $('#btnContinuarGraba').hide();
-        $('#recordStartButton').removeClass("hidden").show();
-        $('#recordPauseResumeButton').hide();
-        $('#subirVideo').removeClass("hidden").show();
+                        $('#mediaplayer').hide();
+                        $('#volverGrabar').hide();
+                        $('#btnContinuarGraba').hide();
+                        $('#recordStartButton').removeClass("hidden").show();
+                        $('#recordPauseResumeButton').hide();
+                        $('#subirVideo').removeClass("hidden").show();
 
-        cargarWebCam();
+                        cargarWebCam();
+                    } else {
+                        // no esta registrado
+                        ocultarTodosSeccion();
+                        $("#registro").removeClass("hidden").show();
+                    }
+                });
+
+
+        }
 
     })
     $('.btn-home-galeria').click(function () {
@@ -41,6 +54,7 @@ function crearBotonesInterface() {
         cargarGaleria();
     })
     $('.btn-home-registro').click(function () {
+
         ocultarTodosSeccion();
         $("#registro").removeClass("hidden").show();
     })
@@ -67,6 +81,20 @@ function crearBotonesInterface() {
 
         grabarBaseDatosVideo(fileNameSolo);
         cargarGaleria();
+
+    })
+    $('#btnContinuarSubir').click(function () {
+        $('#webcam-container').removeClass("hidden").show();
+        $('#mediaplayer-container').hide();
+        $('#volverGrabar').hide();
+        $('#btnContinuarGraba').hide();
+        $('#btnContinuarSubir').hide();
+        $('#recordStartButton').removeClass("hidden").show();
+        $('#recordPauseResumeButton').hide();
+        $('#subirVideo').removeClass("hidden").show();
+        $('#recorder').hide();
+        $('#galeria').removeClass("hidden").show();
+        grabarImagen ();
 
     })
 }
@@ -132,7 +160,7 @@ function cargarWebCam() {
     });
 
     $("#formuploadvideo").submit(function (event) {
-        var url = accion + controladorApp + "/uploadvideo";
+        var url = accion +   controladorApp + "/uploadvideo";
 
         $.ajax({
             url: url,
@@ -150,7 +178,7 @@ function cargarWebCam() {
                     '</video>';
                 $('.videoSubido').html(nuevovideo);
                 setTimeout(callbackFunction, 3000);
-                setTimeout(grabarImagen, 5000);
+              //  setTimeout(grabarImagen, 5000);
             }
         });
 
@@ -164,20 +192,20 @@ function cargarWebCam() {
 function callbackFunction() {
     var canvas = document.getElementById('canvas');
     var video = document.getElementById('videoSubido');
-    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+  //  canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+    canvas.getContext('2d').drawImage(video, 0, 0, 300,200);
 }
-
 function grabarImagen () {
     // Generate the image data
     var Pic = document.getElementById("canvas").toDataURL("image/png");
     Pic = Pic.replace(/^data:image\/(png|jpg);base64,/, "")
 
-    $.post(accion + controladorApp + "/uploadimagen", {imageData :  Pic, nombreArchivoSubido: nombreArchivoSubido})
+    $.post(accion +   controladorApp + "/uploadimagen", {imageData :  Pic, nombreArchivoSubido: nombreArchivoSubido})
         .done(function (data) {
-            console.log ("Imagen subida .");
+            archivoSubidoSolo = data;
+            grabarBaseDatosVideo(archivoSubidoSolo);
+            cargarGaleria();
         });
-
-
 }
 
 var nombreArchivoSubido = "";
@@ -224,7 +252,7 @@ function cargarGaleria() {
 function eventoBuscarVideo() {
     $(".boton-buscar-video").click(function () {
         filtro = $("#box-buscar-video").val();
-        console.log(filtro);
+
         $.post(accion + controladorApp + "/listadojson/" + filtro)
             .done(function (data) {
                 // Cargamos la informacion de la galeria
@@ -288,7 +316,7 @@ function grabarBaseDatosVideo(filenameOriginal) {
     })
         // $.post("samsung_karaoke_galaxia/grabavideo", {filename: filename, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
         .done(function (data) {
-            console.log("Data Loaded: " + data);
+           // console.log("Data Loaded: " + data);
         });
 }
 

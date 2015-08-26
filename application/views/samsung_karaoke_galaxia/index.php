@@ -30,7 +30,7 @@
         var usuarioFB;
         var idParticipante = 0;
         var nombreParticipante = "";
-        var modoDev = false;
+        var modoDev = true;
         if (modoDev == true) {
             idParticipante = "1069749513039221";
             nombreParticipante = "Usuario prueba";
@@ -48,9 +48,6 @@
                     idParticipante = respuesta.id;
                     nombreParticipante = respuesta.name;
                     usuarioFB = respuesta;
-                    console.log (idParticipante);
-                    console.log (respuesta);
-
                 }
             });
         }
@@ -271,27 +268,23 @@
                     </div>
                     <div id="uploadFileContainer" class="center-block ">
                         <div id="uploadFile" class="center-block hidden">
-
                             <form id="formuploadvideo" action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo" method="post" enctype="multipart/form-data">
                                 Seleccione el archivo a subir:
                                 <input type="file" name="fileToUpload" id="fileToUpload" accept=".mp4, .mov, .mpg">
                                 <input type="submit" value="Subir video" name="submit">
                             </form>
                             <div class="videoSubido">
-
                             </div>
-
                             <br/>
-                            <canvas id="canvas" class="hidden"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-
                     <div class="portabotones center-block">
                         <class id="recordStartButton" class="botontexto">Grabar</class>
                         <class id="recordPauseResumeButton" class="botontexto hidden" >Pausar</class>
                         <class id="subirVideo" class="botontexto">Subir archivo</class>
+						<class id="btnContinuarSubir" class="botontexto ">Continuar archivo</class>
                         <class id="volverGrabar" class="botontexto hidden">Volver a grabar</class>
                         <class id="btnContinuarGraba" class="botontexto hidden">Continuar</class>
                     </div>
@@ -307,8 +300,8 @@
                             class="roboto-light">Activa tu web-cam y grábate cantando en el </span><span
                             class="roboto-bold">#KaraokeGalaxyA.</span>
                     </p></div>
-            </div>
-
+				<canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
+			</div>
 
             <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
             </div>

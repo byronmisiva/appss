@@ -130,9 +130,13 @@ class Samsung_karaoke_galaxia extends CI_Controller
     {
         if (array_key_exists('imageData',$_POST)) {
             $imgData = base64_decode($_REQUEST['imageData']);
+			$nombreArchivoSubido = $_REQUEST['nombreArchivoSubido'];
+
+			$nombreArchivoSubido = str_replace(".mp4",".png",$nombreArchivoSubido);
+
 
             // Path where the image is going to be saved
-            $filePath =  $_SERVER['DOCUMENT_ROOT'] . '/appss/videos/myImage.png';
+            $filePath =  $_SERVER['DOCUMENT_ROOT'] . '/appss/videos/' . $nombreArchivoSubido;
 
             // Delete previously uploaded image
             if (file_exists($filePath)) { unlink($filePath); }
@@ -141,7 +145,8 @@ class Samsung_karaoke_galaxia extends CI_Controller
             $file = fopen($filePath, 'w');
             fwrite($file, $imgData);
             fclose($file);
-        }
+			echo str_replace(".png","",$nombreArchivoSubido);
+		}
 
         /*
 
@@ -337,8 +342,9 @@ class Samsung_karaoke_galaxia extends CI_Controller
         echo $this->db->count_all_results();
     }
 
-    function verificarParticipante($id)
+    function verificarParticipante()
     {
+		$id = $_POST["idParticipante"];
         $participante = $this->usuario_samsung->getUserFbid($id);
         if ($participante == "0") {
             echo "F";

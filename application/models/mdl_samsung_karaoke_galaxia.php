@@ -7,9 +7,9 @@ class Mdl_samsung_karaoke_galaxia extends CI_Model{
 
     function __construct(){
         parent::__construct();
-        $this->registro = 'escuela_registro';
+        $this->registro = 'galeria_galaxy';
         $this->galeria = 'galeria_galaxy';
-        $this->baul = 'baul_galaxy';
+        $this->baul = 'galeria_galaxy';
         $this->usuarios = 'usuarios';
         $this->load->database('samsung');
     }
