@@ -24,6 +24,14 @@ function crearBotonesInterface() {
     $('.btn-home-subir-video').click(function () {
         ocultarTodosSeccion();
         $("#recorder").removeClass("hidden").show();
+
+        $('#mediaplayer').hide();
+        $('#volverGrabar').hide();
+        $('#btnContinuarGraba').hide();
+        $('#recordStartButton').removeClass("hidden").show();
+        $('#recordPauseResumeButton').hide();
+        $('#subirVideo').removeClass("hidden").show();
+
         cargarWebCam();
 
     })
@@ -35,6 +43,31 @@ function crearBotonesInterface() {
     $('.btn-home-registro').click(function () {
         ocultarTodosSeccion();
         $("#registro").removeClass("hidden").show();
+    })
+
+    $('#volverGrabar').click(function () {
+        $('#webcam-container').removeClass("hidden").show();
+        $('#mediaplayer-container').hide();
+        $('#volverGrabar').hide();
+        $('#btnContinuarGraba').hide();
+        $('#recordStartButton').removeClass("hidden").show();
+        $('#recordPauseResumeButton').hide();
+        $('#subirVideo').removeClass("hidden").show();
+    })
+    $('#btnContinuarGraba').click(function () {
+        $('#webcam-container').removeClass("hidden").show();
+        $('#mediaplayer-container').hide();
+        $('#volverGrabar').hide();
+        $('#btnContinuarGraba').hide();
+        $('#recordStartButton').removeClass("hidden").show();
+        $('#recordPauseResumeButton').hide();
+        $('#subirVideo').removeClass("hidden").show();
+        $('#recorder').hide();
+        $('#galeria').removeClass("hidden").show();
+
+        grabarBaseDatosVideo(fileNameSolo);
+        cargarGaleria();
+
     })
 }
 
@@ -57,14 +90,25 @@ function cargarWebCam() {
         connected: showRecord,
         maximumTime: 15,
         videoRoomThumbnails: true,
-        path: 'js/karaokegalaxya/scriptcam/',
+        path: accion + 'js/karaokegalaxya/scriptcam/',
         showDebug: false,
         width: 480,
         height: 360
     });
 
     $('#recordStartButton').click(function () {
+        $('#subirVideo').hide();
+        $('#recordPauseResumeButton').removeClass("hidden").show();
         startRecording()
+    })
+    $('#subirVideo').click(function () {
+        $('#recordStartButton').hide();
+        $('#recordPauseResumeButton').hide();
+        $('#webcam-container').hide();
+        $('#uploadFile').removeClass("hidden").show();
+
+        // $('#recordPauseResumeButton').removeClass("hidden").show();
+        //$('#recordPauseResumeButton').removeClass("hidden").show();
     })
 
     $('#recordPauseResumeButton').click(function () {
@@ -87,8 +131,56 @@ function cargarWebCam() {
         $('#recordStopButton').click()
     });
 
+    $("#formuploadvideo").submit(function (event) {
+        var url = accion + controladorApp + "/uploadvideo";
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success: function(data)
+            {
+                nombreArchivoSubido = data;
+                var nuevovideo = '<video id="videoSubido" width="100%" controls="" autoplay="">' +
+                    '<source src="'+accion +'videos/' + nombreArchivoSubido + '" type="video/mp4">' +
+                    'Su navegador no soporta video HTML5.' +
+                    '</video>';
+                $('.videoSubido').html(nuevovideo);
+                setTimeout(callbackFunction, 3000);
+                setTimeout(grabarImagen, 5000);
+            }
+        });
+
+
+        event.preventDefault();
+    });
 
 }
+
+
+function callbackFunction() {
+    var canvas = document.getElementById('canvas');
+    var video = document.getElementById('videoSubido');
+    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+}
+
+function grabarImagen () {
+    // Generate the image data
+    var Pic = document.getElementById("canvas").toDataURL("image/png");
+    Pic = Pic.replace(/^data:image\/(png|jpg);base64,/, "")
+
+    $.post(accion + controladorApp + "/uploadimagen", {imageData :  Pic, nombreArchivoSubido: nombreArchivoSubido})
+        .done(function (data) {
+            console.log ("Imagen subida .");
+        });
+
+
+}
+
+var nombreArchivoSubido = "";
 
 function cargarLigthbox() {
 
@@ -112,7 +204,9 @@ function cargarLigthbox() {
 
 
 function cargarGaleria() {
-    $.post("samsung_karaoke_galaxia/listadojson")
+
+
+    $.post(accion + controladorApp + "/listadojson")
         .done(function (data) {
             // Cargamos la informacion de la galeria
             // en caso que data regrese como str convertimos en objeto json
@@ -121,18 +215,17 @@ function cargarGaleria() {
 
             generaGaleria(data);
             cargarLigthbox();
-            eventoBuscarVideo ();
+            eventoBuscarVideo();
             //botoenesVotarCompartir ()
         });
 }
 
 
-
-function eventoBuscarVideo () {
-    $(".boton-buscar-video").click (function(){
+function eventoBuscarVideo() {
+    $(".boton-buscar-video").click(function () {
         filtro = $("#box-buscar-video").val();
-        console.log (filtro);
-        $.post("samsung_karaoke_galaxia/listadojson/" + filtro)
+        console.log(filtro);
+        $.post(accion + controladorApp + "/listadojson/" + filtro)
             .done(function (data) {
                 // Cargamos la informacion de la galeria
                 // en caso que data regrese como str convertimos en objeto json
@@ -141,7 +234,7 @@ function eventoBuscarVideo () {
 
                 generaGaleria(data);
                 cargarLigthbox();
-                eventoBuscarVideo ();
+                eventoBuscarVideo();
                 //botoenesVotarCompartir ()
             });
     })
@@ -164,15 +257,15 @@ function generaGaleria(data) {
 
     var htmlGaleria = "";
     var iteraciones = Math.ceil(data.length / 6);
-    console.log(data);
+
     for (j = 0; j < iteraciones; j++) {
         var divimagen = "";
         for (i = 0 + (j * 6); i < 6 + (j * 6); i++) {
-            if (typeof data[i] != 'undefined'   ) {
+            if (typeof data[i] != 'undefined') {
                 nombreimagen = data[i]["filename"];
                 idimagen = data[i]["id"];
                 imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
-                link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="samsung_karaoke_galaxia/video/' + nombreimagen + '/' + idimagen +  '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
+                link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="' + accion + controladorApp + '/video/' + nombreimagen + '/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
                 divimagen = divimagen + link;
             }
         }
@@ -183,12 +276,17 @@ function generaGaleria(data) {
         htmlGaleria = cabeceraGaleria + htmlGaleria + '<div class="item ' + primero + '">' + divimagen + '</div> ' + finGaleria;
     }
     $("#galeria-imagenes").html(htmlGaleria);
-  //  $('.carousel').carousel();
+    //  $('.carousel').carousel();
 };
 
-function grabarBaseDatosVideo(filename, filenameOriginal) {
-    $.post("samsung_karaoke_galaxia/grabavideo", {filename: filenameOriginal, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
-   // $.post("samsung_karaoke_galaxia/grabavideo", {filename: filename, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
+function grabarBaseDatosVideo(filenameOriginal) {
+    $.post(accion + controladorApp + "/grabavideo", {
+        filename: filenameOriginal,
+        id_user: 2000,
+        fbid: idParticipante,
+        nombre: nombreParticipante
+    })
+        // $.post("samsung_karaoke_galaxia/grabavideo", {filename: filename, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
         .done(function (data) {
             console.log("Data Loaded: " + data);
         });
@@ -222,17 +320,32 @@ function pauseResumeCamera() {
     }
 }
 // cuando termina de convertir el archivo
-
+var fileNameSolo = "";
+var fileName = "";
 function fileReady(fileName) {
     //$('#recorder').hide();
     $('#webcam-container').hide();
     var filenameOriginal = fileName;
-    var fileName = fileName.replace("http://europe.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
+    fileName = fileName.replace("http://europe.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
+    fileName = fileName.replace("http://usa.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
     //$('#message').html('This file is now dowloadable for five minutes over <a href="'+fileName+'">here</a>.');
     $('#message').html('');
     var fileNameNoExtension = fileName.replace(".mp4", "");
+
+    fileNameSolo = fileNameNoExtension.replace("http://appss.misiva.com.ec/videos/", "");
+
     muestraJwplayer('mediaplayer', fileName, fileNameNoExtension);
-    grabarBaseDatosVideo(fileName, filenameOriginal);
+
+    //luego que se sube el video mostramos
+    //$('#webcam-container').hide();
+    //$('#mediaplayer').removeClass("hidden").show()
+    $('#volverGrabar').removeClass("hidden").show();
+    $('#btnContinuarGraba').removeClass("hidden").show();
+    $('#recordStartButton').hide();
+    $('#recordPauseResumeButton').hide();
+    $('#subirVideo').hide();
+
+//    grabarBaseDatosVideo(fileNameSolo);
 }
 
 function muestraJwplayer(divContent, filename, fileNameNoExtension) {

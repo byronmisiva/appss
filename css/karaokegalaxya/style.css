@@ -157,10 +157,7 @@ p.texto-home {
 }
 
 #recordStartButton {
-    margin: 0 auto;
-    width: 150px;
-    display: block;
-    padding: 20px 0 6px;
+
 }
 
 p.texto-interno {
@@ -312,4 +309,39 @@ input.btn-ingreso {
 
 .btn_compartir, .btn_votar {
     cursor: pointer;
+}
+
+.botontexto, .botontextoazul {
+    background-color: #d9388a;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family: 'Roboto-Bold';
+    font-size: 16px;
+    height: 41px;
+    line-height: 41px;
+    margin: 5px 5px;
+    width: 150px;
+    text-align: center;
+    border-radius: 4px;
+
+}
+
+.botontextoazul {
+    background-color: #01a9ce ;
+}
+
+.botontexto:hover, .botontextoazul:hover {
+    color: #ffff00;
+}
+
+.portabotones {
+    width: 330px;
+    display: block;
+}
+
+#uploadFile {
+    width: 300px;
+    height: 360px
 }

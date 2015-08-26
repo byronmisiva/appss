@@ -1,15 +1,13 @@
 <div style="max-width: 480px; width: 100%; margin: 0 auto">
 
     <div class="col-md-6 col-sm-6 col-xs-6 " style="margin-bottom: 15px">
-        <div class=" center-block btn_compartir" idvideo="<?php echo $id; ?>">
-            <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/galeria/boton_compartir.png"
-                 class="img-responsive">
+        <div class=" center-block btn_compartir botontexto" idvideo="<?php echo $id; ?>">
+            Compartir
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6" style="margin-bottom: 15px">
-        <div class=" btn_votar center-block" idvideo="<?php echo $id; ?>">
-            <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/galeria/boton_votar.png"
-                 class="img-responsive  "  >
+        <div class=" btn_votar center-block botontexto" idvideo="<?php echo $id; ?>">
+            Votar
         </div>
     </div>
 
@@ -34,8 +32,9 @@
         idvideo = $(this).attr('idvideo')
         FB.ui({
             method: 'feed', /***metodo facebook compartir en el muro**/
-            picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190X190.png", /*carga de icono*/
-            link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
+            picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190x190.png", /*carga de icono*/
+           // link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
+            link: 'https://appss.misiva.com.ec/samsung_karaoke_galaxia/vervideo/' +  idvideo , /******link que se comparte*******/
             caption: 'Galaxy Karaoke A',
             description:'Mira mi video en Samsung Karaoke Galaxi A, y dame tu voto'}, function(response){
             if (response != undefined){
