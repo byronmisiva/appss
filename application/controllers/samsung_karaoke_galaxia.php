@@ -40,7 +40,18 @@ class Samsung_karaoke_galaxia extends CI_Controller
 
     function vervideo()
     {
-        $data['vervideo'] = $this->uri->segment(3);
+        $this->data['vervideo'] = $this->uri->segment(3);
+
+        // recuepramos el nombre del usuario
+        $this->db->select('nombre');
+        $this->db->where('id', $this->data['vervideo']);
+        $this->db->from("karaoke_galaxia");
+        $consulta = $this->db->get();
+        if ($consulta->num_rows() > 0) {
+            $nombrelistado = $consulta->result();
+            $this->data['nombrevideo'] = $nombrelistado[0]->nombre;
+        }
+
         $this->load->library('user_agent');
         $mobiles = array('Apple iPhone', 'Apple iPod Touch', 'Android', 'Apple iPad');
         if ($this->agent->is_mobile())
@@ -55,7 +66,6 @@ class Samsung_karaoke_galaxia extends CI_Controller
     function listadojson()
     {
 
-        $filtro = $this->uri->segment(3);
 
         $this->db->select('id, filename');
         $this->db->where('aprobado', '1');
@@ -63,13 +73,12 @@ class Samsung_karaoke_galaxia extends CI_Controller
         $this->db->from("karaoke_galaxia");
         $this->db->order_by("creado", "desc");
         //en caso que se defina filtro
-        if ($filtro != false)
-            $this->db->like('nombre', $filtro);
+        if (isset($_POST['filtro']))
+            $this->db->like('nombre', $_POST['filtro']);
 
         $consulta = $this->db->get();
         if ($consulta->num_rows() > 0) {
             $data['videos'] = $consulta->result();
-            //$this->load->view($this->folderView.'/listadojson', $data );
             echo json_encode($data['videos']);
         } else
             return FALSE;
@@ -81,7 +90,8 @@ class Samsung_karaoke_galaxia extends CI_Controller
         $fechaHora = date('mdhis');
         $error = "";
         //$target_dir = base_url() . "videos/";
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/appss/videos/";
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/videos/";
+        //$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/appss/videos/";
         $target_file = $target_dir . $fechaHora . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -126,67 +136,37 @@ class Samsung_karaoke_galaxia extends CI_Controller
             }
         }
     }
+
     function uploadimagen()
     {
-        if (array_key_exists('imageData',$_POST)) {
+        if (array_key_exists('imageData', $_POST)) {
             $imgData = base64_decode($_REQUEST['imageData']);
-			$nombreArchivoSubido = $_REQUEST['nombreArchivoSubido'];
+            $nombreArchivoSubido = $_REQUEST['nombreArchivoSubido'];
 
-			$nombreArchivoSubido = str_replace(".mp4",".png",$nombreArchivoSubido);
+            $nombreArchivoSubido = str_replace(".mp4", ".png", $nombreArchivoSubido);
 
 
             // Path where the image is going to be saved
-            $filePath =  $_SERVER['DOCUMENT_ROOT'] . '/appss/videos/' . $nombreArchivoSubido;
+            // $filePath =  $_SERVER['DOCUMENT_ROOT'] . '/appss/videos/' . $nombreArchivoSubido;
+            $filePath = $_SERVER['DOCUMENT_ROOT'] . '/videos/' . $nombreArchivoSubido;
 
             // Delete previously uploaded image
-            if (file_exists($filePath)) { unlink($filePath); }
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
 
             // Write $imgData into the image file
             $file = fopen($filePath, 'w');
             fwrite($file, $imgData);
             fclose($file);
-			echo str_replace(".png","",$nombreArchivoSubido);
-		}
 
-        /*
+            echo str_replace(".png", "", $nombreArchivoSubido);
+            sleep(2);
+            $imageObject = imagecreatefrompng($filePath);
+            imagegif($imageObject, str_replace(".png", ".gif", $filePath));
+        }
 
-        $fechaHora = date('mdhis');
-        $error = "";
-        //$target_dir = base_url() . "videos/";
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/appss/videos/";
-        $target_file = $target_dir . $fechaHora . basename($_FILES["fileToUpload"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-// Check if file already exists
-        if (file_exists($target_file)) {
-            $error .= "Sorry, file already exists.";
-            $uploadOk = 0;
-        }
-// Check file size
-        // tamaño maximo 5 megas
-        if ($_FILES["fileToUpload"]["size"] > 5000000) {
-            $error .= "Archivo muy pesado.";
-            $uploadOk = 0;
-        }
-// Allow certain file formats
-        if ($imageFileType != "mp4" && $imageFileType != "mov" && $imageFileType != "mpg"
-            && $imageFileType != "MP4" && $imageFileType != "MOV" && $imageFileType != "MPG"
-        ) {
-            $error .= "Solamente archivos .mp4, mpg, ,mov.";
-            $uploadOk = 0;
-        }
-// Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            $error .= "Archivo no subido.";
-// if everything is ok, try to upload file
-        } else {
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                echo $fechaHora . basename($_FILES["fileToUpload"]["name"]);
-            } else {
-                echo "false:" . $error;
-            }
-        }*/
     }
 
 //samsung_karaoke_galaxia/grabavideo
@@ -344,16 +324,12 @@ class Samsung_karaoke_galaxia extends CI_Controller
 
     function verificarParticipante()
     {
-		$id = $_POST["idParticipante"];
+        $id = $_POST["idParticipante"];
         $participante = $this->usuario_samsung->getUserFbid($id);
         if ($participante == "0") {
             echo "F";
         } else {
-            $registro = $this->modelo->buscarUser($participante->id);
-            if ($registro == FALSE)
-                echo "F";
-            else
-                echo "A";
+            echo json_encode($participante);
         }
     }
 
@@ -386,27 +362,17 @@ class Samsung_karaoke_galaxia extends CI_Controller
                     'telefono' => $_POST['telefono']
                 );
                 $this->db->update('usuarios', $updateUser, array('fbid' => $_POST['fbid']));
-                $participante = $this->usuario_samsung->getUserFbid($_POST['fbid']);
-                $id = $participante->id;
-                $this->db->insert("karaoke_galaxia_registro", array(
-                    "id_user" => $id,
-                    "edad" => $_POST['edad'],
-                    "fbid" => $_POST['fbid']));
                 $resp = "1";
             } else {
                 $insertUser = array(
                     'nombre' => $_POST['nombre'], 'apellido' => $_POST['apellido'],
                     'completo' => $_POST['nombre'] . " " . $_POST['apellido'],
-                    'mail' => $_POST['mail'], 'ultima_app' => "galaxy-a",
+                    'mail' => $_POST['mail'], 'ultima_app' => "karaoke-galaxy-a",
                     'ciudad' => $_POST['ciudad'], 'cedula' => $_POST['cedula'],
                     'telefono' => $_POST['telefono'], 'fbid' => $_POST['fbid']
                 );
                 $this->db->insert('usuarios', $insertUser);
-                $id = $this->db->insert_id();
-                $this->db->insert("karaoke_galaxia_registro", array(
-                    "id_user" => $id,
-                    "edad" => $_POST['edad'],
-                    "fbid" => $_POST['fbid']));
+                $this->db->insert_id();
                 $resp = "1";
             }
             echo $resp;

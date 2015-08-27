@@ -30,19 +30,26 @@
         var usuarioFB;
         var idParticipante = 0;
         var nombreParticipante = "";
-        var modoDev = true;
+        var modoDev = false;
         if (modoDev == true) {
-            idParticipante = "1069749513039221";
+            idParticipante = "1069749513039222";
             nombreParticipante = "Usuario prueba";
         }
 
         var accion = "<?php echo base_url()?>";
         var controladorApp = "<?php echo $data['controlador'];?>";
+        <?php if (isset ($data['vervideo'] )) { ?>
+        var vervideo = "<?php echo $data['vervideo'];?>";
+        var nombreUsuarioVideo = "<?php echo $data['nombrevideo'];?>";
+        <?php } else { ?>
+        var vervideo = "0";
+        var nombreUsuarioVideo = "";
+        <?php } ?>
         function onLogin(response) {
             FB.api('/me', function (respuesta) {
                 usuarioFB = respuesta;
                 if (modoDev == true) {
-                    idParticipante = "1069749513039221";
+                    idParticipante = "1069749513039222";
                     nombreParticipante = "Usuario prueba";
                 } else {
                     idParticipante = respuesta.id;
@@ -59,7 +66,7 @@
 <body>
 
 <div id="home" class=" seccion fondo-home">
-    <div class="container">
+    <div class="container vertical-center">
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="logo-karaoke">
@@ -261,36 +268,65 @@
 
                 <div class="col-md-12 col-sm-12 col-xs-12 center-block text-center">
                     <div id="webcam-container" class="center-block">
+                        <div id="loadergif" class="hidden"><img
+                                src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader.gif"></div>
                         <div id="webcam"></div>
                     </div>
                     <div id="mediaplayer-container" class="center-block">
+
                         <div id="mediaplayer" class="center-block"></div>
                     </div>
                     <div id="uploadFileContainer" class="center-block ">
                         <div id="uploadFile" class="center-block hidden">
-                            <form id="formuploadvideo" action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo" method="post" enctype="multipart/form-data">
-                                Seleccione el archivo a subir:
-                                <input type="file" name="fileToUpload" id="fileToUpload" accept=".mp4, .mov, .mpg">
-                                <input type="submit" value="Subir video" name="submit">
-                            </form>
-                            <div class="videoSubido">
+                            <div class="col-md-6 col-sm-6 col-xs-6  center-block text-center">
+                                <div class="margen100">
+                                    <form id="formuploadvideo"
+                                          action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo"
+                                          method="post"
+                                          enctype="multipart/form-data">
+                                        <p class="texto-interno">
+                                            <span class="roboto-light text-center">Selecciona un video tuyo cantando las canciones del </span><span
+                                                class="roboto-bold">#KaraokeGalaxyA</span><span>, súbelo y guárdalo en tu Galería</span>
+                                        </p>
+
+                                        <p class="texto-interno">
+                                            <input type="file" name="fileToUpload" id="fileToUpload"
+                                                   accept=".mp4, .mov, .mpg" class="center-block carga-archivo">
+                                        </p>
+
+                                        <div><input type="submit" value="Subir video" name="submit"
+                                                    class="btn-subir-video botontexto hidden"></div>
+                                        <div id="btnContinuarSubir" class="botontexto center-block hidden">Enviar</div>
+
+
+                                    </form>
+                                </div>
                             </div>
-                            <br/>
+                            <div class="col-md-6 col-sm-6 col-xs-6  center-block text-center">
+                                <div class="videoSubido">
+                                    <img
+                                        src="<?php echo base_url() ?>imagenes/karaokegalaxya/web-cam/fotoejemplocarga.png"
+                                        class="img-responsive">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                     <div class="portabotones center-block">
                         <class id="recordStartButton" class="botontexto">Grabar</class>
-                        <class id="recordPauseResumeButton" class="botontexto hidden" >Pausar</class>
+                        <class id="recordPauseResumeButton" class="botontexto hidden">Pausar</class>
+                        <class id="recordStopButton" class="botontexto hidden">Detener</class>
+
                         <class id="subirVideo" class="botontexto">Subir archivo</class>
-						<class id="btnContinuarSubir" class="botontexto ">Continuar archivo</class>
+
                         <class id="volverGrabar" class="botontexto hidden">Volver a grabar</class>
                         <class id="btnContinuarGraba" class="botontexto hidden">Continuar</class>
+
                     </div>
                     <!--<button id="recordStartButton" class="btn btn-small" disabled>Grabar</button>
-                    <button id="recordPauseResumeButton" class="btn btn-small hidden" disabled>Pausar</button>-->
-                    <button id="recordStopButton" class="btn btn-small hidden" disabled>Detener</button>
+                    <button id="recordPauseResumeButton" class="btn btn-small hidden" disabled>Pausar</button>
+                    <button id="recordStopButton" class="btn btn-small hidden" disabled>Detener</button>-->
                     <span><input type="text" id="timeLeft" class="hidden"></span>
                 </div>
             </div>
@@ -300,8 +336,8 @@
                             class="roboto-light">Activa tu web-cam y grábate cantando en el </span><span
                             class="roboto-bold">#KaraokeGalaxyA.</span>
                     </p></div>
-				<canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
-			</div>
+                <canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
+            </div>
 
             <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
             </div>
@@ -406,9 +442,7 @@
                         <div class="row">
                             <div class="col-xs-1 margen-0"></div>
                             <div class="col-xs-10 margen-0-md">
-                                <div class="btn-home-subir-video botontexto">
-                                    Subir video
-                                </div>
+                                <div class="btn-home-subir-video botontexto">Subir video</div>
                             </div>
                             <div class="col-xs-1"></div>
                         </div>
@@ -460,16 +494,23 @@
                 </div>
 
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <form action="demo_form">
+                    <form action="demo_form" id="registro_form">
                         <ul class="login_wid">
+
                             <li><input class="box-text" type="text" id="nombre" name="nombre" required="required"
                                        placeholder="Nombre:">
                             </li>
+                            <li><input class="box-text" type="text" id="apellido" name="apellido" required="required"
+                                       placeholder="Apellido:">
+                            </li>
+                            <li><input class="box-text" type="text" id="ciudad" name="ciudad" required="required"
+                                       placeholder="Ciudad:">
+                            </li>
                             <li><input class="box-text" type="text" id="telefono" name="telefono" required="required"
                                        placeholder="Teléfono:"></li>
-                            <li><input class="box-text" type="text" id="ci" name="ci" required="required"
-                                       placeholder="CI:"></li>
-                            <li><input class="box-text" type="email" id="email" name="email" required="required"
+                            <li><input class="box-text" type="text" id="cedula" name="cedula" required="required"
+                                       placeholder="Cédula:"></li>
+                            <li><input class="box-text" type="email" id="mail" name="mail" required="required"
                                        placeholder="Email:">
                             </li>
                             <li class="text-center">
@@ -479,6 +520,7 @@
                                 <div id="mensaje-envio"></div>
                             </li>
                         </ul>
+                        <input type="text" id="fbid" name="fbid" class="hidden">
                     </form>
                 </div>
                 <div class="col-md-2 col-sm-2">
@@ -585,6 +627,24 @@
     });
 
     //var dis ="<?php  echo $data['dispositivo'];?>";
+</script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-2423727-39', 'auto');
+    ga('send', 'pageview');
+
 </script>
 </body>
 </html>
