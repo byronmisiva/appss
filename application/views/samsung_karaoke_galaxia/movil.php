@@ -131,6 +131,7 @@
             </div>
 
             <div class="col-xs-12">
+
                 <div class="logo-samsung "><img
                         src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_samsung.png"
                         class="img-responsive"></div>
