@@ -34,7 +34,7 @@
             method: 'feed', /***metodo facebook compartir en el muro**/
             picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190x190.png", /*carga de icono*/
            // link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
-            link: 'https://appss.misiva.com.ec/samsung_karaoke_galaxia/vervideo/' +  idvideo , /******link que se comparte*******/
+            link: accion+controladorApp+ '/vervideo/' +  idvideo , /******link que se comparte*******/
             caption: 'Galaxy Karaoke A',
             description:'Mira mi video en Samsung Karaoke Galaxi A, y dame tu voto'}, function(response){
             if (response != undefined){
@@ -50,7 +50,7 @@
     });
     $(".btn_votar").click(function () {
         idvideo = $(this).attr('idvideo')
-        $.post("samsung_karaoke_galaxia/votar", {id : idvideo, fbid: "fbid123123"})
+        $.post(accion+controladorApp+ "/votar", {id : idvideo, fbid: "fbid123123"})
             .done(function (data) {
                 $(".btn_votar").hide();
                 $(".mensajevotar").html(data);

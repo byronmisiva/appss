@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Karaoke GalaxiA :: Samsung</title>
+    <title>Karaoke Galaxy A :: Samsung</title>
     <meta http-equiv="content-language" content="es"/>
     <meta name="robots" content="follow,index,nocache"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -30,9 +30,9 @@
         var usuarioFB;
         var idParticipante = 0;
         var nombreParticipante = "";
-        var modoDev = false;
+        var modoDev = true;
         if (modoDev == true) {
-            idParticipante = "1069749513039222";
+            idParticipante = "1069749513039223";
             nombreParticipante = "Usuario prueba";
         }
 
@@ -49,7 +49,7 @@
             FB.api('/me', function (respuesta) {
                 usuarioFB = respuesta;
                 if (modoDev == true) {
-                    idParticipante = "1069749513039222";
+                    idParticipante = "1069749513039223";
                     nombreParticipante = "Usuario prueba";
                 } else {
                     idParticipante = respuesta.id;
@@ -262,23 +262,79 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12  ">
-                    <div class="hidden roboto-bold titulo text-center"><p>WEB CAM</p></div>
-                    <div id="message" class="roboto-light text-center"></div>
+                    <div class="hidden roboto-bold titulo text-center hidden-xs"><p>WEB CAM</p></div>
+
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12 center-block text-center">
-                    <div id="webcam-container" class="center-block">
+                    <div id="menuvideo-container" class="center-block">
+                        <!--botones grabar -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0 center-block">
+
+                            <div
+                                class="col-sm-offset-2 col-md-offset-3 col-md-7 col-sm-8 col-xs-12 menuvideo-container-pop">
+                                <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0  ">
+                                    <div class="text-center"><p class="texto-interno">
+                                            <span class="roboto-light">Sube tu video al </span>
+                                            <span class="roboto-bold">#KaraokeGalaxyA.</span>
+                                        </p></div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="portabotones center-block">
+                                        <class id="btnwebcam" class="botontexto hidden-xs ">Web Cam</class>
+                                        <class id="subirVideo" class="botontexto">Subir video</class>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                            </div>
+
+                         </div>
+                    </div>
+                    <div id="mediaplayer-container" class="center-block hidden">
+                        <div id="mediaplayer" class="center-block"></div>
+                        <!--botones grabar -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0">
+                            <div class="portabotones center-block">
+                                <class id="volverGrabar" class="botontextorojo ">Volver a grabar</class>
+                                <class id="btnContinuarGraba" class="botontextorojo ">Enviar</class>
+                            </div>
+                            <!--<button id="recordStartButton" class="btn btn-small" disabled>Grabar</button>
+                            <button id="recordPauseResumeButton" class="btn btn-small hidden" disabled>Pausar</button>
+                            <button id="recordStopButton" class="btn btn-small hidden" disabled>Detener</button>-->
+                            <span><input type="text" id="timeLeft" class="hidden"></span>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="text-center"><p class="texto-interno">
+                                        <span class="roboto-light">Activa tu web-cam y grábate cantando en el </span>
+                                        <span class="roboto-bold">#KaraokeGalaxyA.</span>
+                                    </p></div>
+
+                                <canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="webcam-container" class="center-block hidden">
                         <div id="loadergif" class="hidden"><img
                                 src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader.gif"></div>
                         <div id="webcam"></div>
+                        <!--botones grabar -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0">
+                            <div class="portabotones center-block">
+                                <class id="recordStartButton" class="botontexto">Grabar</class>
+                                <class id="recordPauseResumeButton" class="botontexto  ">Pausar</class>
+                                <class id="recordStopButton" class="botontexto  ">Detener</class>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div id="message" class="roboto-light text-center texto-interno"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="mediaplayer-container" class="center-block">
 
-                        <div id="mediaplayer" class="center-block"></div>
-                    </div>
-                    <div id="uploadFileContainer" class="center-block ">
-                        <div id="uploadFile" class="center-block hidden">
-                            <div class="col-md-6 col-sm-6 col-xs-6  center-block text-center">
+                    <div id="uploadFileContainer" class="center-block hidden">
+                        <div id="uploadFile" class="center-block">
+                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center">
                                 <div class="margen100">
                                     <form id="formuploadvideo"
                                           action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo"
@@ -302,7 +358,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6  center-block text-center">
+                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center">
                                 <div class="videoSubido">
                                     <img
                                         src="<?php echo base_url() ?>imagenes/karaokegalaxya/web-cam/fotoejemplocarga.png"
@@ -310,35 +366,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                    <div class="portabotones center-block">
-                        <class id="recordStartButton" class="botontexto">Grabar</class>
-                        <class id="recordPauseResumeButton" class="botontexto hidden">Pausar</class>
-                        <class id="recordStopButton" class="botontexto hidden">Detener</class>
 
-                        <class id="subirVideo" class="botontexto">Subir archivo</class>
-
-                        <class id="volverGrabar" class="botontexto hidden">Volver a grabar</class>
-                        <class id="btnContinuarGraba" class="botontexto hidden">Continuar</class>
 
                     </div>
-                    <!--<button id="recordStartButton" class="btn btn-small" disabled>Grabar</button>
-                    <button id="recordPauseResumeButton" class="btn btn-small hidden" disabled>Pausar</button>
-                    <button id="recordStopButton" class="btn btn-small hidden" disabled>Detener</button>-->
-                    <span><input type="text" id="timeLeft" class="hidden"></span>
                 </div>
+
+
             </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="text-center"><p class="texto-interno"><span
-                            class="roboto-light">Activa tu web-cam y grábate cantando en el </span><span
-                            class="roboto-bold">#KaraokeGalaxyA.</span>
-                    </p></div>
-                <canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
-            </div>
 
+            <!--Botones-->
             <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
             </div>
             <div class="col-md-10 col-sm-10 col-xs-10  ">
@@ -366,7 +403,7 @@
                     <div class="row">
                         <div class="col-xs-1 margen-0"></div>
                         <div class="col-xs-10 margen-0-md">
-                            <div class="btn-home-galeria botontextoazul">
+                            <div class="btn-home-galeria botontextoazul pull-right right">
                                 Galería
                             </div>
                         </div>
@@ -380,6 +417,7 @@
         </div>
     </div>
 </div>
+
 
 <div id="galeria" class="hidden seccion fondo-galeria">
     <div class="container">
@@ -494,27 +532,43 @@
                 </div>
 
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <form action="demo_form" id="registro_form">
+                    <form id="registroform"
+                          action="<?php echo base_url() ?>samsung_karaoke_galaxia/register"
+                          method="post"
+                          enctype="multipart/form-data">
+
+
                         <ul class="login_wid">
 
-                            <li><input class="box-text" type="text" id="nombre" name="nombre" required="required"
+                            <li><input class="box-text" type="text" id="nombre" name="nombre" maxlength="20"
+                                       required="required"
                                        placeholder="Nombre:">
                             </li>
-                            <li><input class="box-text" type="text" id="apellido" name="apellido" required="required"
+                            <li><input class="box-text" type="text" id="apellido" name="apellido" maxlength="20"
+                                       required="required"
                                        placeholder="Apellido:">
                             </li>
-                            <li><input class="box-text" type="text" id="ciudad" name="ciudad" required="required"
+                            <li><input class="box-text" type="text" id="ciudad" name="ciudad" maxlength="20"
+                                       required="required"
                                        placeholder="Ciudad:">
                             </li>
-                            <li><input class="box-text" type="text" id="telefono" name="telefono" required="required"
+                            <li><input class="box-text" type="text" id="telefono" name="telefono" maxlength="10"
+                                       required="required"
                                        placeholder="Teléfono:"></li>
-                            <li><input class="box-text" type="text" id="cedula" name="cedula" required="required"
+                            <li><input class="box-text" type="text" id="cedula" name="cedula" maxlength="10"
+                                       required="required"
                                        placeholder="Cédula:"></li>
-                            <li><input class="box-text" type="email" id="mail" name="mail" required="required"
+                            <li><input class="box-text" type="email" id="mail" name="mail" maxlength="100"
+                                       required="required"
                                        placeholder="Email:">
                             </li>
                             <li class="text-center">
-                                <input class="btn-ingreso" name="login" type="submit" value="">
+                                <div class="portabotones center-block ">
+
+                                    <input type="submit" value="Continuar" name="login" class="btn-ingreso botontexto"
+                                           style="">
+                                </div>
+
                             </li>
                             <li class="text-center">
                                 <div id="mensaje-envio"></div>
@@ -570,6 +624,7 @@
             href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
             condiciones</a></div>
 </div>
+
 <script type="text/javascript" charset="utf-8">
     window.fbAsyncInit = function () {
         FB.init({

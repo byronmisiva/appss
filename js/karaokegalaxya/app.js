@@ -3,9 +3,81 @@ $(document).ready(function () {
 
     //llamada para mostrar webcam en div, incluye botones
     crearBotonesInterface();
+    iniciaFormulario()
 });
 
+
+
+function iniciaFormulario() {
+    $("#formuploadvideo").submit(function (event) {
+        var url = accion + controladorApp + "/uploadvideo";
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+                nombreArchivoSubido = data;
+                var nuevovideo = '<video id="videoSubido" width="100%" controls="" autoplay="">' +
+                    '<source src="' + accion + 'videos/' + nombreArchivoSubido + '" type="video/mp4">' +
+                    'Su navegador no soporta video HTML5.' +
+                    '</video>';
+                $('.videoSubido').html(nuevovideo);
+                setTimeout(callbackFunction, 3000);
+                $('#btnContinuarSubir').removeClass("hidden").show();
+                $('.btn-subir-video').hide();
+            }
+        });
+        event.preventDefault();
+        return false;
+    });
+    $("#registroform").submit(function (event) {
+        var url = accion + controladorApp + "/register";
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            DataType : "jsonp",
+            success: function (data) {
+                ocultarTodosSeccion();
+                $("#recorder").removeClass("hidden").show();
+                $('#loadergif').hide();
+
+                $('#menuvideo-container').removeClass("hidden").show();
+                $('#webcam-container').hide();
+                $('#mediaplayer-container').hide();
+                $('#uploadFileContainer').hide();
+
+            }
+        });
+        event.preventDefault();
+        return false;
+
+    });
+}
 function crearBotonesInterface() {
+
+    $('#btnwebcam').click(function () {
+        $('#menuvideo-container').hide();
+        $('#webcam-container').removeClass("hidden").show();
+        $('#mediaplayer-container').hide();
+        $('#uploadFileContainer').hide();
+
+        cargarWebCam();
+    })
+
+    $('#subirVideo').click(function () {
+        $('#menuvideo-container').hide();
+        $('#webcam-container').hide();
+        $('#uploadFileContainer').removeClass("hidden").show();
+        $('#mediaplayer-container').hide();
+    })
     //botones home
     $('.btn-home-home').click(function () {
         ocultarTodosSeccion();
@@ -22,43 +94,24 @@ function crearBotonesInterface() {
                     if (data != 'F') {
                         ocultarTodosSeccion();
                         $("#recorder").removeClass("hidden").show();
-                        $('#uploadFile').hide();
-                        $('#mediaplayer').hide();
-                        $('#volverGrabar').hide();
-                        $('#btnContinuarGraba').hide();
-                        $('#recordStartButton').removeClass("hidden").show();
-                        $('#recordPauseResumeButton').hide();
-                        $('.btn-subir-video').hide();
-                        $('#mediaplayer').removeClass("hidden").show();
-                        $('#subirVideo').removeClass("hidden").show();
-                        $('#webcam-container').removeClass("hidden").show();
-                        $('#btnContinuarSubir').hide();
+
+                        $('#menuvideo-container').removeClass("hidden").show();
+                        $('#webcam-container').hide();
+                        $('#uploadFileContainer').hide();
+                        $('#mediaplayer-container').hide();
+
+
                         $('#loadergif').hide();
-
-
-                        cargarWebCam();
-
                     } else {
                         // no esta registrado
+                        $('#menuvideo-container').removeClass("hidden").show();
+                        $('#webcam-container').hide();
+                        $('#uploadFileContainer').hide();
+                        $('#mediaplayer-container').hide();
 
-                        //ocultarTodosSeccion();
-                        $("#recorder").removeClass("hidden").show();
-                        $('#uploadFile').hide();
-                        $('#mediaplayer').hide();
-                        $('#volverGrabar').hide();
-                        $('#btnContinuarGraba').hide();
-                        $('#recordStartButton').removeClass("hidden").show();
-                        $('#recordPauseResumeButton').hide();
-                        $('#mediaplayer').removeClass("hidden").show();
-                        $('#subirVideo').removeClass("hidden").show();
-                        $('.btn-subir-video').hide();
-                        $('#btnContinuarSubir').hide();
+
                         $('#loadergif').hide();
-                        $('#webcam-container').removeClass("hidden").show();
-
-
                         $('#fbid').val(idParticipante);
-
                         //cargarWebCam();
                         ocultarTodosSeccion();
                         $("#registro").removeClass("hidden").show();
@@ -77,36 +130,27 @@ function crearBotonesInterface() {
     })
 
     $('#volverGrabar').click(function () {
+        $('#menuvideo-container').hide();
         $('#webcam-container').removeClass("hidden").show();
+        $('#uploadFileContainer').hide();
         $('#mediaplayer-container').hide();
-        $('#volverGrabar').hide();
-        $('#btnContinuarGraba').hide();
-        $('#recordStartButton').removeClass("hidden").show();
-        $('#recordPauseResumeButton').hide();
-        $('#subirVideo').removeClass("hidden").show();
+
     })
     $('#btnContinuarGraba').click(function () {
-        $('#webcam-container').removeClass("hidden").show();
+
+        $('#menuvideo-container').removeClass("hidden").show();
+        $('#webcam-container').hide();
+        $('#uploadFileContainer').hide();
         $('#mediaplayer-container').hide();
-        $('#volverGrabar').hide();
-        $('#btnContinuarGraba').hide();
-        $('#recordStartButton').removeClass("hidden").show();
-        $('#recordPauseResumeButton').hide();
-        $('#subirVideo').removeClass("hidden").show();
-        $('#recorder').hide();
+
+        ocultarTodosSeccion();
         $('#galeria').removeClass("hidden").show();
         grabarBaseDatosVideo(fileNameSolo);
         cargarGaleria();
 
     })
     $('#btnContinuarSubir').click(function () {
-        $('#webcam-container').removeClass("hidden").show();
-        $('#mediaplayer-container').hide();
-        $('#volverGrabar').hide();
-        $('#btnContinuarGraba').hide();
         $('#recordStartButton').removeClass("hidden").show();
-        $('#recordPauseResumeButton').hide();
-        $('#subirVideo').removeClass("hidden").show();
         $('#recorder').hide();
         $('#galeria').removeClass("hidden").show();
         grabarImagen();
@@ -134,7 +178,7 @@ function ocultarTodosSeccion() {
     $('.seccion').hide();
 }
 function cargarWebCam() {
-    $('#webcam-container').removeClass("hidden").show();
+    $('webcam-container').removeClass("hidden").show();
     $("#webcam").scriptcam({
         fileReady: fileReady,
         cornerRadius: 20,
@@ -155,20 +199,12 @@ function cargarWebCam() {
         width: 480,
         height: 360
     });
-    recordStartButton
+
     $('#recordStartButton').click(function () {
-        $('#subirVideo').hide();
-        $('#recordPauseResumeButton').removeClass("hidden").show();
-        $('#recordStopButton').removeClass("hidden").show();
         startRecording()
     })
-    $('#subirVideo').click(function () {
-        $('#recordStartButton').hide();
-        $('#recordPauseResumeButton').hide();
-        $('#webcam-container').hide();
-        $('#uploadFile').removeClass("hidden").show();
-        $('#subirVideo').hide();
-    })
+
+
 
     $('#recordPauseResumeButton').click(function () {
         pauseResumeCamera()
@@ -190,58 +226,9 @@ function cargarWebCam() {
         $('#recordStopButton').click()
     });
 
-    $("#formuploadvideo").submit(function (event) {
-        var url = accion + controladorApp + "/uploadvideo";
 
-        $.ajax({
-            url: url,
-            type: "POST",
-            data: new FormData(this),
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function (data) {
-                nombreArchivoSubido = data;
-                var nuevovideo = '<video id="videoSubido" width="100%" controls="" autoplay="">' +
-                    '<source src="' + accion + 'videos/' + nombreArchivoSubido + '" type="video/mp4">' +
-                    'Su navegador no soporta video HTML5.' +
-                    '</video>';
-                $('.videoSubido').html(nuevovideo);
-                setTimeout(callbackFunction, 3000);
-                $('#btnContinuarSubir').removeClass("hidden").show();
-                $('.btn-subir-video').hide();
-            }
-        });
-        event.preventDefault();
-    });
 
-    $("#registro_form").submit(function (event) {
-        var url = accion + controladorApp + "/register";
-        $.ajax({
-            url: url,
-            type: "POST",
-            data: new FormData(this),
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function (data) {
-                ocultarTodosSeccion();
-                $("#recorder").removeClass("hidden").show();
-                $('#uploadFile').hide();
-                $('#mediaplayer').hide();
-                $('#volverGrabar').hide();
-                $('#btnContinuarGraba').hide();
-                $('#recordStartButton').removeClass("hidden").show();
-                $('#recordPauseResumeButton').hide();
-                $('.btn-subir-video').hide();
-                $('#mediaplayer').removeClass("hidden").show();
-                $('#subirVideo').removeClass("hidden").show();
-                $('#btnContinuarSubir').hide();
-                cargarWebCam();
-            }
-        });
-        event.preventDefault();
-    });
+
 }
 function callbackFunction() {
     var canvas = document.getElementById('canvas');
@@ -376,9 +363,8 @@ function startRecording() {
 }
 function closeCamera() {
 
-    $("#recordStartButton").hide();
-    $("#recordPauseResumeButton").hide();
-    $("#recordStopButton").hide();
+
+
     $.scriptcam.closeCamera();
     $('#loadergif').removeClass('hidden').show();
     $('#message').html('Un momento conversión del vídeo en proceso...');
@@ -398,7 +384,9 @@ var fileNameSolo = "";
 var fileName = "";
 function fileReady(fileName) {
     //$('#recorder').hide();
+    $('#mediaplayer-container').removeClass("hidden").show();
     $('#webcam-container').hide();
+
     var filenameOriginal = fileName;
     fileName = fileName.replace("http://europe.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
     fileName = fileName.replace("http://usa.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
@@ -409,15 +397,6 @@ function fileReady(fileName) {
     fileNameSolo = fileNameNoExtension.replace("http://appss.misiva.com.ec/videos/", "");
 
     muestraJwplayer('mediaplayer', fileName, fileNameNoExtension);
-
-    //luego que se sube el video mostramos
-    //$('#webcam-container').hide();
-    //$('#mediaplayer').removeClass("hidden").show()
-    $('#volverGrabar').removeClass("hidden").show();
-    $('#btnContinuarGraba').removeClass("hidden").show();
-    $('#recordStartButton').hide();
-    $('#recordPauseResumeButton').hide();
-    $('#subirVideo').hide();
 
 }
 
