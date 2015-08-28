@@ -375,12 +375,14 @@ class Samsung_karaoke_galaxia extends CI_Controller
                 $this->db->insert_id();
                 $resp = "1";
             }
+            $this->load->library('user_agent');
+            $mobiles = array('Apple iPhone', 'Apple iPod Touch', 'Android', 'Apple iPad');
+            if ($this->agent->is_mobile())
+                $this->index();
+
             echo $resp;
         }
-        $this->load->library('user_agent');
-        $mobiles = array('Apple iPhone', 'Apple iPod Touch', 'Android', 'Apple iPad');
-        if ($this->agent->is_mobile())
-            $this->index();
+
 
     }
 
