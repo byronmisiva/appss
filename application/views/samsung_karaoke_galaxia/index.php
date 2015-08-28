@@ -151,9 +151,9 @@
 </div>
 
 <div id="instrucciones" class="hidden seccion fondo-instrucciones">
-    <div class="container">
+    <div class="container vertical-center">
         <div class="row">
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-12 vertical-centercol-sm-12">
                 <div class="col-md-12 col-sm-12">
                     <div class="logo-karaoke-galeria">
                         <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/intrucciones/logo_karaoke.png"
@@ -252,7 +252,7 @@
 </div>
 
 <div id="recorder" class="hidden seccion fondo-recorder">
-    <div class="container">
+    <div class="container vertical-center">
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="col-md-12 col-sm-12">
@@ -272,7 +272,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0 center-block">
 
                             <div
-                                class="col-sm-offset-2 col-md-offset-3 col-md-7 col-sm-8 col-xs-12 menuvideo-container-pop">
+                                class="col-center-block col-md-7 col-sm-8 col-xs-12 menuvideo-container-pop">
                                 <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0  ">
                                     <div class="text-center"><p class="texto-interno">
                                             <span class="roboto-light">Sube tu video al </span>
@@ -285,8 +285,6 @@
                                         <class id="subirVideo" class="botontexto">Subir video</class>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
                             </div>
 
                          </div>
@@ -314,10 +312,10 @@
                             </div>
                         </div>
                     </div>
+					<div id="loadergif" class="hidden"><img
+							src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader.gif"></div>
 
-                    <div id="webcam-container" class="center-block hidden">
-                        <div id="loadergif" class="hidden"><img
-                                src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader.gif"></div>
+					<div id="webcam-container" class="center-block hidden">
                         <div id="webcam"></div>
                         <!--botones grabar -->
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0">
@@ -334,7 +332,7 @@
 
                     <div id="uploadFileContainer" class="center-block hidden">
                         <div id="uploadFile" class="center-block">
-                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center">
+                            <div class="col-md-6 col-sm-6 col-xs-12  col-center-bloc text-center formuploadfile">
                                 <div class="margen100">
                                     <form id="formuploadvideo"
                                           action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo"
@@ -350,22 +348,32 @@
                                                    accept=".mp4, .mov, .mpg" class="center-block carga-archivo">
                                         </p>
 
-                                        <div><input type="submit" value="Subir video" name="submit"
+                                        <div class="col-center-bloc"><input type="submit" value="Subir video" name="submit"
                                                     class="btn-subir-video botontexto hidden"></div>
-                                        <div id="btnContinuarSubir" class="botontexto center-block hidden">Enviar</div>
-
-
-                                    </form>
+                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center">
-                                <div class="videoSubido">
+                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center formuploadfile">
                                     <img
                                         src="<?php echo base_url() ?>imagenes/karaokegalaxya/web-cam/fotoejemplocarga.png"
                                         class="img-responsive">
-                                </div>
                             </div>
-                        </div>
+
+							<div class="col-md-12 col-sm-12 col-xs-12  center-block text-center hidden formuploadenvio">
+								<div class="videoSubido">
+ 								</div>
+
+								<div class="col-md-12 col-sm-12 col-xs-12 margen-0 ">
+									<input class="" type="text" id="box-nombre-video" maxlength="60"
+																				   name="box-nombre-video"
+																				   placeholder="Nombre del video">
+								</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 margen-0-md ">
+									<div id="btnContinuarSubir" class="botontexto col-center-block  ">Enviar</div>
+								</div>
+							</div>
+
+						</div>
 
 
                     </div>
@@ -376,44 +384,23 @@
 
 
             <!--Botones-->
-            <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
-            </div>
-            <div class="col-md-10 col-sm-10 col-xs-10  ">
-                <div class="col-md-4 col-sm-4 col-xs-12  margen-0-md">
-                    <div class="row">
-                        <div class="col-xs-1 margen-0"></div>
-                        <div class="col-xs-10 margen-0-md">
-                            <div class="btn-home-home botontexto">
-                                Inicio
-                            </div>
-                        </div>
-                        <div class="col-xs-1 margen-0"></div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
-                    <div class="row">
-                        <div class="col-xs-1 margen-0"></div>
-                        <div class="col-xs-10 margen-0-md">
 
-                        </div>
-                        <div class="col-xs-1"></div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
-                    <div class="row">
-                        <div class="col-xs-1 margen-0"></div>
-                        <div class="col-xs-10 margen-0-md">
-                            <div class="btn-home-galeria botontextoazul pull-right right">
-                                Galería
-                            </div>
-                        </div>
-                        <div class="col-xs-1 margen-0"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
-            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12  ">
+                <div class="col-md-4 col-sm-4 col-xs-12  margen-0-md ">
+					<div class="btn-home-home botontexto col-center-block">
+						Inicio
+					</div>
 
+                </div>
+				<div class="col-md-4 col-sm-4 col-xs-12  margen-0-md ">
+
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12  margen-0-md ">
+					<div class="btn-home-galeria botontextoazul col-center-block">
+						Galería
+					</div>
+				</div>
+            </div>
         </div>
     </div>
 </div>

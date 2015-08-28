@@ -153,7 +153,7 @@ p.texto-home {
 }
 
 #webcam-container, #mediaplayer-container {
-    width: 480px;
+    width: 495px;
 }
 
 #recordStartButton {
@@ -345,8 +345,7 @@ ul.login_wid {
     background-color: rgba(217, 56, 138, 0.8);
     color: #ffffff;
     cursor: pointer;
-    display: block;
-    float: left;
+    display: inline-block;
     font-family: 'Roboto-Light';
     font-size: 16px;
     height: 41px;
@@ -356,7 +355,6 @@ ul.login_wid {
     text-align: center;
     border-radius: 4px;
     border: none;
-
 }
 
 .botontextoazul {
@@ -376,12 +374,18 @@ ul.login_wid {
 }
 
 #uploadFile {
-    width: 100%;
-    height: 360px
+    display: inline-block;
+     margin: 25px 0;
+    position: inherit;
 }
 
 .videoSubido {
-    padding-top: 50px;
+    padding-top: 0px;
+
+}
+
+#videoSubido {
+    margin: 0 -10px;
 }
 
 #loadergif {
@@ -394,8 +398,15 @@ ul.login_wid {
 
 .menuvideo-container-pop {
     background-color: rgba(1, 169, 206, 0.71);
-    padding: 100px 0;
+    padding: 100px 0 150px ;
     border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -27,8 +27,12 @@ function iniciaFormulario() {
                     '</video>';
                 $('.videoSubido').html(nuevovideo);
                 setTimeout(callbackFunction, 3000);
-                $('#btnContinuarSubir').removeClass("hidden").show();
-                $('.btn-subir-video').hide();
+//                $('#btnContinuarSubir').removeClass("hidden").show();
+//                $('.btn-subir-video').hide();
+
+                $('.formuploadenvio').removeClass("hidden").show();
+                $('.formuploadfile').hide();
+
             }
         });
         event.preventDefault();
@@ -77,6 +81,9 @@ function crearBotonesInterface() {
         $('#webcam-container').hide();
         $('#uploadFileContainer').removeClass("hidden").show();
         $('#mediaplayer-container').hide();
+
+        $('.formuploadenvio').hide();
+        $('.formuploadfile').removeClass("hidden").show();
     })
     //botones home
     $('.btn-home-home').click(function () {
@@ -89,7 +96,7 @@ function crearBotonesInterface() {
     })
     $('.btn-home-subir-video').click(function () {
         if (idParticipante != 0) {
-            $.post(accion +   controladorApp + "/verificarParticipante", {idParticipante: idParticipante})
+            $.post(accion +  'index.php/' + controladorApp + "/verificarParticipante", {idParticipante: idParticipante})
                 .done(function (data) {
                     if (data != 'F') {
                         ocultarTodosSeccion();
@@ -235,12 +242,15 @@ function callbackFunction() {
     var video = document.getElementById('videoSubido');
     canvas.getContext('2d').drawImage(video, 0, 0, 300, 200);
 }
+
+var nombrevideoinput = '';
 function grabarImagen() {
     // Generate the image data
+    nombrevideoinput = $('#box-nombre-video').val();
     var Pic = document.getElementById("canvas").toDataURL("image/png");
     Pic = Pic.replace(/^data:image\/(png|jpg);base64,/, "")
 
-    $.post(accion + controladorApp + "/uploadimagen", {imageData: Pic, nombreArchivoSubido: nombreArchivoSubido})
+    $.post(accion + controladorApp + "/uploadimagen", {imageData: Pic, nombreArchivoSubido: nombreArchivoSubido })
         .done(function (data) {
             archivoSubidoSolo = data;
             grabarBaseDatosVideo(archivoSubidoSolo);
@@ -272,7 +282,7 @@ function cargarLigthbox() {
 
 
 function cargarGaleria() {
-    $.post(accion + controladorApp + "/listadojson", {filtro:nombreUsuarioVideo})
+    $.post(accion + 'index.php/' + controladorApp + "/listadojson", {filtro:nombreUsuarioVideo})
         .done(function (data) {
             // Cargamos la informacion de la galeria
             // en caso que data regrese como str convertimos en objeto json
@@ -347,7 +357,7 @@ function grabarBaseDatosVideo(filenameOriginal) {
         filename: filenameOriginal,
         id_user: 2000,
         fbid: idParticipante,
-        nombre: nombreParticipante
+        nombre: nombreParticipante + ', '+ nombrevideoinput
     })
 }
 
@@ -385,6 +395,7 @@ var fileName = "";
 function fileReady(fileName) {
     //$('#recorder').hide();
     $('#mediaplayer-container').removeClass("hidden").show();
+    $('#loadergif').removeClass("hidden").show();
     $('#webcam-container').hide();
 
     var filenameOriginal = fileName;
