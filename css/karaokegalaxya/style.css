@@ -203,7 +203,7 @@ ul.login_wid {
 
 .carga-archivo {
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 14px;
     height: 30px;
     line-height: 15px;
     padding: 0;
@@ -214,8 +214,193 @@ ul.login_wid {
     margin: 0;
 }
 
+.modal-content {
+    background-color: rgba(1, 169, 206, 0.71)
+}
+
+.close {
+    color: #fff;
+    opacity: 1;
+}
+
+.modal-header {
+    border-bottom: medium none;
+    min-height: 13.43px;
+    padding: 7px;
+}
+
+.carousel-control {
+    width: 5%;
+    opacity: .9;
+}
+
+
+
+.fondo-video {
+    background-color: #000000;
+    border-radius: 20px;
+    height: 39px;
+    line-height: 39px;
+    padding: 0 0 0 15px;
+    width: 215px;
+
+}
+
+.boton-buscar-video {
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+.div-buscar-video input[type="text"] {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.btn_compartir, .btn_votar {
+    cursor: pointer;
+}
+
+.botontexto, .botontextorojo, .botontextoazul, .btn-primary {
+
+    background-color: rgba(217, 56, 138, 0.8);
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto-Light';
+    font-size: 16px;
+    height: 41px;
+    line-height: 41px;
+    margin: 5px 5px;
+    width: 150px;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+}
+
+ .btn:focus, .btn:hover {
+     color: #ffff00;
+    background-color: rgba(217, 56, 138, 0.8);
+}
+
+  .btn-primary {
+    line-height: 30px;
+}
+
+.botontextoazul {
+    background-color: rgba(1, 169, 206, 0.8);
+}
+
+.botontextorojo {
+    background-color: rgba(171, 0, 32, 0.8);
+}
+
+.botontexto:hover, .botontextoazul:hover, .botontextorojo:hover {
+    color: #ffff00;
+}
+
+.portabotones {
+    display: inline-block;
+}
+
+#uploadFile {
+    display: inline-block;
+     margin: 25px 0;
+    position: inherit;
+}
+
+.videoSubido {
+    padding-top: 0px;
+
+}
+
+#videoSubido {
+    margin: 0 -10px;
+}
+
+#loadergif {
+    position: fixed;
+    background-color: rgba(220, 214, 213, 0.6);
+    width: inherit;
+    height: 360px;
+    padding-top: 100px;
+    width: 480px;
+    margin: 0 auto;
+    border-radius: 9px;
+}
+
+.menuvideo-container-pop {
+    background-color: rgba(1, 169, 206, 0.71);
+    padding: 100px 0 150px ;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+}
+
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.center-img {
+    display: table;
+    margin: 0 auto;
+}
+
+#nobrearchivosubir {
+    color: #000000;
+}
+
+.margen10top {
+    margin-top: 20px;
+}
+
+.itemgale {
+     height: 174px;
+}
+
+.carousel-control {
+    width: 15px;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    left: -5px;
+}
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+    margin-right: -10px;
+    right: -5px;
+}
+
 @media (max-width: 767px) {
 
+    .itemgale {
+        height: 120px;
+    }
+ 
+    
     .titulo {
         font-size: 20px;
     }
@@ -262,12 +447,29 @@ ul.login_wid {
         font-size: 18px;
         padding-top: 30px;
     }
+
+    .botontexto, .botontextorojo, .botontextoazul,.btn-primary {
+        width: 100%;
+    }
+
+    .menuvideo-container-pop {
+        padding: 40px 0;
+        float: inherit !important;
+    }
+
+    .margen100 {
+        padding: 10px 0 0 0;
+    }
+
+    p.texto-interno, .texto-interno {
+        font-size: 20px;
+    }
 }
 
 @media (min-width: 768px) {
     .vertical-center {
         min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-        min-height: 80vh; /* These two lines are counted as one :-)       */
+        min-height: 85vh; /* These two lines are counted as one :-)       */
 
         display: flex;
         align-items: center;
@@ -289,124 +491,4 @@ ul.login_wid {
         margin: 0;
         padding: 0;
     }
-}
-
-.modal-content {
-    background-color: rgba(1, 169, 206, 0.71)
-}
-
-.close {
-    color: #fff;
-    opacity: 1;
-}
-
-.modal-header {
-    border-bottom: medium none;
-    min-height: 13.43px;
-    padding: 7px;
-}
-
-.carousel-control {
-    width: 5%;
-    opacity: .9;
-}
-
-.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
-    margin: 0;
-}
-
-.fondo-video {
-    background-color: #000000;
-    border-radius: 20px;
-    height: 39px;
-    line-height: 39px;
-    padding: 0 0 0 15px;
-    width: 215px;
-
-}
-
-.boton-buscar-video {
-    margin: 0 10px 0 0;
-    cursor: pointer;
-}
-
-.div-buscar-video input[type="text"] {
-    margin: 0;
-    padding: 0;
-    text-align: left;
-}
-
-.btn_compartir, .btn_votar {
-    cursor: pointer;
-}
-
-.botontexto, .botontextorojo, .botontextoazul {
-
-    background-color: rgba(217, 56, 138, 0.8);
-    color: #ffffff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Roboto-Light';
-    font-size: 16px;
-    height: 41px;
-    line-height: 41px;
-    margin: 5px 5px;
-    width: 150px;
-    text-align: center;
-    border-radius: 4px;
-    border: none;
-}
-
-.botontextoazul {
-    background-color: rgba(1, 169, 206, 0.8);
-}
-
-.botontextorojo {
-    background-color: rgba(171, 0, 32, 0.8);
-}
-
-.botontexto:hover, .botontextoazul:hover, .botontextorojo:hover {
-    color: #ffff00;
-}
-
-.portabotones {
-    display: inline-block;
-}
-
-#uploadFile {
-    display: inline-block;
-     margin: 25px 0;
-    position: inherit;
-}
-
-.videoSubido {
-    padding-top: 0px;
-
-}
-
-#videoSubido {
-    margin: 0 -10px;
-}
-
-#loadergif {
-    position: absolute;
-    background-color: rgba(220, 214, 213, 0.6);
-    width: inherit;
-    height: 360px;
-    padding-top: 100px;
-}
-
-.menuvideo-container-pop {
-    background-color: rgba(1, 169, 206, 0.71);
-    padding: 100px 0 150px ;
-    border-radius: 5px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.col-center-block {
-    float: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }

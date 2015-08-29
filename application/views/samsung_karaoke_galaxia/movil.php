@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Karaoke GalaxyA :: Samsung</title>
+    <title>Karaoke Galaxy A :: Samsung</title>
     <meta http-equiv="content-language" content="es"/>
     <meta name="robots" content="follow,index,nocache"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -11,6 +11,10 @@
 
     <script language="JavaScript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script language="JavaScript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<!--    <link href="<?php /*echo base_url() */?>js/karaokegalaxya/si/Buscar video.css" rel="stylesheet" type="text/css" />
+    <script src="<?php /*echo base_url() */?>js/karaokegalaxya/si/jquery.si.js" type="text/javascript"></script>-->
+
 
     <script type="text/javascript" src="<?php echo base_url() ?>js/karaokegalaxya/jwplayer/jwplayer.js"></script>
     <script language="JavaScript" src="<?php echo base_url() ?>js/karaokegalaxya/scriptcam/scriptcam.js"></script>
@@ -26,28 +30,40 @@
     <link href="<?php echo base_url() ?>js/karaokegalaxya/ligthbox/ekko-lightbox.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/karaokegalaxya/style.css" rel="stylesheet" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script type="text/javascript">
         var usuarioFB;
         var idParticipante = 0;
-        var edadUser;
+        var nombreParticipante = "";
         var modoDev = false;
+        if (modoDev == true) {
+            idParticipante = "1069749513039223";
+            nombreParticipante = "Usuario prueba";
+        }
 
-        if (modoDev == true)
-            idParticipante = 1005762036104633;
 
         var accion = "<?php echo base_url()?>";
         var controladorApp = "<?php echo $data['controlador'];?>";
+
+        <?php if (isset ($data['vervideo'] )) { ?>
+        var vervideo = "<?php echo $data['vervideo'];?>";
+        var nombreUsuarioVideo = "<?php echo $data['nombrevideo'];?>";
+        <?php } else { ?>
+        var vervideo = "0";
+        var nombreUsuarioVideo = "";
+        <?php } ?>
+
         function onLogin(response) {
             FB.api('/me', function (respuesta) {
                 usuarioFB = respuesta;
                 if (modoDev == true) {
                     idParticipante = "1005762036104633";
+                    nombreParticipante = "Usuario prueba";
                 } else {
                     idParticipante = respuesta.id;
                     $(".login-caja").hide();
+
+                    nombreParticipante = respuesta.name;
+                    usuarioFB = respuesta;
                 }
 
             });
@@ -258,7 +274,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12  ">
-                    <div class="hidden roboto-bold titulo text-center hidden-xs"><p>WEB CAM</p></div>
+                   <!-- <div class="hidden roboto-bold titulo text-center hidden-xs"><p>WEB CAM</p></div>-->
 
                 </div>
 
@@ -277,7 +293,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="portabotones center-block">
-                                        <class id="btnwebcam" class="botontexto hidden-xs ">Web Cam</class>
+                                        <class id="btnwebcam" class="botontexto hidden-xs hidden">Web Cam</class>
                                         <class id="subirVideo" class="botontexto">Subir video</class>
                                     </div>
                                 </div>
@@ -300,25 +316,25 @@
 
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="text-center"><p class="texto-interno">
-                                        <span class="roboto-light">Activa tu web-cam y grábate cantando en el </span>
+                                        <span class="roboto-light">¿Estás seguro que quieres guardar este video? Si presionas "Enviar", se guardará en tu galería </span>
                                         <span class="roboto-bold">#KaraokeGalaxyA.</span>
                                     </p></div>
 
-                                <canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
                             </div>
                         </div>
                     </div>
-                    <div id="loadergif" class="hidden"><img
-                            src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader.gif"></div>
+
 
                     <div id="webcam-container" class="center-block hidden">
+                        <div id="loadergif" class="hidden"><img
+                                src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader.gif"></div>
                         <div id="webcam"></div>
                         <!--botones grabar -->
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0">
                             <div class="portabotones center-block">
                                 <class id="recordStartButton" class="botontexto">Grabar</class>
                                 <class id="recordPauseResumeButton" class="botontexto  ">Pausar</class>
-                                <class id="recordStopButton" class="botontexto  ">Detener</class>
+                                <class id="recordStopButton" class="botontexto  ">Finalizar</class>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div id="message" class="roboto-light text-center texto-interno"></div>
@@ -339,14 +355,26 @@
                                                 class="roboto-bold">#KaraokeGalaxyA</span><span>, súbelo y guárdalo en tu Galería</span>
                                         </p>
 
+                                        <p class="text-center">Peso máximo de archivo 5MB</p>
+
+
                                         <p class="texto-interno">
+
+                                        <div class="fileUpload btn btn-primary">
+                                            <span>Seleccione</span>
                                             <input type="file" name="fileToUpload" id="fileToUpload"
-                                                   accept=".mp4, .mov, .mpg" class="center-block carga-archivo">
+                                                   accept=".mp4, .mov, .mpg, .3gp" class="upload"/>
+                                        </div>
+
                                         </p>
 
                                         <div class="col-center-bloc"><input type="submit" value="Subir video"
                                                                             name="submit"
                                                                             class="btn-subir-video botontexto hidden">
+                                        </div>
+                                        <div class="loader-lineal hidden"><p>
+                                                <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader-lineal.gif" class="img-responsive center-img" >
+                                            </p>
                                         </div>
                                     </form>
                                 </div>
@@ -369,6 +397,8 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 margen-0-md ">
                                     <div id="btnContinuarSubir" class="botontexto col-center-block  ">Enviar</div>
                                 </div>
+                                <canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
+
                             </div>
                         </div>
                     </div>
@@ -377,28 +407,48 @@
             <!--Botones-->
 
             <div class="col-md-12 col-sm-12 col-xs-12  ">
-                <div class="col-md-4 col-sm-4 col-xs-12  margen-0-md ">
+                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
                     <div class="btn-home-home botontexto col-center-block">
                         Inicio
                     </div>
 
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12  margen-0-md ">
+                <div class="col-md-4 col-sm-4   margen-0-md ">
 
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12  margen-0-md ">
+                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
                     <div class="btn-home-galeria botontextoazul col-center-block">
                         Galería
                     </div>
                 </div>
             </div>
+            <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg">
+                <div class="col-xs-12">
+                    <div class="logo-samsung-galaxya "><img
+                            src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_galaxya.png"
+                            class="img-responsive"></div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="logo-samsung "><img
+                            src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_samsung.png"
+                            class="img-responsive"></div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="roboto-light text-center terminos-condiciones "><a
+                            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                            target="_blank">Términos y
+                            condiciones</a></div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 
 
 <div id="galeria" class="hidden seccion fondo-galeria">
-    <div class="container">
+    <div class="container vertical-center">
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="col-md-12 col-sm-12">
@@ -407,10 +457,10 @@
                              class="img-responsive"/>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="col-md-6 col-sm-6 col-xs-12 hidden-xs">
                     <div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                <div class="col-md-6 col-sm-6 col-xs-12 ">
                     <div class="fondo-video pull-right">
                         <div class="col-md-10 col-sm-10 col-xs-10 margen-0 ">
                             <div class="pull-left div-buscar-video"><input class="" type="text" id="box-buscar-video"
@@ -424,71 +474,59 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12 margen-0">
 
                     <div id="galeria-imagenes" class="col-md-12 col-sm-12 col-xs-12"></div>
 
                 </div>
 
-                <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
-                </div>
-                <div class="col-md-10 col-sm-10 col-xs-10  ">
-                    <div class="col-md-4 col-sm-4 col-xs-12  margen-0-md">
-                        <div class="row">
-                            <div class="col-xs-1 margen-0"></div>
-                            <div class="col-xs-10 margen-0-md">
-                                <div class="btn-home-home botontexto">
-                                    Inicio
-                                </div>
-                            </div>
-                            <div class="col-xs-1 margen-0"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
-                        <div class="row">
-                            <div class="col-xs-1 margen-0"></div>
-                            <div class="col-xs-10 margen-0-md">
 
-                            </div>
-                            <div class="col-xs-1 margen-0"></div>
-                        </div>
+
+
+            </div>
+            <!--Botones-->
+            <div class="col-md-12 col-sm-12 col-xs-12  ">
+                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
+                    <div class="btn-home-home botontexto col-center-block">
+                        Inicio
                     </div>
 
-                    <div class="col-md-4 col-sm-4 col-xs-12 margen-0-md">
-                        <div class="row">
-                            <div class="col-xs-1 margen-0"></div>
-                            <div class="col-xs-10 margen-0-md">
-                                <div class="btn-home-subir-video botontexto">Subir video</div>
-                            </div>
-                            <div class="col-xs-1"></div>
-                        </div>
+                </div>
+                <div class="col-md-4 col-sm-4    margen-0-md ">
+
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
+
+                    <div class="btn-home-subir-video botontexto col-center-block">
+                        Subir video
                     </div>
                 </div>
-                <div class="col-md-1 col-sm-1 col-xs-1 margen-0">
+            </div>
+
+            <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg">
+                <div class="col-xs-12">
+                    <div class="logo-samsung-galaxya "><img
+                            src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_galaxya.png"
+                            class="img-responsive"></div>
                 </div>
 
-
+                <div class="col-xs-12">
+                    <div class="logo-samsung "><img
+                            src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_samsung.png"
+                            class="img-responsive"></div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="roboto-light text-center terminos-condiciones "><a
+                            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                            target="_blank">Términos y
+                            condiciones</a></div>
+                </div>
             </div>
         </div>
-        <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg">
-            <div class="col-xs-12">
-                <div class="logo-samsung-galaxya "><img
-                        src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_galaxya.png"
-                        class="img-responsive"></div>
-            </div>
 
-            <div class="col-xs-12">
-                <div class="logo-samsung "><img
-                        src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_samsung.png"
-                        class="img-responsive"></div>
-            </div>
-            <div class="col-xs-12">
-                <div class="roboto-light text-center terminos-condiciones "><a
-                        href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
-                        target="_blank">Términos y
-                        condiciones</a></div>
-            </div>
-        </div>
+
+
+
 
     </div>
 </div>
@@ -602,6 +640,8 @@
             href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
             condiciones</a></div>
 </div>
+
+
 <script type="text/javascript" charset="utf-8">
     function statusChangeCallback(response) {
         if (response.status === 'connected') {

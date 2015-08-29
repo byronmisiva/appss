@@ -67,7 +67,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
     {
 
 
-        $this->db->select('id, filename');
+        $this->db->select('id, filename, filenameimage');
         $this->db->where('aprobado', '1');
 
         $this->db->from("karaoke_galaxia");
@@ -113,7 +113,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
         }
 // Check file size
         // tamaño maximo 5 megas
-        if ($_FILES["fileToUpload"]["size"] > 5000000) {
+        if ($_FILES["fileToUpload"]["size"] > 20000000) {
             $error .= "Archivo muy pesado.";
             $uploadOk = 0;
         }
@@ -143,7 +143,17 @@ class Samsung_karaoke_galaxia extends CI_Controller
             $imgData = base64_decode($_REQUEST['imageData']);
             $nombreArchivoSubido = $_REQUEST['nombreArchivoSubido'];
 
+            $nombreOriginal = $nombreArchivoSubido;
+
             $nombreArchivoSubido = str_replace(".mp4", ".png", $nombreArchivoSubido);
+            $nombreArchivoSubido = str_replace(".mpg", ".png", $nombreArchivoSubido);
+            $nombreArchivoSubido = str_replace(".mov", ".png", $nombreArchivoSubido);
+            $nombreArchivoSubido = str_replace(".MOV", ".png", $nombreArchivoSubido);
+            $nombreArchivoSubido = str_replace(".MP4", ".png", $nombreArchivoSubido);
+            $nombreArchivoSubido = str_replace(".MPG", ".png", $nombreArchivoSubido);
+
+            $nombreArchivoSubido = str_replace(".3gp", ".png", $nombreArchivoSubido);
+            $nombreArchivoSubido = str_replace(".3GP", ".png", $nombreArchivoSubido);
 
 
             // Path where the image is going to be saved
@@ -160,8 +170,10 @@ class Samsung_karaoke_galaxia extends CI_Controller
             fwrite($file, $imgData);
             fclose($file);
 
-            echo str_replace(".png", "", $nombreArchivoSubido);
-            sleep(2);
+            echo '{"video":"' . $nombreOriginal . '", "imagen":"' .$nombreArchivoSubido  . '"}' ;
+
+
+            sleep(3);
             $imageObject = imagecreatefrompng($filePath);
             imagegif($imageObject, str_replace(".png", ".gif", $filePath));
         }
@@ -178,6 +190,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
 //			$nombrevideo ="prueba";
             $this->db->insert("karaoke_galaxia", array(
                 "filename" => $nombrevideo,
+                "filenameimage" => $_POST['filenameimage'],
                 "id_user" => $_POST['filename'],
                 "fbid" => $_POST['fbid'],
                 "nombre" => $_POST['nombre']));

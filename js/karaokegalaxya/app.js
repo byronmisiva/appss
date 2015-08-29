@@ -4,12 +4,26 @@ $(document).ready(function () {
     //llamada para mostrar webcam en div, incluye botones
     crearBotonesInterface();
     iniciaFormulario()
+    //$("input.file").si();
+
+   // $('#recorder').height(screen.height);
+
+/*    document.getElementById("uploadBtn").onchange = function () {
+        document.getElementById("uploadFile").value = this.value;
+    };*/
+
 });
 
 
 
 function iniciaFormulario() {
     $("#formuploadvideo").submit(function (event) {
+        //ocultamos el boton y mostramos el loader
+
+
+        $('.loader-lineal').removeClass("hidden").show();
+        $('.btn-subir-video').hide();
+
         var url = accion + controladorApp + "/uploadvideo";
 
         $.ajax({
@@ -96,7 +110,7 @@ function crearBotonesInterface() {
     })
     $('.btn-home-subir-video').click(function () {
         if (idParticipante != 0) {
-            $.post(accion +  'index.php/' + controladorApp + "/verificarParticipante", {idParticipante: idParticipante})
+            $.post(accion +   controladorApp + "/verificarParticipante", {idParticipante: idParticipante})
                 .done(function (data) {
                     if (data != 'F') {
                         ocultarTodosSeccion();
@@ -153,6 +167,7 @@ function crearBotonesInterface() {
         ocultarTodosSeccion();
         $('#galeria').removeClass("hidden").show();
         grabarBaseDatosVideo(fileNameSolo);
+
         cargarGaleria();
 
     })
@@ -165,6 +180,7 @@ function crearBotonesInterface() {
 
     $("input[type=file]").on('change', function () {
         $('.btn-subir-video').removeClass("hidden").show();
+        $('.loader-lineal').hide();
     });
 
     if (vervideo > 0 )
@@ -240,7 +256,9 @@ function cargarWebCam() {
 function callbackFunction() {
     var canvas = document.getElementById('canvas');
     var video = document.getElementById('videoSubido');
-    canvas.getContext('2d').drawImage(video, 0, 0, 300, 200);
+    canvas.width = 200;
+    canvas.height = 157;
+    canvas.getContext('2d').drawImage(video, 0, 0, 300, 150);
 }
 
 var nombrevideoinput = '';
@@ -252,8 +270,12 @@ function grabarImagen() {
 
     $.post(accion + controladorApp + "/uploadimagen", {imageData: Pic, nombreArchivoSubido: nombreArchivoSubido })
         .done(function (data) {
-            archivoSubidoSolo = data;
-            grabarBaseDatosVideo(archivoSubidoSolo);
+
+            obj = JSON.parse(data);
+
+
+
+            grabarBaseDatosVideo(obj['video'], obj['imagen']);
             cargarGaleria();
         });
 }
@@ -282,7 +304,7 @@ function cargarLigthbox() {
 
 
 function cargarGaleria() {
-    $.post(accion + 'index.php/' + controladorApp + "/listadojson", {filtro:nombreUsuarioVideo})
+    $.post(accion +  controladorApp + "/listadojson", {filtro:nombreUsuarioVideo})
         .done(function (data) {
             // Cargamos la informacion de la galeria
             // en caso que data regrese como str convertimos en objeto json
@@ -335,10 +357,12 @@ function generaGaleria(data) {
         var divimagen = "";
         for (i = 0 + (j * 6); i < 6 + (j * 6); i++) {
             if (typeof data[i] != 'undefined') {
-                nombreimagen = data[i]["filename"];
+
+                nombreimagen = data[i]["filenameimage"];
+                nombrevideo = data[i]["filename"];
                 idimagen = data[i]["id"];
-                imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '.gif" class="imagen-galeria img-responsive">';
-                link = '<div class="col-md-4 col-sm-4 col-xs-6"><a href="' + accion + controladorApp + '/video/' + nombreimagen + '/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
+                imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '" class="imagen-galeria img-responsive">';
+                link = '<div class="col-md-4 col-sm-4 col-xs-6 itemgale"><a href="' + accion + controladorApp + '/video/' + nombrevideo + '/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
                 divimagen = divimagen + link;
             }
         }
@@ -352,9 +376,10 @@ function generaGaleria(data) {
     //  $('.carousel').carousel();
 };
 
-function grabarBaseDatosVideo(filenameOriginal) {
+function grabarBaseDatosVideo(filenameOriginal, filenameimagen) {
     $.post(accion + controladorApp + "/grabavideo", {
         filename: filenameOriginal,
+        filenameimage: filenameimagen,
         id_user: 2000,
         fbid: idParticipante,
         nombre: nombreParticipante + ', '+ nombrevideoinput
@@ -396,14 +421,21 @@ function fileReady(fileName) {
     //$('#recorder').hide();
     $('#mediaplayer-container').removeClass("hidden").show();
     $('#loadergif').removeClass("hidden").show();
+    $('#loadergif').hide();
     $('#webcam-container').hide();
 
     var filenameOriginal = fileName;
     fileName = fileName.replace("http://europe.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
     fileName = fileName.replace("http://usa.www.scriptcam.com/dwnld/", "http://appss.misiva.com.ec/videos/");
-    //$('#message').html('This file is now dowloadable for five minutes over <a href="'+fileName+'">here</a>.');
+
     $('#message').html('');
-    var fileNameNoExtension = fileName.replace(".mp4", "");
+
+    var fileNameNoExtension = fileName.replace(".mov", "gif");
+    var fileNameNoExtension = fileName.replace(".mp4", "gif");
+    var fileNameNoExtension = fileName.replace(".mpg", "gif");
+    var fileNameNoExtension = fileName.replace(".MOV", "gif");
+    var fileNameNoExtension = fileName.replace(".MP4", "gif");
+    var fileNameNoExtension = fileName.replace(".MPG", "gif");
 
     fileNameSolo = fileNameNoExtension.replace("http://appss.misiva.com.ec/videos/", "");
 
@@ -416,7 +448,7 @@ function muestraJwplayer(divContent, filename, fileNameNoExtension) {
         width: 480,
         height: 360,
         file: filename,
-        image: fileNameNoExtension + ".gif"
+        image: fileNameNoExtension
     });
     $('#' + divContent).show();
 }

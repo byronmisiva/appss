@@ -20,7 +20,7 @@
 
 
     <video width="100%" controls autoplay>
-        <source src="<?php echo base_url() ?>videos/<?php echo $video; ?>.mp4" type="video/mp4">
+        <source src="<?php echo base_url() ?>videos/<?php echo $video; ?>" type="video/mp4">
         Su navegador no soporta video HTML5.
     </video>
 
@@ -36,7 +36,7 @@
            // link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
             link: accion+controladorApp+ '/vervideo/' +  idvideo , /******link que se comparte*******/
             caption: 'Galaxy Karaoke A',
-            description:'Mira mi video en Samsung Karaoke Galaxi A, y dame tu voto'}, function(response){
+            description:'Mira mi video en Samsung Karaoke Galaxy A, y dame tu voto'}, function(response){
             if (response != undefined){
                 $.ajax({
                     type: "GET",
