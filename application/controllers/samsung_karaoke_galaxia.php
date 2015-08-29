@@ -169,16 +169,13 @@ class Samsung_karaoke_galaxia extends CI_Controller
             $file = fopen($filePath, 'w');
             fwrite($file, $imgData);
             fclose($file);
-
             echo '{"video":"' . $nombreOriginal . '", "imagen":"' .$nombreArchivoSubido  . '"}' ;
-
-
-            sleep(3);
+            sleep(1);
             $imageObject = imagecreatefrompng($filePath);
             imagegif($imageObject, str_replace(".png", ".gif", $filePath));
+
+            //validar que la imagen se genero correctamente
         }
-
-
     }
 
 //samsung_karaoke_galaxia/grabavideo

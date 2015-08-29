@@ -274,7 +274,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12  ">
-                   <!-- <div class="hidden roboto-bold titulo text-center hidden-xs"><p>WEB CAM</p></div>-->
+                    <div class="hidden roboto-bold titulo text-center hidden-xs"><p>WEB CAM</p></div>
 
                 </div>
 
@@ -293,7 +293,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="portabotones center-block">
-                                        <class id="btnwebcam" class="botontexto hidden-xs hidden">Web Cam</class>
+                                        <class id="btnwebcam" class="botontexto hidden-xs ">Web Cam</class>
                                         <class id="subirVideo" class="botontexto">Subir video</class>
                                     </div>
                                 </div>
@@ -345,41 +345,38 @@
                     <div id="uploadFileContainer" class="center-block hidden">
                         <div id="uploadFile" class="center-block">
                             <div class="col-md-6 col-sm-6 col-xs-12  col-center-bloc text-center formuploadfile">
-                                <div class="margen100">
-                                    <form id="formuploadvideo"
-                                          action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo"
-                                          method="post"
-                                          enctype="multipart/form-data">
-                                        <p class="texto-interno">
-                                            <span class="roboto-light text-center">Selecciona un video tuyo cantando las canciones del </span><span
-                                                class="roboto-bold">#KaraokeGalaxyA</span><span>, súbelo y guárdalo en tu Galería</span>
+
+                                <form id="formuploadvideo"
+                                      action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo"
+                                      method="post"
+                                      enctype="multipart/form-data">
+                                    <p class="texto-interno">
+                                        <span class="roboto-light text-center">Selecciona un video tuyo cantando las canciones del </span><span
+                                            class="roboto-bold">#KaraokeGalaxyA</span><span>, súbelo y guárdalo en tu Galería</span>
+                                    </p>
+                                    <p class="text-center">Peso máximo de archivo 5MB</p>
+
+
+                                    <p class="texto-interno">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Seleccione</span>
+                                        <input type="file" name="fileToUpload" id="fileToUpload"
+                                               accept=".mp4, .mov, .mpg, .3gp" class="upload"/>
+                                    </div>
+                                    </p>
+                                    <div class="col-center-bloc"><input type="submit" value="Subir video"
+                                                                        name="submit"
+                                                                        class="btn-subir-video botontexto hidden">
+                                    </div>
+
+                                    <div class="loader-lineal hidden"><p>
+                                            <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader-lineal.gif" class="img-responsive center-img" >
                                         </p>
+                                    </div>
+                                </form>
 
-                                        <p class="text-center">Peso máximo de archivo 5MB</p>
-
-
-                                        <p class="texto-interno">
-
-                                        <div class="fileUpload btn btn-primary">
-                                            <span>Seleccione</span>
-                                            <input type="file" name="fileToUpload" id="fileToUpload"
-                                                   accept=".mp4, .mov, .mpg, .3gp" class="upload"/>
-                                        </div>
-
-                                        </p>
-
-                                        <div class="col-center-bloc"><input type="submit" value="Subir video"
-                                                                            name="submit"
-                                                                            class="btn-subir-video botontexto hidden">
-                                        </div>
-                                        <div class="loader-lineal hidden"><p>
-                                                <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader-lineal.gif" class="img-responsive center-img" >
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center formuploadfile">
+                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center formuploadfile  " >
                                 <img
                                     src="<?php echo base_url() ?>imagenes/karaokegalaxya/web-cam/fotoejemplocarga.png"
                                     class="img-responsive">
@@ -413,7 +410,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 col-sm-4   margen-0-md ">
+                <div class="col-md-4 col-sm-4  margen-0-md ">
 
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
@@ -448,7 +445,7 @@
 
 
 <div id="galeria" class="hidden seccion fondo-galeria">
-    <div class="container vertical-center">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="col-md-12 col-sm-12">
@@ -457,7 +454,7 @@
                              class="img-responsive"/>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 hidden-xs">
+                <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12 ">
@@ -484,6 +481,7 @@
 
 
             </div>
+
             <!--Botones-->
             <div class="col-md-12 col-sm-12 col-xs-12  ">
                 <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
@@ -492,7 +490,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 col-sm-4    margen-0-md ">
+                <div class="col-md-4 col-sm-4   margen-0-md ">
 
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
@@ -523,9 +521,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
 
     </div>
