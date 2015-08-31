@@ -270,11 +270,7 @@ function grabarImagen() {
 
     $.post(accion + controladorApp + "/uploadimagen", {imageData: Pic, nombreArchivoSubido: nombreArchivoSubido })
         .done(function (data) {
-
             obj = JSON.parse(data);
-
-
-
             grabarBaseDatosVideo(obj['video'], obj['imagen']);
             cargarGaleria();
         });
@@ -283,9 +279,13 @@ function grabarImagen() {
 var nombreArchivoSubido = "";
 
 function cargarLigthbox() {
-
     // delegate calls to data-toggle="lightbox"
+
+    $(document).undelegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click');
+
     $(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {
+        console.log (this.variable)
+        this.variable = 12;
         event.preventDefault();
         return $(this).ekkoLightbox({
             onShown: function () {
@@ -304,7 +304,7 @@ function cargarLigthbox() {
 
 
 function cargarGaleria() {
-    $.post(accion +  controladorApp + "/listadojson", {filtro:nombreUsuarioVideo})
+    $.post(accion +  "index.php/" + controladorApp + "/listadojson", {filtro:nombreUsuarioVideo})
         .done(function (data) {
             // Cargamos la informacion de la galeria
             // en caso que data regrese como str convertimos en objeto json
@@ -357,7 +357,7 @@ function generaGaleria(data) {
         var divimagen = "";
         for (i = 0 + (j * 6); i < 6 + (j * 6); i++) {
             if (typeof data[i] != 'undefined') {
-
+            console.log (i)
                 nombreimagen = data[i]["filenameimage"];
                 nombrevideo = data[i]["filename"];
                 idimagen = data[i]["id"];
@@ -370,10 +370,9 @@ function generaGaleria(data) {
         if (j == 0) primero = "active";
         else
             primero = "";
-        htmlGaleria = cabeceraGaleria + htmlGaleria + '<div class="item ' + primero + '">' + divimagen + '</div> ' + finGaleria;
+        htmlGaleria =  htmlGaleria + '<div class="item ' + primero + '">' + divimagen + '</div> ';
     }
-    $("#galeria-imagenes").html(htmlGaleria);
-    //  $('.carousel').carousel();
+    $("#galeria-imagenes").html(cabeceraGaleria + htmlGaleria +  finGaleria);
 };
 
 function grabarBaseDatosVideo(filenameOriginal, filenameimagen) {

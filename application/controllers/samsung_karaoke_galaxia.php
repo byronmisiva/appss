@@ -169,13 +169,45 @@ class Samsung_karaoke_galaxia extends CI_Controller
             $file = fopen($filePath, 'w');
             fwrite($file, $imgData);
             fclose($file);
-            echo '{"video":"' . $nombreOriginal . '", "imagen":"' .$nombreArchivoSubido  . '"}' ;
+            echo '{"video":"' . $nombreOriginal . '", "imagen":"' . $nombreArchivoSubido . '"}';
             sleep(1);
             $imageObject = imagecreatefrompng($filePath);
             imagegif($imageObject, str_replace(".png", ".gif", $filePath));
 
             //validar que la imagen se genero correctamente
+
+
+            if ($this->esImagen($filePath)) {
+                if (filesize(str_replace(".png", ".gif", $filePath))< 500)
+                {
+                    $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.gif'  ;
+                    $nuevo_fichero = str_replace(".png", ".gif", $filePath);
+                    copy($fichero, $nuevo_fichero);
+
+                    $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.png'  ;
+                    $nuevo_fichero = $filePath;
+                    copy($fichero, $nuevo_fichero);
+
+
+                }
+                //echo "es imagen ";
+            } else {
+                $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.gif'  ;
+                $nuevo_fichero = str_replace(".png", ".gif", $filePath);
+                copy($fichero, $nuevo_fichero);
+
+                $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.png'  ;
+                $nuevo_fichero = $filePath;
+                copy($fichero, $nuevo_fichero);
+            }
         }
+    }
+
+    function esImagen($path)
+    {
+        $imageSizeArray = getimagesize($path);
+        $imageTypeArray = $imageSizeArray[2];
+        return (bool)(in_array($imageTypeArray, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP)));
     }
 
 //samsung_karaoke_galaxia/grabavideo
@@ -411,16 +443,6 @@ class Samsung_karaoke_galaxia extends CI_Controller
 
     }
 
-    function test2()
-    {
-        $this->load->view($this->folderView . '/test2');
-    }
-
-    function test3()
-    {
-
-        $this->load->view($this->folderView . '/test3', $data);
-    }
 
     function cargaEfectos()
     {
