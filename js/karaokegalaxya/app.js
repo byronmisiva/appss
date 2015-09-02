@@ -34,19 +34,20 @@ function iniciaFormulario() {
             cache: false,
             processData: false,
             success: function (data) {
-                nombreArchivoSubido = data;
-                var nuevovideo = '<video id="videoSubido" width="100%" controls="" autoplay="">' +
-                    '<source src="' + accion + 'videos/' + nombreArchivoSubido + '" type="video/mp4">' +
-                    'Su navegador no soporta video HTML5.' +
-                    '</video>';
-                $('.videoSubido').html(nuevovideo);
-                setTimeout(callbackFunction, 3000);
-//                $('#btnContinuarSubir').removeClass("hidden").show();
-//                $('.btn-subir-video').hide();
-
-                $('.formuploadenvio').removeClass("hidden").show();
-                $('.formuploadfile').hide();
-
+               // error =   data.split(':');
+                //if (error[0] = 'false'){
+                  //  alert ("Error : " +  error[1])
+                //} else {
+                    nombreArchivoSubido = data;
+                    var nuevovideo = '<video id="videoSubido" width="100%" controls="" autoplay="">' +
+                        '<source src="' + accion + 'videos/' + nombreArchivoSubido + '" type="video/mp4">' +
+                        'Su navegador no soporta video HTML5.' +
+                        '</video>';
+                    $('.videoSubido').html(nuevovideo);
+                    setTimeout(callbackFunction, 3000);
+                    $('.formuploadenvio').removeClass("hidden").show();
+                    $('.formuploadfile').hide();
+                //}
             }
         });
         event.preventDefault();
@@ -120,9 +121,19 @@ function crearBotonesInterface() {
                         $('#webcam-container').hide();
                         $('#uploadFileContainer').hide();
                         $('#mediaplayer-container').hide();
-
-
                         $('#loadergif').hide();
+                        if (dis == 'movil'){
+
+                            $('#subirVideo').click();
+                            $('.fileUpload').removeClass("hidden").show();
+                            $('.text-loader-inicio').removeClass("hidden").show();
+                            $('.text-loader-lineal').hide();
+                            $('.loader-lineal').hide();
+
+                            $('input#fileToUpload').click();
+
+                        }
+
                     } else {
                         // no esta registrado
                         $('#menuvideo-container').removeClass("hidden").show();
@@ -166,7 +177,8 @@ function crearBotonesInterface() {
 
         ocultarTodosSeccion();
         $('#galeria').removeClass("hidden").show();
-        grabarBaseDatosVideo(fileNameSolo);
+
+        grabarBaseDatosVideo(fileNameSolo, fileNameSolo.replace("mp4", "gif"));
 
         cargarGaleria();
 
@@ -179,8 +191,21 @@ function crearBotonesInterface() {
     })
 
     $("input[type=file]").on('change', function () {
-        $('.btn-subir-video').removeClass("hidden").show();
+       // $('.btn-subir-video').removeClass("hidden").show();
         $('.loader-lineal').hide();
+        if (dis == 'movil'){
+
+
+           $('.fileUpload').hide();
+            $('.btn-subir-video').click();
+            $('.loader-lineal').removeClass("hidden").show();
+            $('.text-loader-lineal').removeClass("hidden").show();
+            $('.text-loader-inicio').hide();
+
+
+
+        }
+
     });
 
     if (vervideo > 0 )
@@ -264,7 +289,8 @@ function callbackFunction() {
 var nombrevideoinput = '';
 function grabarImagen() {
     // Generate the image data
-    nombrevideoinput = $('#box-nombre-video').val();
+
+    nombrevideoinput = $('#box-nombre-video').val() +  $('#box-nombre-video1').val();
     var Pic = document.getElementById("canvas").toDataURL("image/png");
     Pic = Pic.replace(/^data:image\/(png|jpg);base64,/, "")
 
@@ -284,7 +310,7 @@ function cargarLigthbox() {
     $(document).undelegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click');
 
     $(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {
-        console.log (this.variable)
+
         this.variable = 12;
         event.preventDefault();
         return $(this).ekkoLightbox({
@@ -357,7 +383,7 @@ function generaGaleria(data) {
         var divimagen = "";
         for (i = 0 + (j * 6); i < 6 + (j * 6); i++) {
             if (typeof data[i] != 'undefined') {
-            console.log (i)
+
                 nombreimagen = data[i]["filenameimage"];
                 nombrevideo = data[i]["filename"];
                 idimagen = data[i]["id"];

@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Samsung_karaoke_galaxia extends CI_Controller
+class Samsung_karaoke_galaxya extends CI_Controller
 {
 
     public $data;
@@ -15,10 +15,10 @@ class Samsung_karaoke_galaxia extends CI_Controller
     {
         parent::__construct();
         $this->load->model('samsung_usuario', 'usuario_samsung');
-        $this->load->model('mdl_samsung_karaoke_galaxia', 'modelo');
+        $this->load->model('mdl_samsung_karaoke_galaxya', 'modelo');
         $this->load->helper('form');
-        $this->folderView = "samsung_karaoke_galaxia";
-        $this->data['controlador'] = "samsung_karaoke_galaxia";
+        $this->folderView = "samsung_karaoke_galaxya";
+        $this->data['controlador'] = "samsung_karaoke_galaxya";
 
 
         $this->data['idApp'] = "1028780807152819";
@@ -45,7 +45,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
         // recuepramos el nombre del usuario
         $this->db->select('nombre');
         $this->db->where('id', $this->data['vervideo']);
-        $this->db->from("karaoke_galaxia");
+        $this->db->from("karaoke_galaxya");
         $consulta = $this->db->get();
         if ($consulta->num_rows() > 0) {
             $nombrelistado = $consulta->result();
@@ -70,7 +70,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
         $this->db->select('id, filename, filenameimage');
         $this->db->where('aprobado', '1');
 
-        $this->db->from("karaoke_galaxia");
+        $this->db->from("karaoke_galaxya");
         $this->db->order_by("creado", "desc");
         //en caso que se defina filtro
         if (isset($_POST['filtro']))
@@ -108,25 +108,25 @@ class Samsung_karaoke_galaxia extends CI_Controller
          }*/
 // Check if file already exists
         if (file_exists($target_file)) {
-            $error .= "Sorry, file already exists.";
+            $error .= "Sorry, file already exists;";
             $uploadOk = 0;
         }
 // Check file size
         // tamaño maximo 5 megas
         if ($_FILES["fileToUpload"]["size"] > 20000000) {
-            $error .= "Archivo muy pesado.";
+            $error .= "Archivo muy pesado; ";
             $uploadOk = 0;
         }
 // Allow certain file formats
         if ($imageFileType != "mp4" && $imageFileType != "mov" && $imageFileType != "mpg"
             && $imageFileType != "MP4" && $imageFileType != "MOV" && $imageFileType != "MPG"
         ) {
-            $error .= "Solamente archivos .mp4, mpg, ,mov.";
+            $error .= "Solamente archivos .mp4, mpg, ,mov.; ";
             $uploadOk = 0;
         }
 // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            $error .= "Archivo no subido.";
+            $error .= "Archivo no subido; ";
 // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -170,33 +170,32 @@ class Samsung_karaoke_galaxia extends CI_Controller
             fwrite($file, $imgData);
             fclose($file);
             echo '{"video":"' . $nombreOriginal . '", "imagen":"' . $nombreArchivoSubido . '"}';
-            sleep(1);
+            sleep(2);
             $imageObject = imagecreatefrompng($filePath);
             imagegif($imageObject, str_replace(".png", ".gif", $filePath));
 
             //validar que la imagen se genero correctamente
 
 
+            $numeroazar = rand(1, 3);
             if ($this->esImagen($filePath)) {
                 if (filesize(str_replace(".png", ".gif", $filePath))< 500)
                 {
-                    $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.gif'  ;
+                    $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/galeria_'.$numeroazar.'.gif'  ;
                     $nuevo_fichero = str_replace(".png", ".gif", $filePath);
                     copy($fichero, $nuevo_fichero);
 
-                    $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.png'  ;
+                    $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/galeria_'.$numeroazar.'.png'  ;
                     $nuevo_fichero = $filePath;
                     copy($fichero, $nuevo_fichero);
-
-
                 }
                 //echo "es imagen ";
             } else {
-                $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.gif'  ;
+                $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/galeria_'.$numeroazar.'.gif'  ;
                 $nuevo_fichero = str_replace(".png", ".gif", $filePath);
                 copy($fichero, $nuevo_fichero);
 
-                $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/baseimagen.png'  ;
+                $fichero = $_SERVER['DOCUMENT_ROOT'] . '/videos/galeria_'.$numeroazar.'.png'  ;
                 $nuevo_fichero = $filePath;
                 copy($fichero, $nuevo_fichero);
             }
@@ -210,14 +209,14 @@ class Samsung_karaoke_galaxia extends CI_Controller
         return (bool)(in_array($imageTypeArray, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP)));
     }
 
-//samsung_karaoke_galaxia/grabavideo
+//samsung_karaoke_galaxya/grabavideo
     function grabavideo()
     {
         $nombrevideo = $_POST['filename'];
 
         if (isset($nombrevideo)) {
 //			$nombrevideo ="prueba";
-            $this->db->insert("karaoke_galaxia", array(
+            $this->db->insert("karaoke_galaxya", array(
                 "filename" => $nombrevideo,
                 "filenameimage" => $_POST['filenameimage'],
                 "id_user" => $_POST['filename'],
@@ -242,7 +241,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
         $this->db->where('id_video', $id);
         $this->db->where('fbid', $fbid);
 
-        $this->db->from("karaoke_galaxia_votos");
+        $this->db->from("karaoke_galaxya_votos");
         $consulta = $this->db->get();
         $resultado = $consulta->result();
         if ($consulta->num_rows() > 0) {
@@ -250,7 +249,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
         } else {
             $this->db->where('id', $id);
             $this->db->set('votos', 'votos+1', FALSE);
-            $this->db->update('karaoke_galaxia');
+            $this->db->update('karaoke_galaxya');
             $test = $this->db->last_query();
 
             //insertamos registro en votos
@@ -259,7 +258,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
                 'fbid' => $fbid,
                 'id_video' => $id
             );
-            $this->db->insert('karaoke_galaxia_votos', $data);
+            $this->db->insert('karaoke_galaxya_votos', $data);
             echo "Voto realizado con éxito";
 
         }
@@ -379,11 +378,11 @@ class Samsung_karaoke_galaxia extends CI_Controller
     {
         if (isset($_POST['puntos'])) {
             $this->db->where("fbid", $_POST['participante']);
-            $this->db->update("karaoke_galaxia_registro", array("puntaje" => $_POST['puntos']));
+            $this->db->update("karaoke_galaxya_registro", array("puntaje" => $_POST['puntos']));
 
             $this->db->select('edad');
             $this->db->where("fbid", $_POST['participante']);
-            $this->db->from("karaoke_galaxia_registro");
+            $this->db->from("karaoke_galaxya_registro");
             $consulta = $this->db->get();
             $registro = current($consulta->result());
             echo $registro->edad;
@@ -488,7 +487,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
         $compartidos = (int)$participante->compartidos;
         $compartidos = $compartidos + 1;
         $this->db->where("id", $participante->id);
-        $this->db->update("karaoke_galaxia_registro", array("compartidos" => $compartidos));
+        $this->db->update("karaoke_galaxya_registro", array("compartidos" => $compartidos));
     }
 
     function sumarCompartidaPosteo($id)
@@ -497,7 +496,7 @@ class Samsung_karaoke_galaxia extends CI_Controller
         $compartidos = (int)$participante->posteos;
         $compartidos = $compartidos + 1;
         $this->db->where("fbid", $id);
-        $this->db->update("karaoke_galaxia_registro", array("posteos" => $compartidos));
+        $this->db->update("karaoke_galaxya_registro", array("posteos" => $compartidos));
     }
 
     function registrarInvitados($id)

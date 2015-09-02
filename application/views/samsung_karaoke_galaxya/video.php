@@ -1,22 +1,22 @@
 <div style="max-width: 480px; width: 100%; margin: 0 auto">
 
-    <div class="col-md-6 col-sm-6 col-xs-6 " style="margin-bottom: 15px">
-        <div class=" center-block btn_compartir botontexto" idvideo="<?php echo $id; ?>">
+    <div class="col-md-12 col-sm-12 col-xs-12   " style=" ">
+        <div class="center-block col-center-block center center-block btn_compartir botontexto" idvideo="<?php echo $id; ?>">
             Compartir
         </div>
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-6" style="margin-bottom: 15px">
-        <div class=" btn_votar center-block botontexto" idvideo="<?php echo $id; ?>">
+   <!-- <div class="col-md-6 col-sm-6 col-xs-6" style="margin-bottom: 15px">
+        <div class=" btn_votar center-block botontexto" idvideo="<?php /*echo $id; */?>">
             Votar
         </div>
-    </div>
+    </div>-->
 
-    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+    <!--<div class="col-md-12 col-sm-12 col-xs-12 text-center">
         <p style="text-align: center">
 
         <div class="mensajevotar"></div>
         </p>
-    </div>
+    </div>-->
 
 
     <video width="100%" controls autoplay>
@@ -33,10 +33,10 @@
         FB.ui({
             method: 'feed', /***metodo facebook compartir en el muro**/
             picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190x190.png", /*carga de icono*/
-           // link: 'https://apps.facebook.com/samsung_karaoke_galaxia/' +  idvideo, /******link que se comparte*******/
+           // link: 'https://apps.facebook.com/samsung_karaoke_galaxya/' +  idvideo, /******link que se comparte*******/
             link: accion+controladorApp+ '/vervideo/' +  idvideo , /******link que se comparte*******/
             caption: 'Galaxy Karaoke A',
-            description:'Mira mi video en Samsung Karaoke Galaxy A, y dame tu voto'}, function(response){
+            description:'Mira mi video en  el Karaoke Galaxy A de Samsung. Sube el tuyo y revive la mejor música de los años 90.'}, function(response){
             if (response != undefined){
                 $.ajax({
                     type: "GET",

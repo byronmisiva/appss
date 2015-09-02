@@ -1,5 +1,5 @@
 <?php
-class Mdl_samsung_karaoke_galaxia extends CI_Model{
+class Mdl_samsung_karaoke_galaxya extends CI_Model{
     var $registro;
     var $galeria;
     var $baul;

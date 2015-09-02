@@ -191,7 +191,7 @@ function generaGaleria(data) {
 
 function grabarBaseDatosVideo(filename, filenameOriginal) {
     $.post(accion +  controladorApp  + "/grabavideo", {filename: filenameOriginal, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
-   // $.post("samsung_karaoke_galaxia/grabavideo", {filename: filename, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
+   // $.post("samsung_karaoke_galaxya/grabavideo", {filename: filename, id_user: 2000, fbid: "fbid123123", nombre: "Byron Herrera"})
         .done(function (data) {
             console.log("Data Loaded: " + data);
         });

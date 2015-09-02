@@ -12,8 +12,8 @@
     <script language="JavaScript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script language="JavaScript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
-    <link href="<?php echo base_url() ?>js/karaokegalaxya/si/jquery.si.css" rel="stylesheet" type="text/css"/>
-    <script src="<?php echo base_url() ?>js/karaokegalaxya/si/jquery.si.js" type="text/javascript"></script>
+    <!--    <link href="<?php /*echo base_url() */ ?>js/karaokegalaxya/si/Buscar video.css" rel="stylesheet" type="text/css" />
+    <script src="<?php /*echo base_url() */ ?>js/karaokegalaxya/si/jquery.si.js" type="text/javascript"></script>-->
 
 
     <script type="text/javascript" src="<?php echo base_url() ?>js/karaokegalaxya/jwplayer/jwplayer.js"></script>
@@ -34,14 +34,16 @@
         var usuarioFB;
         var idParticipante = 0;
         var nombreParticipante = "";
-        var modoDev = true;
+        var modoDev = false;
         if (modoDev == true) {
             idParticipante = "1069749513039223";
             nombreParticipante = "Usuario prueba";
         }
 
+
         var accion = "<?php echo base_url()?>";
         var controladorApp = "<?php echo $data['controlador'];?>";
+
         <?php if (isset ($data['vervideo'] )) { ?>
         var vervideo = "<?php echo $data['vervideo'];?>";
         var nombreUsuarioVideo = "<?php echo $data['nombrevideo'];?>";
@@ -49,25 +51,31 @@
         var vervideo = "0";
         var nombreUsuarioVideo = "";
         <?php } ?>
+
         function onLogin(response) {
             FB.api('/me', function (respuesta) {
                 usuarioFB = respuesta;
                 if (modoDev == true) {
-                    idParticipante = "1069749513039223";
+                    idParticipante = "1005762036104633";
                     nombreParticipante = "Usuario prueba";
                 } else {
                     idParticipante = respuesta.id;
+                    $(".login-caja").hide();
+
                     nombreParticipante = respuesta.name;
                     usuarioFB = respuesta;
                 }
+
             });
         }
         ;
-
     </script>
 </head>
-
 <body>
+<div id="fb-root"></div>
+<div class="login-caja">
+    <fb:login-button scope="email" onlogin="checkLoginState();"></fb:login-button>
+</div>
 
 <div id="home" class=" seccion fondo-home">
     <div class="container vertical-center">
@@ -167,7 +175,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="roboto-bold titulo text-center"><p>INSTRUCCIONES</p></div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12 ">
                     <div class=" conten-instrucciones">
                         <div class="text-center texto20">
                             <p><span class="roboto-bold">1.- </span><span
@@ -285,7 +293,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="portabotones center-block">
-                                        <class id="btnwebcam" class="botontexto hidden-xs ">Web Cam</class>
+                                        <!--                                        <class id="btnwebcam" class="hidden botontexto hidden-xs ">Web Cam</class>-->
                                         <class id="subirVideo" class="botontexto">Subir video</class>
                                     </div>
                                 </div>
@@ -296,6 +304,11 @@
                     <div id="mediaplayer-container" class="center-block hidden">
                         <div id="mediaplayer" class="center-block"></div>
                         <!--botones grabar -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 margen-0 ">
+                            <input class="" type="text" id="box-nombre-video2" maxlength="60"
+                                   name="box-nombre-video"
+                                   placeholder="Nombre del video">
+                        </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center margen-0">
                             <div class="portabotones center-block">
                                 <class id="volverGrabar" class="botontextorojo ">Volver a grabar</class>
@@ -336,42 +349,55 @@
 
                     <div id="uploadFileContainer" class="center-block hidden">
                         <div id="uploadFile" class="center-block">
-                            <div class="col-md-6 col-sm-6 col-xs-12  col-center-bloc text-center formuploadfile">
+                            <div
+                                class="col-md-6 col-sm-6 col-xs-12  col-center-bloc text-center formuploadfile menuvideo-container-pop">
 
-                                    <form id="formuploadvideo"
-                                          action="<?php echo base_url() ?>samsung_karaoke_galaxia/uploadvideo"
-                                          method="post"
-                                          enctype="multipart/form-data">
+                                <form id="formuploadvideo"
+                                      action="<?php echo base_url() ?>samsung_karaoke_galaxya/uploadvideo"
+                                      method="post"
+                                      enctype="multipart/form-data">
+                                    <div class="text-loader-inicio">
                                         <p class="texto-interno">
                                             <span class="roboto-light text-center">Selecciona un video tuyo cantando las canciones del </span><span
                                                 class="roboto-bold">#KaraokeGalaxyA</span><span>, súbelo y guárdalo en tu Galería</span>
                                         </p>
                                         <p class="text-center">Peso máximo de archivo 5MB</p>
+                                    </div>
 
 
+
+
+                                    <p class="texto-interno">
+
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>1. Grabar video</span>
+                                        <input type="file" name="fileToUpload" id="fileToUpload"
+                                               accept=".mp4, .mov, .mpg, .3gp" class="upload"/>
+                                    </div>
+                                    </p>
+                                    <div class="col-center-bloc"><input type="submit" value="2. Subir video"
+                                                                        name="submit"
+                                                                        class="btn-subir-video botontexto hidden">
+                                    </div>
+                                    <div class="text-loader-lineal hidden">
                                         <p class="texto-interno">
-                                        <div class="fileUpload btn btn-primary">
-                                            <span>Seleccione</span>
-                                            <input type="file" name="fileToUpload" id="fileToUpload"
-                                                   accept=".mp4, .mov, .mpg, .3gp" class="upload"/>
-                                        </div>
+                                            <span class="roboto-light text-center">Tu video se está subiendo. Al finalizar pon un nombre a tu video y da click en Enviar </span>
                                         </p>
-                                        <div class="col-center-bloc"><input type="submit" value="Subir video"
-                                                                                  name="submit"
-                                                                                  class="btn-subir-video botontexto hidden">
-                                        </div>
+                                    </div>
+                                    <div class="loader-lineal hidden">
 
-                                        <div class="loader-lineal hidden"><p>
-                                                <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader-lineal.gif" class="img-responsive center-img" >
-                                            </p>
-                                        </div>
-                                    </form>
+                                        <p>
+                                            <img src="<?php echo base_url() ?>imagenes/karaokegalaxya/loader-lineal.gif"
+                                                 class="img-responsive center-img">
+                                        </p>
+                                    </div>
+                                </form>
 
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center formuploadfile  " >
+                            <div class="col-md-6 col-sm-6 col-xs-12  center-block text-center formuploadfile  ">
                                 <img
                                     src="<?php echo base_url() ?>imagenes/karaokegalaxya/web-cam/fotoejemplocarga.png"
-                                    class="img-responsive">
+                                    class="img-responsive hidden-xs">
                             </div>
 
                             <div class="col-md-12 col-sm-12 col-xs-12  center-block text-center hidden formuploadenvio">
@@ -384,7 +410,7 @@
                                            placeholder="Nombre del video">
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 margen-0-md ">
-                                    <div id="btnContinuarSubir" class="botontexto col-center-block  ">Enviar</div>
+                                    <div id="btnContinuarSubir" class="botontexto col-center-block  ">2. Enviar</div>
                                 </div>
                                 <canvas id="canvas" class="hidden" style="width: 480px; height: 386px"></canvas>
 
@@ -396,18 +422,16 @@
             <!--Botones-->
 
             <div class="col-md-12 col-sm-12 col-xs-12  ">
-                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
-                    <div class="btn-home-home botontexto col-center-block">
-                        Inicio
+                <div class="col-md-6 col-sm-6 col-xs-6   ">
+                    <div class="btn-home-home botontexto col-center-block pull-right">
+                        <div class="icono-instrucciones">Inicio</div>
                     </div>
 
                 </div>
-                <div class="col-md-4 col-sm-4  margen-0-md ">
 
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
-                    <div class="btn-home-galeria botontextoazul col-center-block">
-                        Galería
+                <div class="col-md-6 col-sm-6 col-xs-6  ">
+                    <div class="btn-home-galeria botontextoazul col-center-block pull-left">
+                        <div class="icono-galeria">Galería</div>
                     </div>
                 </div>
             </div>
@@ -437,7 +461,7 @@
 
 
 <div id="galeria" class="hidden seccion fondo-galeria">
-    <div class="container">
+    <div class="container vertical-center">
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="col-md-12 col-sm-12">
@@ -447,10 +471,10 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="roboto-bold titulo text-left"><p>GALERÍA</p></div>
+                    <div class="roboto-bold titulo text-center"><p>GALERÍA</p></div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12 ">
-                    <div class="fondo-video pull-right">
+                    <div class="fondo-video center-block">
                         <div class="col-md-10 col-sm-10 col-xs-10 margen-0 ">
                             <div class="pull-left div-buscar-video"><input class="" type="text" id="box-buscar-video"
                                                                            name="box-buscar-video"
@@ -470,25 +494,21 @@
                 </div>
 
 
-
-
             </div>
 
             <!--Botones-->
             <div class="col-md-12 col-sm-12 col-xs-12  ">
-                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
-                    <div class="btn-home-home botontexto col-center-block">
-                        Inicio
+                <div class="col-md-6 col-sm-6 col-xs-6    ">
+                    <div class="btn-home-home botontexto col-center-block pull-right">
+                        <div class="icono-instrucciones">Inicio</div>
                     </div>
 
                 </div>
-                <div class="col-md-4 col-sm-4   margen-0-md ">
 
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-6  margen-0-md ">
+                <div class="col-md-6 col-sm-6 col-xs-6    ">
 
-                    <div class="btn-home-subir-video botontexto col-center-block">
-                        Subir video
+                    <div class="btn-home-subir-video botontexto col-center-block pull-left">
+                        <div class="icono-subir-video">Subir video</div>
                     </div>
                 </div>
             </div>
@@ -536,7 +556,7 @@
 
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <form id="registroform"
-                          action="<?php echo base_url() ?>samsung_karaoke_galaxia/register"
+                          action="<?php echo base_url() ?>samsung_karaoke_galaxya/register"
                           method="post"
                           enctype="multipart/form-data">
 
@@ -628,7 +648,26 @@
             condiciones</a></div>
 </div>
 
+
 <script type="text/javascript" charset="utf-8">
+
+
+    function statusChangeCallback(response) {
+        if (response.status === 'connected') {
+            onLogin();
+        } else {
+            $(".login-caja").show();
+        }
+    }
+    ;
+
+    function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+    }
+
+
     window.fbAsyncInit = function () {
         FB.init({
             appId: <?php echo $data['idApp'] ?>,
@@ -642,7 +681,9 @@
             } else {
                 FB.login(function (response) {
                     onLogin(response);
-                }, {scope: 'email'});
+                }, {scope: 'email, publish_actions'});
+                $(".login-caja").show();
+                $(".btn-entrar").hide();
             }
         });
     };
@@ -657,6 +698,7 @@
         js.src = "//connect.facebook.net/es_LA/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
 
     var rules = [
         {name: 'nombre', display: 'nombre', rules: 'required'},
@@ -678,13 +720,12 @@
             ;
             alert("REGISTROS NO COMPLETADOS");
         } else {
-            $(".btn-continuar-registro").hide();
-            $("#submit").hide();
+            edadUser = $("#edad").val();
             enviarForma('register');
         }
     });
 
-    //var dis ="<?php  echo $data['dispositivo'];?>";
+    var dis = "<?php  echo $data['dispositivo'];?>";
 </script>
 
 <script>
@@ -704,5 +745,6 @@
     ga('send', 'pageview');
 
 </script>
+
 </body>
 </html>
