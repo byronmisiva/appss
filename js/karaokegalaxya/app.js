@@ -191,7 +191,7 @@ function crearBotonesInterface() {
     })
 
     $("input[type=file]").on('change', function () {
-       // $('.btn-subir-video').removeClass("hidden").show();
+        $('.btn-subir-video').removeClass("hidden").show();
         $('.loader-lineal').hide();
         if (dis == 'movil'){
 
@@ -289,8 +289,17 @@ function callbackFunction() {
 var nombrevideoinput = '';
 function grabarImagen() {
     // Generate the image data
+    nombre1 = $('#box-nombre-video').val();
+    if (nombre1 == "undefined")
+        nombre1 = "";
 
-    nombrevideoinput = $('#box-nombre-video').val() +  $('#box-nombre-video1').val();
+    nombre2 = $('#box-nombre-video1').val();
+    if (nombre2 == "undefined")
+        nombre2 = "";
+
+
+
+    nombrevideoinput = nombre1 +  nombre2;
     var Pic = document.getElementById("canvas").toDataURL("image/png");
     Pic = Pic.replace(/^data:image\/(png|jpg);base64,/, "")
 
@@ -386,9 +395,10 @@ function generaGaleria(data) {
 
                 nombreimagen = data[i]["filenameimage"];
                 nombrevideo = data[i]["filename"];
+                titulovideo = data[i]["nombre"];
                 idimagen = data[i]["id"];
                 imagen = '<img src="http://appss.misiva.com.ec/videos/' + nombreimagen + '" class="imagen-galeria img-responsive">';
-                link = '<div class="col-md-4 col-sm-4 col-xs-6 itemgale"><a href="' + accion + controladorApp + '/video/' + nombrevideo + '/' + idimagen + '" data-title="" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
+                link = '<div class="col-md-4 col-sm-4 col-xs-6 itemgale"><a href="' + accion + controladorApp + '/video/' + nombrevideo + '/' + idimagen + '" data-title="' + titulovideo+'" data-toggle="lightbox" data-parent="" data-gallery="remoteload">' + imagen + '</a></div>';
                 divimagen = divimagen + link;
             }
         }

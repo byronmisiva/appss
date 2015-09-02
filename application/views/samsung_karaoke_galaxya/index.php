@@ -34,7 +34,7 @@
         var usuarioFB;
         var idParticipante = 0;
         var nombreParticipante = "";
-        var modoDev = true;
+        var modoDev = false;
         if (modoDev == true) {
             idParticipante = "1069749513039223";
             nombreParticipante = "Usuario prueba";

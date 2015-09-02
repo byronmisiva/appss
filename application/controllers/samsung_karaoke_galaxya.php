@@ -65,9 +65,7 @@ class Samsung_karaoke_galaxya extends CI_Controller
     //listado Videos
     function listadojson()
     {
-
-
-        $this->db->select('id, filename, filenameimage');
+        $this->db->select('id, filename, filenameimage, nombre');
         $this->db->where('aprobado', '1');
 
         $this->db->from("karaoke_galaxya");
@@ -229,6 +227,16 @@ class Samsung_karaoke_galaxya extends CI_Controller
     {
         $data['video'] = $this->uri->segment(3);
         $data['id'] = $this->uri->segment(4);
+
+        $this->db->select('nombre');
+        $this->db->where('id', $data['id']);
+        $this->db->from("karaoke_galaxya");
+        $consulta = $this->db->get();
+        if ($consulta->num_rows() > 0) {
+            $nombrelistado = $consulta->result();
+            $data['nombrevideo'] = $nombrelistado[0]->nombre;
+        }
+
         $this->load->view($this->folderView . '/video', $data);
     }
 

@@ -1,7 +1,7 @@
 <div style="max-width: 480px; width: 100%; margin: 0 auto">
 
     <div class="col-md-12 col-sm-12 col-xs-12   " style=" ">
-        <div class="center-block col-center-block center center-block btn_compartir botontexto" idvideo="<?php echo $id; ?>">
+        <div class="center-block col-center-block center center-block btn_compartir botontexto" nombrevideo="<?php echo $nombrevideo; ?>" idvideo="<?php echo $id; ?>">
             Compartir
         </div>
     </div>
@@ -28,15 +28,24 @@
 
 <script type="text/javascript">
     var idvideo;
+    var nombrevideoconcomillas = ""
+
+
+
     $(".btn_compartir").click(function () {
-        idvideo = $(this).attr('idvideo')
+        idvideo = $(this).attr('idvideo');
+        nombrecompleto = $(this).attr('nombrevideo');
+        nombrecompleto = nombrecompleto.split(',');
+        if (nombrecompleto[1] != "")
+            nombrevideoconcomillas =   '"' + nombrecompleto[1] + '"';
+
         FB.ui({
             method: 'feed', /***metodo facebook compartir en el muro**/
             picture: "https://appss.misiva.com.ec/imagenes/karaokegalaxya/icono/190x190.png", /*carga de icono*/
            // link: 'https://apps.facebook.com/samsung_karaoke_galaxya/' +  idvideo, /******link que se comparte*******/
             link: accion+controladorApp+ '/vervideo/' +  idvideo , /******link que se comparte*******/
             caption: 'Galaxy Karaoke A',
-            description:'Mira mi video en  el Karaoke Galaxy A de Samsung. Sube el tuyo y revive la mejor música de los años 90.'}, function(response){
+            description:'Mira mi video'+ nombrevideoconcomillas + ' en  el Karaoke Galaxy A de Samsung. Sube el tuyo y revive la mejor música de los años 90.'}, function(response){
             if (response != undefined){
                 $.ajax({
                     type: "GET",
