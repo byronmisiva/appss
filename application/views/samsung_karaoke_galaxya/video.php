@@ -45,7 +45,8 @@
            // link: 'https://apps.facebook.com/samsung_karaoke_galaxya/' +  idvideo, /******link que se comparte*******/
             link: accion+controladorApp+ '/vervideo/' +  idvideo , /******link que se comparte*******/
             caption: 'Galaxy Karaoke A',
-            description:'Mira mi video'+ nombrevideoconcomillas + ' en  el Karaoke Galaxy A de Samsung. Sube el tuyo y revive la mejor música de los años 90.'}, function(response){
+            description:'Ya estoy participando en el Karaoke Galaxy A de Samsung. Sube el tuyo y revive los 90’s como un verdadero A.'}, function(response){
+            //description:'Mira mi video'+ nombrevideoconcomillas + ' en  el Karaoke Galaxy A de Samsung. Sube el tuyo y revive la mejor música de los años 90.'}, function(response){
             if (response != undefined){
                 $.ajax({
                     type: "GET",

@@ -145,7 +145,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="roboto-light text-center terminos-condiciones "><a
-                        href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                        href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                         target="_blank">Términos y
                         condiciones</a></div>
             </div>
@@ -247,7 +247,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="roboto-light text-center terminos-condiciones "><a
-                        href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                        href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                         target="_blank">Términos y
                         condiciones</a></div>
             </div>
@@ -429,7 +429,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="roboto-light text-center terminos-condiciones "><a
-                            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                            href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                             target="_blank">Términos y
                             condiciones</a></div>
                 </div>
@@ -508,7 +508,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="roboto-light text-center terminos-condiciones "><a
-                            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                            href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                             target="_blank">Términos y
                             condiciones</a></div>
                 </div>
@@ -601,7 +601,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="roboto-light text-center terminos-condiciones "><a
-                        href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                        href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                         target="_blank">Términos y
                         condiciones</a></div>
             </div>
@@ -625,7 +625,7 @@
     </div>
 
     <div id="" class="roboto-light terminos-condiciones"><a
-            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
+            href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
             condiciones</a></div>
 </div>
 

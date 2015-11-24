@@ -4,10 +4,10 @@
 $active_group = 'samsung';
 $active_record = TRUE;
 
-$db['aplicaciones']['hostname'] = "69.64.85.197";
-$db['aplicaciones']['username'] = "externo";
-$db['aplicaciones']['password'] = "feadmin06";
-$db['aplicaciones']['database'] = "aplicaciones";
+$db['aplicaciones']['hostname'] = "127.0.0.1";
+$db['aplicaciones']['username'] = "root";
+$db['aplicaciones']['password'] = "";
+$db['aplicaciones']['database'] = "appss";
 $db['aplicaciones']['dbdriver'] = "mysql";
 $db['aplicaciones']['dbprefix'] = "";
 $db['aplicaciones']['pconnect'] = TRUE;
@@ -17,9 +17,9 @@ $db['aplicaciones']['cachedir'] = "";
 $db['aplicaciones']['char_set'] = "utf8";
 $db['aplicaciones']['dbcollat'] = "utf8_general_ci";
 
-$db['samsung']['hostname'] = "69.64.85.197";
-$db['samsung']['username'] = "externo";
-$db['samsung']['password'] = "feadmin06";
+$db['samsung']['hostname'] = "127.0.0.1";
+$db['samsung']['username'] = "root";
+$db['samsung']['password'] = "";
 $db['samsung']['database'] = "appss";
 $db['samsung']['dbdriver'] = "mysql";
 $db['samsung']['dbprefix'] = "samsung_";
@@ -30,10 +30,10 @@ $db['samsung']['cachedir'] = "";
 $db['samsung']['char_set'] = "utf8";
 $db['samsung']['dbcollat'] = "utf8_general_ci";
 
-$db['appspr']['hostname'] = "69.64.85.197";
-$db['appspr']['username'] = "externo";
-$db['appspr']['password'] = "feadmin06";
-$db['appspr']['database'] = "appspr";
+$db['appspr']['hostname'] = "127.0.0.1";
+$db['appspr']['username'] = "root";
+$db['appspr']['password'] = "";
+$db['appspr']['database'] = "apps";
 $db['appspr']['dbdriver'] = "mysql";
 $db['appspr']['dbprefix'] = "primax_";
 $db['appspr']['pconnect'] = TRUE;

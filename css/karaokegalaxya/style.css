@@ -91,11 +91,12 @@ a:hover, a:visited {
 }
 
 .terminos-condiciones {
-    text-align: center;
+    text-align: left;
     font-size: 12px;
     position: absolute;
     width: 100%;
-    bottom: 15px;
+    bottom: 1%;
+    padding-left: 10px;
 }
 
 .btn-home-instrucciones, .btn-home-subir-video, .btn-home-galeria, .btn-home-home {
@@ -457,6 +458,7 @@ ul.login_wid {
         position: inherit;
         bottom: 0;
         margin-top: 50px;
+        margin-bottom: 10px;
     }
 
     .logo-karaoke {
@@ -484,6 +486,16 @@ ul.login_wid {
 
     p.texto-interno, .texto-interno {
         font-size: 20px;
+    }
+
+    .icono-instrucciones, .icono-subir-video,.icono-galeria {
+        background-size: 15px 15px;
+        background-position: 12px 14px;
+        font-size: 12px;
+    }
+
+    .icono-subir-video  {
+        background-position: 5px 14px;
     }
 }
 

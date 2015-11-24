@@ -213,11 +213,22 @@ class Samsung_karaoke_galaxya extends CI_Controller
         $nombrevideo = $_POST['filename'];
 
         if (isset($nombrevideo)) {
-//			$nombrevideo ="prueba";
+
+            $this->db->select('id');
+            $this->db->where('fbid', $_POST['fbid']);
+            $this->db->from("usuarios");
+            $id_user = "000";
+            $consulta = $this->db->get();
+            if ($consulta->num_rows() > 0) {
+                $nombrelistado = $consulta->result();
+                $id_user = $nombrelistado[0]->id;
+            }
+
+
             $this->db->insert("karaoke_galaxya", array(
                 "filename" => $nombrevideo,
                 "filenameimage" => $_POST['filenameimage'],
-                "id_user" => $_POST['filename'],
+                "id_user" => $id_user,
                 "fbid" => $_POST['fbid'],
                 "nombre" => $_POST['nombre']));
         }

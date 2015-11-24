@@ -153,7 +153,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="roboto-light text-center terminos-condiciones "><a
-                        href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                        href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                         target="_blank">Términos y
                         condiciones</a></div>
             </div>
@@ -255,7 +255,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="roboto-light text-center terminos-condiciones "><a
-                        href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                        href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                         target="_blank">Términos y
                         condiciones</a></div>
             </div>
@@ -305,7 +305,7 @@
                         <div id="mediaplayer" class="center-block"></div>
                         <!--botones grabar -->
                         <div class="col-md-12 col-sm-12 col-xs-12 margen-0 ">
-                            <input class="" type="text" id="box-nombre-video2" maxlength="60"
+                            <input class="" type="text" id="box-nombre-video1" maxlength="60"
                                    name="box-nombre-video"
                                    placeholder="Nombre del video">
                         </div>
@@ -381,7 +381,7 @@
                                     </div>
                                     <div class="text-loader-lineal hidden">
                                         <p class="texto-interno">
-                                            <span class="roboto-light text-center">Tu video se está subiendo. Al finalizar pon un nombre a tu video y da click en Enviar </span>
+                                            <span class="roboto-light text-center">Tu video está siendo procesado. Al finalizar, nómbralo y estará listo para compartirlo con tus amigos.</span>
                                         </p>
                                     </div>
                                     <div class="loader-lineal hidden">
@@ -449,7 +449,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="roboto-light text-center terminos-condiciones "><a
-                            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                            href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                             target="_blank">Términos y
                             condiciones</a></div>
                 </div>
@@ -527,7 +527,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="roboto-light text-center terminos-condiciones "><a
-                            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                            href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                             target="_blank">Términos y
                             condiciones</a></div>
                 </div>
@@ -606,7 +606,7 @@
         </div>
 
 
-        <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg">
+        <div id="comunes-movil" class="hidden-md hidden-sm hidden-lg ">
             <div class="col-xs-12">
                 <div class="logo-samsung-galaxya "><img
                         src="<?php echo base_url() ?>imagenes/karaokegalaxya/home/logo_galaxya.png"
@@ -620,7 +620,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="roboto-light text-center terminos-condiciones "><a
-                        href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
+                        href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf"
                         target="_blank">Términos y
                         condiciones</a></div>
             </div>
@@ -644,7 +644,7 @@
     </div>
 
     <div id="" class="roboto-light terminos-condiciones"><a
-            href="archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
+            href="https://appss.misiva.com.ec/archivos/REGLAMENTO-DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-Karaoke.pdf" target="_blank">Términos y
             condiciones</a></div>
 </div>
 
