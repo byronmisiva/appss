@@ -101,11 +101,7 @@ class Samsung_bluechristmas extends CI_Controller
         }
     }
 
-    function viewRanking()
-    {
-        $data['registros'] = $this->modelo->getRanking();
-        $this->load->view($this->folderView . '/ranking', $data);
-    }
+
 
 
     function verificarParticipante($id)
