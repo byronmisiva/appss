@@ -157,7 +157,7 @@
 		</div>
 		<?php }?>
 
-<script src="<?php echo base_url()?>js/preguntados/complemento2.js?frefresh=<?php echo rand(0,1000)?>"></script>
+<script src="<?php echo base_url()?>js/bluechristmas/complemento2.js?frefresh=<?php echo rand(0,1000)?>"></script>
 <script type="text/javascript" >										
 	$(".espera").hide();
 	$('#myCarousel').carousel({

@@ -11,11 +11,11 @@
 	<link href="<?php echo base_url()?>fonts/samsung_bold_if/stylesheet.css" type="text/css" rel="stylesheet">
 	<!-- css -->
 	<link href="<?php echo base_url()?>css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo base_url()?>css/preguntados/app.css?frefresh=<?php echo rand(0,1000)?>" type="text/css" rel="stylesheet">
+	<link href="<?php echo base_url()?>css/bluechristmas/app.css?frefresh=<?php echo rand(0,1000)?>" type="text/css" rel="stylesheet">
 	<link href="<?php echo base_url()?>css/animate.min.css" type="text/css" rel="stylesheet">
-	<link href="<?php echo base_url()?>css/preguntados/hover.css" type="text/css" rel="stylesheet">	
+	<link href="<?php echo base_url()?>css/bluechristmas/hover.css" type="text/css" rel="stylesheet">	
 	<!-- js -->
-	<script src="<?php echo base_url()?>js/preguntados/app.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" charset="utf-8"></script>
+	<script src="<?php echo base_url()?>js/bluechristmas/app.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" charset="utf-8"></script>
   	<script src="<?php echo base_url()?>js/general/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
 	var usuarioFB;
@@ -38,7 +38,7 @@
 	</div>
 	<div class="contenedor-control-audio">
 	<!-- autoplay-->
-	<audio id="player" src="<?php echo base_url()?>audio/preguntados/579767_Sprots---Animated-Fantasy.mp3" ></audio>
+	<audio id="player" src="<?php echo base_url()?>audio/bluechristmas/579767_Sprots---Animated-Fantasy.mp3" ></audio>
     <div class="play" onclick="document.getElementById('player').pause();"></div>
     <div class="stop" onclick="document.getElementById('player').play();"></div>
 </div>
@@ -53,7 +53,7 @@
 						<p class="texto-informativo">¡Acepta el reto!<br> 
 						Responde correctamente todas las preguntas, diviértete y participa por un Smart TV.</p>
 						<div class="btn-fondo btn-ranking hvr-underline-from-center">Ranking</div>
-						<div class="btn-fondo btn-jugar hvr-underline-from-center"><img src="<?php echo base_url()?>imagenes/preguntados/btn-jugar.jpg" /></div>
+						<div class="btn-fondo btn-jugar hvr-underline-from-center"><img src="<?php echo base_url()?>imagenes/bluechristmas/btn-jugar.jpg" /></div>
 						<div class="btn-fondo btn-instrucion hvr-underline-from-center">Instruciones</div>
 					</div>  
 					<div class="view-registro animated">
@@ -246,7 +246,7 @@
 		var dis ="<?php  echo $data['dispositivo'];?>";		
 		
 	</script>  
-   <script src="<?php echo base_url()?>js/preguntados/complemento.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" ></script> 
+   <script src="<?php echo base_url()?>js/bluechristmas/complemento.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" ></script> 
 </body>
 </html>
 

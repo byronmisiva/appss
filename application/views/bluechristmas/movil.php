@@ -15,11 +15,11 @@
     
     
 	<link href="<?php echo base_url()?>css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-	<link href="<?php echo base_url()?>css/preguntados/app.css?frefresh=<?php echo rand(0,1000)?>" type="text/css" rel="stylesheet">
-	<link href="<?php echo base_url()?>css/preguntados/movil.css?frefresh=<?php echo rand(0,1000)?>" type="text/css" rel="stylesheet">	
+	<link href="<?php echo base_url()?>css/bluechristmas/app.css?frefresh=<?php echo rand(0,1000)?>" type="text/css" rel="stylesheet">
+	<link href="<?php echo base_url()?>css/bluechristmas/movil.css?frefresh=<?php echo rand(0,1000)?>" type="text/css" rel="stylesheet">	
 	<link href="<?php echo base_url()?>css/animate.min.css" type="text/css" rel="stylesheet">		
 				    
-	<script src="<?php echo base_url()?>js/preguntados/app.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" charset="utf-8"></script>
+	<script src="<?php echo base_url()?>js/bluechristmas/app.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" charset="utf-8"></script>
   	<script src="<?php echo base_url()?>js/general/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
 	var usuarioFB;
@@ -93,7 +93,7 @@
                     
 					<div class="btn-fondo btn-ranking">Ranking</div>
 				    <div class="btn-fondo btn-jugar">
-                        <img src="<?php echo base_url()?>imagenes/preguntados/btn-jugar.jpg" />
+                        <img src="<?php echo base_url()?>imagenes/bluechristmas/btn-jugar.jpg" />
                     </div>
 						<div class="btn-fondo btn-instrucion ">Instruciones</div>
 				</div>
@@ -290,7 +290,7 @@
 	
 		var dis ="<?php  echo $data['dispositivo'];?>";		
 	</script>  
-<script src="<?php echo base_url()?>js/preguntados/complemento.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" ></script>
+<script src="<?php echo base_url()?>js/bluechristmas/complemento.js?frefresh=<?php echo rand(0,1000)?>" type="text/javascript" ></script>
 
 </body>
 </html>

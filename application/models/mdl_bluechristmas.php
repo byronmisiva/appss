@@ -1,5 +1,5 @@
 <?php
-class Mdl_corporate extends CI_Model{
+class Mdl_bluechristmas extends CI_Model{
     var $registro;
     var $opciones;    
     var $categoria;
@@ -7,9 +7,9 @@ class Mdl_corporate extends CI_Model{
 
     function __construct(){
         parent::__construct();
-        $this->registro = 'registro_corporate';
-        $this->categoria = 'categoria_corporate';
-        $this->opciones = 'opciones_corporate';
+        $this->registro = 'bluechristmas_registro';
+        $this->categoria = 'bluechristmas_categoria';
+        $this->opciones = 'bluechristmas_opciones';
         $this->usuarios = 'usuarios';
         $this->load->database('samsung');
     }
@@ -27,9 +27,9 @@ class Mdl_corporate extends CI_Model{
     }
     
     function getRanking(){
-    	$this->db->select('samsung_registro_corporate.id_user,samsung_registro_corporate.tiempo as tiempo,samsung_usuarios.ciudad,samsung_usuarios.completo,samsung_registro_corporate.nivel as nivel,');
+    	$this->db->select('samsung_bluechristmas_registro.id_user,samsung_bluechristmas_registro.tiempo as tiempo,samsung_usuarios.ciudad,samsung_usuarios.completo,samsung_bluechristmas_registro.nivel as nivel,');
     	$this->db->from($this->registro);
-    	$this->db->join('samsung_usuarios', 'samsung_usuarios.id = samsung_registro_corporate.id_user');
+    	$this->db->join('samsung_usuarios', 'samsung_usuarios.id = samsung_bluechristmas_registro.id_user');
     	$this->db->order_by("nivel", "desc");
     	$this->db->limit(10);
     	$query = $this->db->get();
@@ -39,7 +39,7 @@ class Mdl_corporate extends CI_Model{
     
     function verAmigos($id){
     	$this->db->select("fbid_amigo");
-    	$this->db->from("corporate_invitados");
+    	$this->db->from("bluechristmas_invitados");
     	$this->db->where("DATE_FORMAT(creado,'%d')","DATE_FORMAT(NOW(),'%d')",FALSE);
     	$this->db->where("fbid_user",$id);
     	$consulta=$this->db->get()->result();
@@ -114,7 +114,7 @@ class Mdl_corporate extends CI_Model{
     
     function getPreguntas($nivel){
     	$query = $this->db->query("select * 
-    							   from samsung_opciones_corporate
+    							   from samsung_bluechristmas_opciones
     			                   where tipo = 1 
     							   order by RAND() LIMIT 0,5;");
     	if ($query->num_rows() > 0)
@@ -123,7 +123,7 @@ class Mdl_corporate extends CI_Model{
     
     function getPregunta($categoria, $nivel){
     	$query = $this->db->query("select *
-    							   from samsung_opciones_corporate
+    							   from samsung_bluechristmas_opciones
     			                   where tipo = 1 and categoria = ".$categoria." and nivel=".$nivel."
     							   order by RAND() LIMIT 0,1;");
     	if ($query->num_rows() > 0)

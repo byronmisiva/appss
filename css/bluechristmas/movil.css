@@ -1,0 +1,706 @@
+@CHARSET "UTF-8";
+@media only screen and (device-width: 480px) and (orientation: landscape) {
+
+}
+
+.reposicion-logo {
+    margin: 5% 1% !important;
+}
+
+/*.et-usuario
+.et-nivel
+.et-tiempo*/
+.et-ciudad {
+    display: none;
+
+}
+
+.lista-ranking {
+    font-size: 14px;
+}
+
+.contenedor-etiquetas-ranking {
+    width: 100%;
+    height: auto;
+}
+
+.etiqueta {
+    width: 30% !important;
+}
+
+@media screen and (max-width: 415px) {
+
+    .condiciones {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .container {
+        width: 100%;
+        height: auto;
+    }
+
+    body {
+        font-size: 24px;
+        background-image: none !important;
+        background: #EDDED9 !important;
+    }
+
+    .contenedor-perfil {
+        margin: 0 5%;
+        width: 55%;
+    }
+
+    .logo-smart {
+        margin-left: 15%;
+    }
+
+    .respuesta {
+        line-height: 25px;
+    }
+
+    .peril-espacio {
+        margin-top: 0;
+        width: 250px;
+        height: 45px;
+    }
+
+    .img-perfil {
+        height: 45px;
+        width: 45px;
+    }
+
+    .contenedor-control-audio {
+        display: none;
+    }
+
+    .indicador-texto {
+        font-size: 14px;
+        width: 80px;
+        padding-left: 5px;
+    }
+
+    .nombre-perfil {
+        width: 170px;
+    }
+
+    .fondo-seccion, .view-text1,
+    .view-text2, .view-text3,
+    .view-ganaste, .view-perdiste {
+        height: auto;
+    }
+
+    .logo-evento {
+        height: 170px;
+        width: 280px;
+    }
+
+    .intro-texto {
+        margin-top: 20px;
+    }
+
+    .login-caja {
+        width: 120px;
+        margin: 0 auto;
+        display: none;
+    }
+
+    .btn-ranking, .btn-jugar, .btn-instrucion {
+        display: none;
+    }
+
+    .btn-ranking, .btn-instrucion {
+        margin-top: 10px !important;
+        padding-top: 10px;
+        margin-left: 23% !important;
+    }
+
+    .btn-fondo {
+        height: 54px;
+        margin: 10px 20%;
+        border-radius: 8px;
+        padding-top: 12px;
+        font-size: 20px;
+    }
+
+    .btn-jugar {
+        height: 80px !important;
+        margin-left: 15% !important;
+        margin-right: 15px !important;
+        margin-top: 10px !important;
+        width: 240px !important;
+    }
+
+    .btn-ranking {
+        margin-left: 22% !important;
+    }
+
+    .pie-app {
+        position: fixed;
+        left: 0%;
+        bottom: 0%;
+        width: 100%;
+        height: 25px;
+    }
+
+    .minimizar {
+        height: 100px !important;
+        margin: 0px auto;
+        width: 190px !important;
+        background-size: 100% auto;
+    }
+
+    .titular, .titular p {
+        font-size: 22px;
+    }
+
+    .texto-instruciones p {
+        font-size: 14px;
+        padding: 0 !important;
+        color: #444;
+        font-family: 'MyCustomFont';
+    }
+
+    #carusel-preguntas {
+        margin-top: 175px;
+    }
+
+    .btn-centrar {
+        font-size: 20px !important;
+        margin-left: 35% !important;
+        width: 30% !important;
+        height: 50px !important;
+    }
+
+    .logo-evento-registro {
+        height: 100px;
+        margin: 0 auto;
+        width: 220px;
+    }
+
+    #register {
+        height: auto;
+        margin: 15px auto;
+        width: 100%;
+    }
+
+    .registro {
+        float: left;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .inputTexto {
+        color: #000;
+        font-size: 22px;
+        height: 45px;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .inputTexto {
+        float: left;
+    }
+
+    input {
+        height: 40px;
+    }
+
+    .btn-registro {
+        margin: 20px 22% !important;
+        height: 40px;
+        padding-top: 0;
+
+        line-height: 15px;
+
+    }
+
+    .intro-panel {
+        margin: 200px auto 0;
+    }
+
+    .btn-panel {
+        width: 200px !important;
+        margin-left: 24% !important;
+        margin-top: 14% !important;
+    }
+
+    .contenerdor-panel {
+        display: block;
+        height: 29px;
+        left: 14%;
+        margin: 80px 0 auto;
+        position: absolute;
+        top: 70px;
+        width: 74%;
+        z-index: 10000;
+
+    }
+
+    .indicador {
+        font-family: 'MyCustomFont';
+        font-size: 18px;
+        color: #284764;
+    }
+
+    .contenedor-nivel {
+        margin: 35px 25px auto 80px;
+        position: absolute;
+        right: 0%;
+        top: 3%;
+        width: 75px;
+        z-index: 10000;
+    }
+
+    .contenedor-aciertos {
+        display: block;
+        height: 35px;
+        left: 75%;
+        margin: 60px 0 auto;
+        position: absolute;
+        top: 30px;
+        width: 97px;
+        z-index: 10000;
+    }
+
+    .panel {
+        border: medium none;
+        box-shadow: none;
+        float: left;
+        height: 115px;
+        margin: 10px 10px;
+        width: 115px;
+        background-size: 100% !important;
+    }
+
+    .btn-empezar {
+        margin: 100% 8% 0;
+        position: absolute;
+        top: 190px;
+        left: 11%;
+    }
+
+    .fondo-seccion2, .view-text1, .view-text2, .view-text3, .view-ganaste, .view-perdiste {
+        eight: auto;
+        left: 4%;
+        position: absolute;
+        top: 7%;
+        width: 90%;
+    }
+
+    .obtener-categoria {
+        height: 390px;
+        width: 100%;
+        display: none;
+        top: 122px;
+        left: 0;
+        z-index: 10000;
+    }
+
+    .resultado {
+        background-size: 100% auto !important;
+        height: 200px;
+        left: 35%;
+        margin: 90px 25%;
+        width: 200px;
+        position: initial;
+        float: left;
+
+    }
+
+    .contenedor-cabeza-seccion {
+        margin: 40% auto 15px;
+        height: 55px;
+        width: 20%;
+    }
+
+    .view-resultado, .view-fin-app {
+        margin: 60% auto 0;
+    }
+
+    .contenedor-invitar {
+        height: 45px;
+        margin: 170px 15%;
+        width: 90%;
+    }
+
+    .btn-volver {
+        font-family: "caprica";
+        font-size: 22px;
+        font-weight: normal;
+        height: 75px !important;
+        margin-left: 15% !important;
+        margin-top: 35px;
+        padding: 5px 10px 10px;
+        text-align: center;
+        width: 70% !important;
+        height: auto !important;
+    }
+
+    #carusel-preguntas {
+        width: 100% !important;
+        margin-top: 170px;
+        left: 0 !important;
+    }
+
+    ul, ol {
+        display: table-footer-group;
+    }
+
+    /*.pie-top {*/
+    /*top: 92% !important;
+    margin-top: 0 !important;*/
+    /*}*/
+    .contenedor-pie-seccion {
+        position: fixed;
+        height: 25px;
+        top: 88%;
+        width: 48%;
+        z-index: 10000;
+        left: 25%;
+    }
+
+    .pregunta {
+        font-size: 14px;
+    }
+
+    .texto-informativo {
+        font-size: 18px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (max-width: 376px) {
+    .logo-evento {
+        height: 100px;
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .intro-texto {
+        margin-top: 0;
+    }
+
+    .pie-app {
+        width: 45%;
+    }
+
+    .logo-smart {
+        margin-left: 12%;
+    }
+
+    .logo-evento-registro {
+        width: 180px;
+    }
+
+    .contenerdor-panel {
+        display: block;
+        left: 10%;
+        top: 55px;
+        width: 80%;
+    }
+
+    .btn-empezar {
+        top: 210px;
+        left: 8%;
+        margin: 100% 8% 0;
+    }
+
+    .btn-panel {
+        margin-top: 10% !important;
+        margin-left: 20% !important;
+    }
+
+    .btn-jugar {
+        height: 70px !important;
+        margin-left: 13% !important;
+        margin-right: 15px !important;
+        margin-top: 5px !important;
+        width: 240px !important;
+        padding-top: 8px;
+    }
+
+    .btn-centrar {
+        height: 50px !important;
+    }
+
+    .obtener-categoria {
+        height: 390px;
+        width: 100%;
+        display: none;
+        top: 149px;
+        left: 0;
+        z-index: 10000;
+        display: none;
+    }
+
+    .resultado {
+        margin: 90px 20%;
+    }
+
+    .contenedor-invitar {
+        height: 45px;
+        margin: 170px 8%;
+        width: 95%;
+    }
+
+    .ico-face {
+        margin-left: 46px;
+    }
+
+    .contenedor-aciertos {
+        left: 72%;
+    }
+
+    .pie-app {
+        width: 100%;
+    }
+
+    .minimizar {
+        height: 77px !important;
+        margin: 0px auto;
+        width: 150px !important;
+        background-size: 100% auto;
+    }
+
+    .texto-instruciones p {
+        font-size: 12px;
+    }
+
+    .view-resultado, .view-fin-app {
+        margin: 50% auto 0;
+    }
+
+    .contenedor-cabeza-seccion {
+        margin: 42% auto 15px;
+    }
+
+    .contenedor-pie-seccion {
+        top: 85%;
+    }
+
+    .pregunta {
+        font-size: 12px;
+    }
+
+    .respuesta {
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+@media screen and (max-width: 361px) {
+    .texto-informativo {
+        font-size: 16px;
+    }
+
+    .contenerdor-panel {
+        display: block;
+        left: 11%;
+        top: 30px;
+        width: 75%;
+    }
+
+    .panel {
+        height: 100px;
+        margin: 10px 10px;
+        width: 100px;
+    }
+
+    .obtener-categoria {
+        height: 340px;
+    }
+
+    .logo-smart {
+        height: 42px;
+        margin-left: 15%;
+        width: 200px;
+        background-size: 100% !important;
+    }
+
+    .resultado {
+        margin: 65px 17%;
+    }
+
+    .btn-empezar {
+        top: 170px;
+        left: 8%;
+    }
+
+    .btn-empezar {
+        font-size: 16px;
+        width: 200px;
+    }
+
+    .pie-app {
+        width: 45%;
+        left: 25% !important;
+    }
+
+    .contenedor-pie-seccion {
+        top: 86%;
+    }
+
+    .contenedor-aciertos {
+        left: 71%;
+    }
+
+    .condiciones {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 330px) {
+
+    .btn-empezar {
+        width: 200px;
+        top: 160px;
+        left: 6%;
+    }
+
+    .texto-informativo {
+        font-size: 14px !important;
+        line-height: 18px;
+    }
+
+    .btn-fondo {
+        height: 44px;
+        margin: 10px 20%;
+        border-radius: 8px;
+        padding-top: 10px;
+        font-size: 18px;
+    }
+
+    .btn-ranking {
+        margin-left: 16% !important;
+    }
+
+    .btn-jugar {
+        height: 60px !important;
+        margin-left: 8% !important;
+        margin-right: 15px !important;
+        margin-top: 5px !important;
+        width: 240px !important;
+    }
+
+    .btn-jugar img {
+        padding-top: 5px;
+    }
+
+    .btn-ranking, .btn-instrucion {
+        margin-top: 15px !important;
+        padding-top: 10px;
+        margin-left: 16% !important;
+    }
+
+    .pie-app {
+        width: 50%;
+        left: 25% !important;
+        position: fixed;
+        bottom: 10px;
+    }
+
+    .titular, .titular p {
+        font-size: 18px;
+    }
+
+    .niveles p {
+        font-size: 12px;
+    }
+
+    .pie-app {
+        top: 55%;
+    }
+
+    .btn-panel {
+        margin-left: 15% !important;
+    }
+
+    .contenerdor-panel {
+        display: block;
+        left: 14%;
+        top: 55px;
+        width: 80%;
+    }
+
+    .panel {
+        margin: 1px 1px;
+    }
+
+    .contenedor-aciertos {
+        left: 67%;
+        top: 20px;
+    }
+
+    .contenedor-tiempo {
+        color: #fff;
+        font-size: 24px;
+        height: 34px;
+        padding-left: 7px;
+        letter-spacing: 10px;
+        float: left;
+        width: 50px;
+        background-image: url('../../imagenes/bluechristmas/preguntas/reloj.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .contenedor-cabeza-seccion {
+        margin: 48% auto 0;
+    }
+
+    .col-lg-12 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    #carusel-preguntas {
+        margin-top: 120px;
+    }
+
+    .pie-top {
+        top: 50% !important;
+    }
+
+    .contenedor-pie-seccion {
+        top: 84%;
+        left: 32%;
+    }
+
+    .pregunta {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .btn-volver {
+        height: auto !important;
+    }
+
+    .contenedor-invitar {
+        margin: 120px auto;
+        width: 100%;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .obtener-categoria {
+        height: 320px;
+        top: 145px;
+    }
+
+    .resultado {
+        margin: 65px 16%;
+    }
+
+}
+	
+	
+	
+	
+	
+	
+	
