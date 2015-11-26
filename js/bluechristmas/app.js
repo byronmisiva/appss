@@ -1,7 +1,7 @@
 window.onload = function () {
 
     backgroundAudio = document.getElementById("bgAudio");
-    backgroundAudio.volume = 0.2;
+    backgroundAudio.volume = 0.1;
 //    backgroundAudio.volume = 0;
     backgroundAudio.src = accion + "/audio/bluechristmas/bluechristmas.mp3";
 }

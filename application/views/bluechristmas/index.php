@@ -38,19 +38,15 @@
             <div class="fondo-seccion">
                 <div class="logo-evento animated"></div>
 
-                <div class="intro-texto">
-                    <p class="texto-informativo">¡Acepta el reto!<br>
-                        Responde correctamente todas las preguntas, diviértete y participa por un Smart TV.</p>
-
-                    <div class="btn-fondo btn-ranking hvr-underline-from-center">Ranking</div>
-                    <div class="btn-fondo btn-jugar hvr-underline-from-center"><img
-                            src="<?php echo base_url() ?>imagenes/bluechristmas/btn-jugar.jpg"/></div>
-                    <div class="btn-fondo btn-instrucion hvr-underline-from-center">Instruciones</div>
+                <div class="intro-texto hidden">
+                    <p >Blue Christmas</p>
+                    <p >Texto de introduccion</p>
+                    <div class="btn-fondo btn-ranking hvr-underline-from-center">Continuar</div>
                 </div>
 
-                <div class="registro hidden animated">
+                <div class="registro animated">
                     <div class="logo-evento-registro"></div>
-                    <p class="titular ">¡Antes de jugar debes registrarte!</p>
+                    <p class="titular ">Primero tienes que registrarte</p>
 
                     <form id="register" name="register" method="post" role="form"
                           class="form-horizontal formulario">
@@ -119,40 +115,25 @@
 
                 <div class="instruciones hidden animated">
                     <div>
-                        <p class="titular">¿Cómo jugar?</p>
+                        <p>Como ganar</p>
 
                         <div class="texto-instruciones">
                             <p>
-                                Challenge-On by Samsung cuenta con 4 niveles y 6 categorías de preguntas:
-                                Series, Películas, Música, Deportes, Comic’s y Ciencia. <br>
-                                Para superar un nivel debes responder correctamente 4 preguntas. <br>
-
-                                Solo avanzará al siguiente nivel el participante que respondan correctamente
-                                las 4 preguntas Cada nivel está determinado por un límite de tiempo.
-                                A medida que avances de nivel, el tiempo se reducirá:
+                                Participa por grandes premios gratis, si no lo logras no te desanimes participa todos los dias
+                                Publica en tu muro la invitacion para que tengas otra oportunidad
                             </p>
-                        </div>
-                        <div class="niveles">
-                            <p>Nivel 1: 25 segundos</p>
-
-                            <p>Nivel 2: 20 segundos</p>
-
-                            <p>Nivel 3: 15 segundos</p>
-
-                            <p>Nivel 4: 10 segundos</p>
                         </div>
                         <div>
                             <p>¡Suerte!</p>
                         </div>
                     </div>
-                    <div class="btn-fondo btn-jugar btn-centrar">Jugar</div>
+                    <div class="btn-fondo btn-jugar btn-centrar">Continuar</div>
                 </div>
-
-
             </div>
         </div>
     </div>
 </div>
+
 <div class="pie-app hidden">
     <div class="condiciones">
         <?php echo $data['condiciones']; ?>
