@@ -1,17 +1,16 @@
 window.onload = function () {
 
     backgroundAudio = document.getElementById("bgAudio");
-    backgroundAudio.volume = 0.1;
-//    backgroundAudio.volume = 0;
+//    backgroundAudio.volume = 0.1;
+    backgroundAudio.volume = 0;
     backgroundAudio.src = accion + "/audio/bluechristmas/bluechristmas.mp3";
+    verificarGame(accion , idParticipante);
 }
-
 
 ////// viejo
 
-
 function verificarGame(accion, participante) {
-    $(".espera").show();
+    //$(".espera").show();
     $.ajax({
         type: "GET",
         url: accion + controladorApp + "/verificarParticipante/" + participante,
