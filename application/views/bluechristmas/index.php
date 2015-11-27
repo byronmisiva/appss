@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Challenge-ON :: Samsung</title>
+    <title>Blu Christmas :: Samsung</title>
     <!-- fuentes -->
-    <!--<link href="<?php /*echo base_url() */?>fonts/caprica/stylesheet.css" type="text/css" rel="stylesheet">
-    <link href="<?php /*echo base_url() */?>fonts/caprica-italica/stylesheet.css" type="text/css" rel="stylesheet">
+    <!--<link href="<?php /*echo base_url() */ ?>fonts/caprica/stylesheet.css" type="text/css" rel="stylesheet">
+    <link href="<?php /*echo base_url() */ ?>fonts/caprica-italica/stylesheet.css" type="text/css" rel="stylesheet">
 
-    <link href="<?php /*echo base_url() */?>fonts/samsung_regular_if/stylesheet.css" type="text/css" rel="stylesheet">
-    <link href="<?php /*echo base_url() */?>fonts/samsung_bold_if/stylesheet.css" type="text/css" rel="stylesheet">-->
+    <link href="<?php /*echo base_url() */ ?>fonts/samsung_regular_if/stylesheet.css" type="text/css" rel="stylesheet">
+    <link href="<?php /*echo base_url() */ ?>fonts/samsung_bold_if/stylesheet.css" type="text/css" rel="stylesheet">-->
     <!-- css -->
     <link href="<?php echo base_url() ?>css/bluechristmas/bootstrap.min.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo base_url() ?>css/bluechristmas/app.css?frefresh=<?php echo rand(0, 1000) ?>" type="text/css"
@@ -19,16 +19,15 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<div class="contenedor-perfil hidden">
-    <div class="peril-espacio">
+
+<div class="container  contenedor-perfil">
+    <div class="col-md-6 col-sm-6">
         <div class="img-perfil"></div>
         <div class="nombre-perfil"></div>
     </div>
-    <div class="contenedor-control-audio">
-        <!-- autoplay-->
+    <div class="col-md-6 col-sm-6">
         <audio id="bgAudio" autoplay="autoplay" loop="loop"></audio>
-        <div class="play" onclick="document.getElementById('player').pause();"></div>
-        <div class="stop" onclick="document.getElementById('player').play();"></div>
+        <div class="btn-audioOn js--triggerAudio"></div>
     </div>
 </div>
 
@@ -37,14 +36,13 @@
         <div class="col-lg-12 ">
             <div class="fondo-seccion">
                 <div class="logo-evento animated"></div>
-
-                <div class="intro-texto hidden">
-                    <p >Blue Christmas</p>
-                    <p >Texto de introduccion</p>
-                    <div class="btn-fondo btn-ranking hvr-underline-from-center">Continuar</div>
+                <div class="secciones intro-texto ">
+                    <h2>Blue Christmas</h2>
+                    <p>Texto de introduccion</p>
+                    <div class="btn btn-default js--btn-intro hvr-underline-from-center">Continuar</div>
                 </div>
 
-                <div class="registro animated">
+                <div class="secciones registro animated hidden">
                     <div class="logo-evento-registro"></div>
                     <p class="titular ">Primero tienes que registrarte</p>
 
@@ -113,13 +111,14 @@
                     <div class="btn-fondo btn-registro">Enviar</div>
                 </div>
 
-                <div class="instruciones hidden animated">
+                <div class="secciones instruciones hidden animated">
                     <div>
                         <p>Como ganar</p>
 
                         <div class="texto-instruciones">
                             <p>
-                                Participa por grandes premios gratis, si no lo logras no te desanimes participa todos los dias
+                                Participa por grandes premios gratis, si no lo logras no te desanimes participa todos
+                                los dias
                                 Publica en tu muro la invitacion para que tengas otra oportunidad
                             </p>
                         </div>
@@ -155,7 +154,7 @@
     var idParticipante = 0;
     var modoDev = true;
     if (modoDev == true)
-        idParticipante = 1005762036104636;
+        idParticipante = 10153022504740259;
 
     var accion = "<?php echo base_url()?>";
     var controladorApp = "<?php echo $data['controlador'];?>";
@@ -164,7 +163,7 @@
 <script type="text/javascript" charset="utf-8">
     if (modoDev == true) {
         /*modo developer*/
-        idParticipante = "1005762036104636";
+        idParticipante = "10153022504740259";
         $(".img-perfil").html("Jairo Ortiz");
         $(".img-perfil").html("<img src='//graph.facebook.com/" + idParticipante + "/picture?width=75&height=75' />");
     } else {

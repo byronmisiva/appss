@@ -1,3 +1,36 @@
 @CHARSET "UTF-8";
 
+.btn-audioOn {
+    background-image: url("../../imagenes/bluechristmas/botonmusicaon.png");
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-audioOff {
+    background-image: url("../../imagenes/bluechristmas/botonmusicaoff.png");
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+
+}
+
+
+.intro-texto {
+    border: 1px solid red;
+}
+
+
+.contenedor-perfil {
+    border: 1px solid green;
+}
+
 

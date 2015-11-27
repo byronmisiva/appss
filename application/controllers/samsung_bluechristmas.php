@@ -17,7 +17,7 @@ class Samsung_bluechristmas extends CI_Controller
         $this->load->helper('form');
         $this->folderView = "bluechristmas";
         $this->data['controlador'] = "samsung_bluechristmas";
-        $this->data['idApp'] = "1665122247064113";
+        $this->data['idApp'] = "10153022504740259";
         $this->data['secretApp'] = "5687a6be17aa445a17dfcbdbfa3926e6";
         $this->data['condiciones'] = "<a href='" . base_url() . "archivos/bluechristmas/REGLAMENTO DE-TERMINOS-Y-CONDICIONES-PARA-EL-CONCURSO-bluechristmas.pdf' target='_blank' >Términos y Condiciones</a>";
     }
