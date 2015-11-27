@@ -21,22 +21,24 @@ $(document).ready(function () {
         }
     });
     $('.js--btn-intro').click(function () {
-        $('.secciones').hide();
-        console.log (idParticipante);
-        verificarGame(accion , idParticipante);
+
+        verificarGame(accion, idParticipante);
     });
 })
 
-////// viejo
+function mostrarSeccion(seccion) {
+    $('.secciones').hide();
+    $(seccion).removeClass('hidden').show();
+}
 
 function verificarGame(accion, participante) {
-    //$(".espera").show();
     $.ajax({
         type: "GET",
         url: accion + controladorApp + "/verificarParticipante/" + participante,
         data: $('#datosOpciones').serialize(),
         success: function (response) {
             if (response == "F") {
+                // si no existe el usuario en el formularios cargamos la info de FB
                 if (modoDev == false) {
                     $("#fbid").val(participante);
                     $("#nombre").val(usuarioFB.first_name);
@@ -45,15 +47,11 @@ function verificarGame(accion, participante) {
                 } else {
                     $("#fbid").val(participante);
                 }
-                $(".view-registro").fadeIn();
-                $(".intro-texto").fadeOut();
-                $(".espera").hide();
-                $(".logo-evento").hide();
-                $(".view-ranking").hide();
-                $(".view-instruciones").hide();
+                console.log ("xxxx");
+                mostrarSeccion('.registro');
             } else {
-                $(".container").load(accion + controladorApp + "/ingresoActividad/" + dis, {'user': participante});
-                $(".espera").hide();
+                console.log ("yyy");
+                mostrarSeccion('.registro');
             }
         }
     });

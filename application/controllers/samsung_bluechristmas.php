@@ -63,6 +63,28 @@ class Samsung_bluechristmas extends CI_Controller
         $this->load->view($this->folderView . '/movil', array('data' => $this->data));
     }
 
+    function verificarParticipante($id)
+    {
+        $participante = $this->usuario_samsung->getUserFbid($id);
+        if ($participante == "0") {
+            echo "F";
+        } else {
+            $registro = $this->modelo->buscarUser($participante->id);
+            if ($registro == FALSE)
+                echo "F";
+            else {
+                $participante = $this->modelo->buscarUserFbid($id);
+                $actividades = (int)$participante->actividad;
+                $actividades = $actividades + 1;
+                $this->db->where("fbid", $id);
+                $this->db->update("bluechristmas_registro", array("actividad" => $actividades));
+                echo "A";
+            }
+        }
+    }
+
+    // old
+
     function register()
     {
         $resp = "0";
@@ -104,26 +126,7 @@ class Samsung_bluechristmas extends CI_Controller
 
 
 
-    function verificarParticipante($id)
-    {
-        $participante = $this->usuario_samsung->getUserFbid($id);
-        if ($participante == "0") {
-            echo "F";
-        } else {
-            //$participante=$this->usuario_samsung->getUserFbid($id);
-            $registro = $this->modelo->buscarUser($participante->id);
-            if ($registro == FALSE)
-                echo "F";
-            else {
-                $participante = $this->modelo->buscarUserFbid($id);
-                $actividades = (int)$participante->actividad;
-                $actividades = $actividades + 1;
-                $this->db->where("fbid", $id);
-                $this->db->update("bluechristmas_registro", array("actividad" => $actividades));
-                echo "A";
-            }
-        }
-    }
+
 
     function ingresoActividad($sw = "0")
     {
