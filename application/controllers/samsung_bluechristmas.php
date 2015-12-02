@@ -122,21 +122,16 @@ class Samsung_bluechristmas extends CI_Controller
         }
     }
 
-    //
+    // funcion encargada de grabar la actividad y devolver si se gana o no un premio
     function validarCodigo()
     {
 
         // graba participacion y escoje si es ganador o no
 
-        return true;
+        return "F";
+        //return "T";
     }
-
-
-
-
-
-
-    /* function ingresoActividad($sw = "0")
+     /* function ingresoActividad($sw = "0")
      {
          $data['user'] = json_decode($_POST['user']);
          $data['condiciones'] = $this->data['condiciones'];

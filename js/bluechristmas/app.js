@@ -1,4 +1,5 @@
-audioOnOff = 1;
+var audioOnOff = 1;
+var backgroundAudio;
 
 window.onload = function () {
     backgroundAudio = document.getElementById("bgAudio");
@@ -6,7 +7,7 @@ window.onload = function () {
     backgroundAudio.volume = 0;
     backgroundAudio.src = accion + "/audio/bluechristmas/bluechristmas.mp3";
 
-}
+};
 
 $(document).ready(function () {
     $('.js--triggerAudio').click(function () {
@@ -47,7 +48,7 @@ $(document).ready(function () {
     $('.js--btn-sorteo').click(function () {
         mostrarSeccion('.sorteo')
     });
-})
+});
 
 function mostrarSeccion(seccion) {
     $('.secciones').hide();
@@ -76,7 +77,7 @@ function verificarGame(accion, participante) {
             }
         }
     });
-};
+}
 
 function enviarForma(forma) {
     $.ajax({
@@ -88,5 +89,5 @@ function enviarForma(forma) {
         }
     });
     return false;
-};
+}
 
