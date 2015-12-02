@@ -50,8 +50,7 @@ class Samsung_bluechristmas extends CI_Controller
     {
         if ($this->verificarDispositivo() == "1")
             $this->movil();
-        else
-        {
+        else {
             $this->data['dispositivo'] = "normal";
             $this->load->view($this->folderView . '/index', array('data' => $this->data));
         }
@@ -123,38 +122,47 @@ class Samsung_bluechristmas extends CI_Controller
         }
     }
 
-
-
-
-
-
-    function ingresoActividad($sw = "0")
+    //
+    function validarCodigo()
     {
-        $data['user'] = json_decode($_POST['user']);
-        $data['condiciones'] = $this->data['condiciones'];
-        $data["dispositivo"] = $sw;
-        $data["usuario"] = $this->modelo->buscarUserFbid($data['user']);
-        $this->load->view($this->folderView . '/actividad', $data);
+
+        // graba participacion y escoje si es ganador o no
+
+        return true;
     }
 
-    function getOpcion()
-    {
-        $categoria = json_decode($_POST['data']);
-        $nivel = json_decode($_POST['parte']);
-        //$preguntas = $this->modelo->getPregunta($categoria, $nivel);
-        //$data["preguntas"]=$this->modelo->getPreguntas();
-        $dato["preguntas"] = $this->modelo->getPregunta($categoria, $nivel);
-        $dato["respuestas"] = array();
-        foreach ($dato["preguntas"] as $row) {
-            $auxiliar = $this->modelo->getRespuesta($row->id);
-            foreach ($auxiliar as $row2) {
-                array_push($dato["respuestas"], $row2);
-            }
-        }
-        $this->load->view($this->folderView . '/listado_preguntas', $dato);
-    }
 
-    function getOpcionMobile()
+
+
+
+
+    /* function ingresoActividad($sw = "0")
+     {
+         $data['user'] = json_decode($_POST['user']);
+         $data['condiciones'] = $this->data['condiciones'];
+         $data["dispositivo"] = $sw;
+         $data["usuario"] = $this->modelo->buscarUserFbid($data['user']);
+         $this->load->view($this->folderView . '/actividad', $data);
+     }*/
+
+    /* function getOpcion()
+     {
+         $categoria = json_decode($_POST['data']);
+         $nivel = json_decode($_POST['parte']);
+         //$preguntas = $this->modelo->getPregunta($categoria, $nivel);
+         //$data["preguntas"]=$this->modelo->getPreguntas();
+         $dato["preguntas"] = $this->modelo->getPregunta($categoria, $nivel);
+         $dato["respuestas"] = array();
+         foreach ($dato["preguntas"] as $row) {
+             $auxiliar = $this->modelo->getRespuesta($row->id);
+             foreach ($auxiliar as $row2) {
+                 array_push($dato["respuestas"], $row2);
+             }
+         }
+         $this->load->view($this->folderView . '/listado_preguntas', $dato);
+     }*/
+
+    /*function getOpcionMobile()
     {
         $categoria = json_decode($_POST['data']);
         $nivel = json_decode($_POST['parte']);
@@ -167,18 +175,18 @@ class Samsung_bluechristmas extends CI_Controller
             }
         }
         $this->load->view($this->folderView . '/listado_preguntasmovil', $dato);
-    }
+    }*/
 
-    function sumarCompartida($id)
-    {
-        $participante = $this->modelo->buscarUserFbid($id);
-        $compartidos = (int)$participante->compartidos;
-        $compartidos = $compartidos + 1;
-        $this->db->where("fbid", $id);
-        $this->db->update("entradas_juanes", array("compartidos" => $compartidos));
-    }
+    /* function sumarCompartida($id)
+     {
+         $participante = $this->modelo->buscarUserFbid($id);
+         $compartidos = (int)$participante->compartidos;
+         $compartidos = $compartidos + 1;
+         $this->db->where("fbid", $id);
+         $this->db->update("entradas_juanes", array("compartidos" => $compartidos));
+     }*/
 
-    function saveUser()
+    /*function saveUser()
     {
         $participante = $this->modelo->buscarUserFbid($_POST["participante"]);
         $valorTiempo = (int)$participante->tiempo;
@@ -191,25 +199,25 @@ class Samsung_bluechristmas extends CI_Controller
         $this->db->where("fbid", $_POST["participante"]);
         $this->db->update("bluechristmas_registro", array("nivel" => $valor, "tiempo" => $valorTiempo));
         echo $valor;
-    }
+    }*/
 
-    function negativoUser()
-    {
-        $participante = $this->modelo->buscarUserFbid($_POST["participante"]);
-        $this->db->where("fbid", $_POST["participante"]);
-        $this->db->update("bluechristmas_registro", array("nivel" => "1"));
-        echo "1";
+    /* function negativoUser()
+     {
+         $participante = $this->modelo->buscarUserFbid($_POST["participante"]);
+         $this->db->where("fbid", $_POST["participante"]);
+         $this->db->update("bluechristmas_registro", array("nivel" => "1"));
+         echo "1";
 
-    }
+     }*/
 
-    function contadorAciertos()
-    {
-        $participante = $this->modelo->buscarUserFbid($_POST["participante"]);
-        $valor = (int)$participante->aciertos;
-        $valor = $valor + 1;
-        $this->db->where("fbid", $_POST["participante"]);
-        $this->db->update("entradas_juanes", array("aciertos" => $valor));
-    }
+    /* function contadorAciertos()
+     {
+         $participante = $this->modelo->buscarUserFbid($_POST["participante"]);
+         $valor = (int)$participante->aciertos;
+         $valor = $valor + 1;
+         $this->db->where("fbid", $_POST["participante"]);
+         $this->db->update("entradas_juanes", array("aciertos" => $valor));
+     }*/
 
     function contadorErrados()
     {
@@ -272,15 +280,15 @@ class Samsung_bluechristmas extends CI_Controller
         $this->db->update("bluechristmas_registro", array("invitarfb" => $valor));
     }
 
-    function invitarTwitter($id)
-    {
-        $participante = $this->usuario_samsung->getUserFbid($id);
-        $registro = $this->modelo->buscarUser($participante->id);
-        $valor = (int)$registro->invitarfw;
-        $valor = $valor + 1;
-        $this->db->where("id_user", $participante->id);
-        $this->db->update("bluechristmas_registro", array("invitartw" => $valor));
-    }
+    /* function invitarTwitter($id)
+     {
+         $participante = $this->usuario_samsung->getUserFbid($id);
+         $registro = $this->modelo->buscarUser($participante->id);
+         $valor = (int)$registro->invitarfw;
+         $valor = $valor + 1;
+         $this->db->where("id_user", $participante->id);
+         $this->db->update("bluechristmas_registro", array("invitartw" => $valor));
+     }*/
 
 }
 

@@ -21,8 +21,31 @@ $(document).ready(function () {
         }
     });
     $('.js--btn-intro').click(function () {
-
         verificarGame(accion, idParticipante);
+    });
+    $('.js--btn-instruciones').click(function () {
+        $.post(accion + controladorApp + "/validarCodigo", {
+            nombre: $('#nombre').val(),
+            apellido: $('#apellido').val(),
+            telefono: $('#telefono').val(),
+            cedula: $('#cedula').val(),
+            mail: $('#mail').val(),
+            ciudad: $('#ciudad').val(),
+            user: $('#user').val(),
+            fbid: $('#fbid').val()
+        })
+            .done(function (data) {
+                if (data == 'F') {
+                   // todo : implementar function
+                   // mostrarCodigoErrado()
+                } else {
+                    mostrarSeccion('.sorteo');
+                }
+            });
+
+    });
+    $('.js--btn-sorteo').click(function () {
+        mostrarSeccion('.sorteo')
     });
 })
 
@@ -47,10 +70,8 @@ function verificarGame(accion, participante) {
                 } else {
                     $("#fbid").val(participante);
                 }
-                console.log ("xxxx");
                 mostrarSeccion('.registro');
             } else {
-                console.log ("yyy");
                 mostrarSeccion('.registro');
             }
         }
@@ -63,7 +84,7 @@ function enviarForma(forma) {
         url: accion + controladorApp + "/register",
         data: $('#' + forma).serialize(),
         success: function (respuesta2) {
-            //$('.container').load(accion + controladorApp + "/ingresoActividad/" + dis, {'user': idParticipante});
+            mostrarSeccion('.instruciones')
         }
     });
     return false;

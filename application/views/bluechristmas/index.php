@@ -126,8 +126,24 @@
                             <p>¡Suerte!</p>
                         </div>
                     </div>
-                    <div class="btn-fondo btn-jugar btn-centrar">Continuar</div>
+                    <div class="btn btn-default js--btn-instruciones hvr-underline-from-center">Continuar</div>
+
                 </div>
+
+                <div class="secciones sorteo hidden animated">
+                    <div>
+                        <p>Actividad de sorteo</p>
+
+                        <div class="texto-instruciones">
+                            <p>
+                                Texto de sorteo
+                            </p>
+                        </div>
+                    </div>
+                    <div class="btn btn-default js--btn-sorteo hvr-underline-from-center">Continuar</div>
+
+                </div>
+
             </div>
         </div>
     </div>
