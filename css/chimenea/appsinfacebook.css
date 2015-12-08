@@ -1,0 +1,1148 @@
+@CHARSET "UTF-8";
+html{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+    background-image: url("../../imagenes/samsung_flappy_santa/fondo-sin.jpg");
+    font-family: mf_really_awesomeregular;
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+}
+
+#gameDiv{
+	display:block;
+	width: 100%;
+	height: 100%;
+}
+
+#contenedor-compartir{
+	height: 65px;
+    margin: 5% auto 0;
+    width: 80%;
+}
+
+.contenedor-sesionFB{
+	width: 100px;
+	margin: 0 auto;
+}
+
+.contenedor-informacion{
+	 background-image: url("../../imagenes/samsung_flappy_santa/app/cuadro-textos.png?frefresh=65464979");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 305px;
+    left: 12%;
+    position: absolute;
+    top: 23%;
+    width: 604px;
+}
+.luces{
+	background-image: url("../../imagenes/samsung_flappy_santa/app/luces2.png");
+    background-repeat: no-repeat;
+    width:810px;
+    height:464px;
+    position: absolute;
+    left:0;
+    top:117px;
+    display: block;
+}
+
+.fin-actividad{
+	background-image: url("../../imagenes/samsung_flappy_santa/app/bg.jpg");
+    background-repeat: no-repeat;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	position:absolute;
+	display:none;
+	z-index: 10000;
+}
+
+.tituloInstrucion{
+	 font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 25px;
+    padding-top: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cerrarInstrucciones{
+	 background-color: transparent;
+    background-image: url("../../imagenes/samsung_halloween/fan/cerrar.png");
+    background-repeat: no-repeat;
+    border: medium none;
+    cursor: pointer;
+    height: 70px;
+    margin: 25px 30%;
+    width: 221px;
+}
+
+.logo{
+    background-image: url("../../imagenes/samsung_flappy_santa/app/LOGO_APP.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 140px;
+    margin: 2% auto 0;
+    width: 200px;
+}
+.btn{
+	background-image: url("../../imagenes/samsung_flappy_santa/app/btn.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 20px;
+    height: 80px;
+    padding-top: 23px;
+    width: 120px;
+}
+
+.btn-sumbit{ 
+     height: 60px !important;
+    margin-left: 25%;
+    padding-top: 5px !important;
+}
+
+.cuadroInstruciones{
+	  background-color: #fff;
+      font-size: 18px;
+      padding: 10px 45px 35px;
+}
+
+.texto-intro{	
+ color: #ce272a;
+    font-size: 28px;
+    height: auto;
+    line-height: 30px;
+    margin: 12% auto 0;
+    text-align: center;
+    width: 480px;
+}
+
+.texto-instrucciones{	
+	height: 206px;
+    left: 5%;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    width: 540px;
+	display: none;
+}
+
+.texto-instrucciones p{
+	color: #ce272a;
+    font-size: 33px;
+    margin: 4% auto 0;
+    text-align: center;
+    width: 200px;
+}
+
+.texto-instrucciones table{
+	color: #ce272a;
+    font-size: 20px;
+    width: 100%;
+    margin: 0 auto 0;
+}
+
+
+
+.texto_inicio{
+    height: 206px;
+    margin: 13% auto 49px;
+    width: 461px;
+    color:#ce272a;
+}
+
+.mascara{	 
+    height: 226px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+.contendor-actividad{
+	width: 100%;
+	height:100%;
+	position:absolute;
+	left: 0;
+	top:0;
+	background-image: url('../../imagenes/samsung_flappy_santa/app/fondo.jpg');
+	background-repeat: no-repeat;
+	background-size:100% auto;
+}
+
+.actividad-ranking{
+	width: 100%;
+	height:100%;
+	position:absolute;
+	left: 0;
+	top:0;
+	background-image: url('../../imagenes/samsung_flappy_santa/app/fondo.jpg');
+	background-repeat: no-repeat;
+	background-size:100% auto;
+	display: none;
+}
+
+.tabla-ranking{
+	width: 45%;
+	margin: 0 auto;
+}
+
+.tabla-ranking tr td{
+	font-size: 17px;
+}
+
+.punto{
+	text-align: center;
+	color: #ce272a;
+}
+
+.tabla-ranking-grupo{
+	float: left;
+	margin-left: 3%;
+}
+
+.texto-ranking{
+	 margin: 2% auto 0 !important;
+}
+
+
+
+.logo-samsung{
+	 background-image: url("../../imagenes/samsung_flappy_santa/app/LOGO.png");
+    background-repeat: no-repeat;
+    height: 68px;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    width: 155px;
+}
+
+
+.actividad{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+	display: none;
+}
+
+.btn-acepta{ 	
+    cursor: pointer;
+    float: left;    
+    margin-left: 80px;
+    margin-top: 210px;
+}
+
+.btn-registro{
+	background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    height: 41px;
+    margin-left: 180px;
+    margin-top: 565px;
+    padding-bottom: 15px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+ .btn-instruciones{
+    cursor: pointer;
+    float: left;
+    margin-left: 48px;
+    margin-top: 210px;    
+ }
+ 
+ .btn:hover{
+ 	color:#fff !important;
+ }
+ 
+ .btn-ranking{
+ 	cursor: pointer;
+    float: left;    
+    margin-left: 48px;
+    margin-top: 210px;    
+}
+ 
+ .btn-inicio{
+ 	background-color: transparent;
+    background-image: url("../../imagenes/samsung_halloween/inicio.png");
+    border: medium none;
+    cursor: pointer;
+    height: 76px;
+    margin: 0 auto;
+    width: 223px;
+ }
+
+.btn-compartir, .btn-invitar, .btn-jugar, .btn-cerrar,.btn-facebook,.btn-wapp, .btn-cerrar-modal {    
+   cursor: pointer;
+    float: left;
+    margin-right: 50px;
+}
+
+.btn-facebook{
+	margin-top: 20px;
+}
+
+.normal{
+	display: block;
+}
+
+.mobile{
+	display: none;
+}
+
+.btn-cerrar {
+	margin-left: 35%;
+	}
+	
+	.cierre-actividad{
+	background-image: url("../../imagenes/samsung_flappy_santa/app/bg.jpg");
+    background-repeat: no-repeat;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	position:absolute;
+	display:none;
+}
+    	
+
+.btn-compartir{
+ 	margin-left: 0 !important;
+    margin-right: 50px !important;
+}
+
+.btn-invitar{
+	margin-left: 10px !important;
+}
+
+.btn-jugar{
+	margin-left: 0;
+    margin-right: 0;
+}
+
+.logo-app{
+    height: 198px;
+    left: 27%;
+    position: absolute;
+    top: 8%;
+    width: 372px;
+}
+
+	.sombra{
+		position:absolute;
+		width:100%;
+		height: 100%;
+		left:0;
+		top:0;
+		background-color: rgba(255,255, 255, 0.5);
+	}
+	
+	
+	
+.fondo-registro{
+    color: #ce272a;
+    height: 163px;
+    margin-left: 25%;
+    padding-top: 7%;
+    width: 65px;
+}
+
+.fondo-registro table{    
+    width: 100%;
+    color:#ce272a;
+     font-size: 19px;
+}
+
+.fondo-registro tr{
+    height: 20px;    
+}
+
+.fondo-registro tr td{      
+}
+	
+	.fondo-registros{	
+		background-image:url('../../imagenes/samsung_halloween/CUADRO.png');
+		background-size: 100% 100%;
+	    color: #42332a;
+	    margin: 20% auto;
+	    text-align: center;
+	    width: 618px;
+	}	
+
+	.container{
+		  height: 767px;
+	    margin: 10px auto !important;
+	    overflow: hidden !important;
+	    padding: 0;
+	    position: relative;
+	    width: 810px !important;
+	}
+
+#condiciones{
+ 	bottom: 30px;
+    font-family: Arial,sans-serif;
+    font-size: 10px;
+    margin: 0 auto;
+    position: absolute;
+    text-align: justify;
+    width: 800px;	
+}
+
+.inputTexto{
+	background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    height: 27px !important;
+    
+    overflow: hidden !important;
+    padding-top: 0 !important;
+    width: 90% !important;
+}
+
+.registro {
+    height: 250px;
+    left: 220px;
+    position: absolute;
+    top: 5px;
+    width: 300px;
+}
+
+input{
+	background-color: transparent;
+    background-image: url("../../imagenes/samsung_flappy_santa/app/fondo-texto.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: medium none;
+    color: #42332a;
+    font-size: 18px;
+    height: 27px;
+    padding-left: 10px;
+    width: 356px;
+}
+
+.contenedorMensaje{
+	width: 500px;
+    margin: 35% auto 0;
+    border: 1px solid #ce272a;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+#alerta{
+	height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;	
+}
+
+.contenidoTabla2{
+	color: #ce272a;
+    font-size: 20px;
+}
+
+.contenedor-informacion p{
+	color: #ce272a;
+    font-size: 33px;
+    margin: 4% auto 0;
+    text-align: center;
+    width: 100%;
+}
+
+.titulo-fin{
+	margin-top: 10px;
+}
+
+.titulo-compartir{
+	margin: 6% auto 0 !important;
+}
+
+.tabla-ranking th{
+		color:#ce272a;
+	}
+	
+	.punto{
+		text-align: center;
+		color: #ce272a;
+	}
+	
+	.btn-continuar{
+		cursor: pointer;
+	    float: left;
+	    margin-top: 210px;
+	    margin-left: 250px;
+	}
+
+
+
+
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #ffffff !important;
+}
+
+.aviso {
+    background-clip: padding-box;
+    border: none !important;
+    border-radius: 6px;
+    box-shadow: none !important;
+    outline: 0 none;
+    position: relative;
+    margin-top: 38%;
+}
+
+
+
+.form-horizontal .form-group {
+    margin-bottom: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+@media screen and (max-width: 400px) {
+	.normal{
+		display: none;
+	}
+	
+	.mobile{
+		display: block;
+	}
+	
+	.container {	
+		margin: 0px auto !important;
+	    overflow: hidden !important;
+	    padding: 0;
+	    position: relative;
+	    width: 100% !important;
+	}
+	
+	.contenedorMensaje{		
+		width: 280px;
+	    margin: 35% auto 0;
+	    border: 1px solid #ce272a;
+	    border-radius: 15px;
+	    background-color: #fff;
+	}
+	
+	
+	.contendor-actividad {	    
+	    background-size: cover !important;
+	}
+	
+	.logo {	 
+	    height: 100px;
+	    margin: 2% auto 0;
+	    width: 150px;
+	    background-size: 100%;
+	}
+	
+	.luces {
+	     background-image: url("../../imagenes/samsung_flappy_santa/app/luces mobile.png");
+	    height: 508px;
+	    top: 82px;
+	    width: 327px;
+	    left: 5%;
+	        display: none;
+	}
+	
+	.contenedor-informacion {
+	   background-image: url("../../imagenes/samsung_flappy_santa/app/cuadro-textos.png");
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+	    height: 65%;
+	    left: 14%;
+	    position: absolute;
+	    top: 21%;
+	    width: 72%;
+	}
+	
+	.texto-intro {
+	    color: #ce272a;
+	    font-size: 20px;
+	    height: auto;
+	    line-height: 30px;
+	    margin: 22% auto 0;
+	    text-align: center;
+	    width: 90%;
+	}
+	
+	.btn-acepta {
+	    cursor: pointer;
+	    float: none;
+	    margin-top: 255px;
+	}
+	
+	.btn-instruciones {
+	    cursor: pointer;
+ 		position: relative;
+	    margin-top: 0px;
+	}
+	
+	.btn-ranking {
+	    cursor: pointer;
+	    float: none;
+	    margin-top: 0px;
+	}
+	
+	.btn {
+	    background-image: url("../../imagenes/samsung_flappy_santa/app/btn.png");
+	    background-position: center center;
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+	    color: #fff;
+	    font-size: 20px;
+	    height: 40px;
+	    margin-left: 25% !important;
+	    padding-top: 3px;
+	    width: 120px;
+	}
+	
+	.mascara {
+	    height: 280px;
+	    left: 0;
+	    overflow: hidden;
+	    position: absolute;
+	    top: 0;
+	    width: 100%;
+	}
+	
+	.texto-instrucciones {
+	    height: auto;
+	    left: 5%;
+	    margin: 0 auto;
+	    position: absolute;
+	    top: 0;
+	    width: 90%;
+	}
+	
+	.texto-instrucciones p {
+	    color: #ce272a;
+	    font-size: 24px;
+	    margin: 4% auto 0;
+	    text-align: center;
+	    width: 200px;
+	}
+	
+	.texto-instrucciones table {
+	    color: #ce272a;
+	    font-size: 14px;
+	    margin: 0 auto;
+	    width: 100%;
+	}
+	
+	.logo-samsung {
+	    background-image: url("../../imagenes/samsung_flappy_santa/app/LOGO.png");
+	    background-repeat: no-repeat;
+	    height: 45px;
+	    position: absolute;
+	    right: 0;
+	    top: 5px;
+	    width: 120px;
+	    background-size: 100%;
+	}
+	
+	#contenedor-compartir {
+	    height: 140px;
+	    margin: 5% auto 0;
+	    width: 100%;
+	}
+	
+	.fondo-registro {
+	    color: #ce272a;
+	    height: 163px;
+	    margin-left: 5%;
+	    padding-top: 6%;
+	    width: 65px;
+	}
+	
+	.registro {
+	    height: 250px;
+	    left: 30%;
+	    position: absolute;
+	     top: 13%;
+	    width: 64%;
+	}
+	
+	
+	.btn-sumbit {
+	    height: 60px !important;
+	    margin-left: 7% !important;
+	    padding-top: 5px !important;
+	}
+	
+	.contenedor-informacion p {
+	    color: #ce272a;
+	    font-size: 22px;
+	     margin: 5% auto 0;
+	    text-align: center;
+	    width: 100%;
+	    height: 40px;
+	}
+	
+
+	
+	.actividad-ranking {
+	    background-size: cover;
+	}
+	
+	.tabla-ranking {
+	    margin: 0 auto;
+	    width: 90%;
+	}
+	
+	.tabla-ranking tr td {
+	    font-size: 12px;
+	}
+	
+	.tabla-ranking th{
+		color:#ce272a;
+	}
+	
+	.punto{
+		text-align: center;
+		color: #ce272a;
+	}
+	
+	.btn-continuar {
+	    cursor: pointer;
+	    float: left;
+	    margin-left: 250px;
+	    margin-top: 360px !important;
+	}
+	
+	.modal-dialog{
+	width:100% !important;
+	margin-top: 15% auto !important;
+	}
+	
+	..modal{
+	background-color: rgba(255,255,255,0.5) !important;
+	}
+	
+	.modal-content{
+	height: 250px !important;
+	}
+	
+	.modal-title {
+	    color: #ce272a;
+	    font-family: mf_really_awesomeregular;
+	    line-height: 1.42857;
+	    margin: 0;
+	    font-size: 24px !important;
+	}
+	
+	.modal-header{
+	text-align: center;
+	}
+	}
+
+
+@media screen and (max-width: 361px) {
+	
+	.normal{
+		display: none;
+	}
+	
+	.mobile{
+		display: block;
+	}
+	
+	.container {	
+		margin: 0px auto !important;
+	    overflow: hidden !important;
+	    padding: 0;
+	    position: relative;
+	    width: 100% !important;
+	}
+	
+	.contenedorMensaje{		
+		width: 280px;
+	    margin: 35% auto 0;
+	    border: 1px solid #ce272a;
+	    border-radius: 15px;
+	    background-color: #fff;
+	}
+	
+	
+	.contendor-actividad {	    
+	    background-size: cover !important;
+	}
+	
+	.logo {	 
+	    height: 100px;
+	    margin: 2% auto 0;
+	    width: 150px;
+	    background-size: 100%;
+	}
+	
+	.luces {
+	     background-image: url("../../imagenes/samsung_flappy_santa/app/luces mobile.png");
+	    height: 508px;
+	    top: 82px;
+	    width: 327px;
+	    left: 5%;
+	    display: block;
+	}
+	
+	.contenedor-informacion {
+	   background-image: url("../../imagenes/samsung_flappy_santa/app/cuadro-textos.png");
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+	    height: 65%;
+	    left: 14%;
+	    position: absolute;
+	    top: 21%;
+	    width: 72%;
+	}
+	
+	.texto-intro {
+	    color: #ce272a;
+	    font-size: 20px;
+	    height: auto;
+	    line-height: 30px;
+	    margin: 22% auto 0;
+	    text-align: center;
+	    width: 90%;
+	}
+	
+	.btn-acepta {
+	    cursor: pointer;
+	    float: none;
+	    margin-top: 255px;
+	}
+	
+	.btn-instruciones {
+	    cursor: pointer;
+ 		position: relative;
+	    margin-top: 0px;
+	}
+	
+	.btn-ranking {
+	    cursor: pointer;
+	    float: none;
+	    margin-top: 0px;
+	}
+	
+	.btn {
+	    background-image: url("../../imagenes/samsung_flappy_santa/app/btn.png");
+	    background-position: center center;
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+	    color: #fff;
+	    font-size: 20px;
+	    height: 40px;
+	    margin-left: 25% !important;
+	    padding-top: 3px;
+	    width: 120px;
+	}
+	
+	.mascara {
+	    height: 280px;
+	    left: 0;
+	    overflow: hidden;
+	    position: absolute;
+	    top: 0;
+	    width: 100%;
+	}
+	
+	.texto-instrucciones {
+	    height: auto;
+	    left: 5%;
+	    margin: 0 auto;
+	    position: absolute;
+	    top: 0;
+	    width: 90%;
+	}
+	
+	.texto-instrucciones p {
+	    color: #ce272a;
+	    font-size: 24px;
+	    margin: 4% auto 0;
+	    text-align: center;
+	    width: 200px;
+	}
+	
+	.texto-instrucciones table {
+	    color: #ce272a;
+	    font-size: 14px;
+	    margin: 0 auto;
+	    width: 100%;
+	}
+	
+	.logo-samsung {
+	    background-image: url("../../imagenes/samsung_flappy_santa/app/LOGO.png");
+	    background-repeat: no-repeat;
+	    height: 45px;
+	    position: absolute;
+	    right: 0;
+	    top: 5px;
+	    width: 120px;
+	    background-size: 100%;
+	}
+	
+	#contenedor-compartir {
+	    height: 140px;
+	    margin: 5% auto 0;
+	    width: 100%;
+	}
+	
+	.fondo-registro {
+	    color: #ce272a;
+	    height: 163px;
+	    margin-left: 5%;
+	    padding-top: 6%;
+	    width: 65px;
+	}
+	
+	.registro {
+	    height: 250px;
+	    left: 30%;
+	    position: absolute;
+	     top: 13%;
+	    width: 64%;
+	}
+	
+	
+	.btn-sumbit {
+	    height: 60px !important;
+	    margin-left: 7% !important;
+	    padding-top: 5px !important;
+	}
+	
+	.contenedor-informacion p {
+	    color: #ce272a;
+	    font-size: 22px;
+	     margin: 5% auto 0;
+	    text-align: center;
+	    width: 100%;
+	    height: 40px;
+	}
+	
+
+	
+	.actividad-ranking {
+	    background-size: cover;
+	}
+	
+	.tabla-ranking {
+	    margin: 0 auto;
+	    width: 90%;
+	}
+	
+	.tabla-ranking tr td {
+	    font-size: 12px;
+	}
+	
+	.tabla-ranking th{
+		color:#ce272a;
+	}
+	
+	.punto{
+		text-align: center;
+		color: #ce272a;
+	}
+	
+	.btn-continuar {
+	    cursor: pointer;
+	    float: left;
+	    margin-left: 250px;
+	    margin-top: 360px !important;
+	}
+	
+	.modal-dialog{
+	width:100% !important;
+	margin-top: 15% auto !important;
+	}
+	
+	..modal{
+	background-color: rgba(255,255,255,0.5) !important;
+	}
+	
+	.modal-content{
+	height: 250px !important;
+	}
+	
+	.modal-title {
+	    color: #ce272a;
+	    font-family: mf_really_awesomeregular;
+	    line-height: 1.42857;
+	    margin: 0;
+	    font-size: 24px !important;
+	}
+	
+	.modal-header{
+	text-align: center;
+	}
+}
+
+
+
+@media screen and (max-width: 321px) {
+	
+	.normal{
+		display: none;
+	}
+	
+	.mobile{
+		display: block;
+	}
+	
+	.titulo-fin{
+	 	margin: 0% auto 25px !important;
+	}
+	
+	.container {	
+		margin: 0px auto !important;
+	    overflow: hidden !important;
+	    padding: 0;
+	    position: relative;
+	    width: 100% !important;
+	}
+	
+	.contendor-actividad {	    
+	    background-size: cover !important;
+	}
+	
+	.logo {	 
+	    height: 100px;
+	    margin: 2% auto 0;
+	    width: 150px;
+	    background-size: 100%;
+	}
+	
+	.luces {
+	     background-image: url("../../imagenes/samsung_flappy_santa/app/luces mobile.png");
+	    height: 508px;
+	    top: 82px;
+	    width: 327px;
+	    left: 0%;
+	    display: block;
+	}
+	
+	.contenedor-informacion {
+	      background-image: url("../../imagenes/samsung_flappy_santa/app/cuadro-textos.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 74%;
+    left: 13%;
+    position: absolute;
+    top: 21%;
+    width: 75%;
+	}
+	
+	.texto-intro {
+    color: #ce272a;
+    font-size: 20px;
+    height: auto;
+    line-height: 30px;
+    margin: 22% auto 0;
+    text-align: center;
+    width: 94%;
+}
+
+	.contenedor-sesionFB {
+	    margin: 0 auto;
+	    width: 90px;
+	}
+	
+	.mascara {
+	     height: 300px;
+	    left: 0;
+	    overflow: hidden;
+	    position: absolute;
+	    top: 0;
+	    width: 100%;
+	}
+	
+	.btn {
+	     background-image: url("../../imagenes/samsung_flappy_santa/app/btn.png");
+	    background-position: center center;
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+	    font-size: 20px;
+	    height: 40px;
+	    margin-left: 25% !important;
+	    padding-top: 0;
+	    width: 120px;
+	    margin-top: 2px;	    
+	}
+	
+	.btn-acepta {
+	    cursor: pointer;
+	     position: relative;
+	    margin-top: 220px;
+	}
+	
+	.btn-continuar {
+	    cursor: pointer;
+	    float: left;
+	    margin-left: 250px;
+	    margin-top: 300px !important;
+	}
+	
+	.modal-dialog{
+	width:100% !important;
+	margin-top: 15% auto !important;
+	}
+	
+	..modal{
+	background-color: rgba(255,255,255,0.5) !important;
+	}
+	
+	.modal-content{
+	height: 250px !important;
+	}
+	
+	.modal-title {
+	    color: #ce272a;
+	    font-family: mf_really_awesomeregular;
+	    line-height: 1.42857;
+	    margin: 0;
+	    font-size: 24px !important;
+	}
+	
+	.modal-header{
+	text-align: center;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

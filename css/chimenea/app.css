@@ -1,0 +1,274 @@
+@CHARSET "UTF-8";
+
+html{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'mf_really_awesomeregular';
+}
+
+#gameDiv{
+	display:block;
+	width: 100%;
+	height: 100%;
+}
+
+#fondo-nieve{
+	display:block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+
+
+
+
+
+	.normal{
+		display: block;
+	}
+	
+	.mobile{
+		display: none;
+	}
+
+
+.titulo-fin{
+	width: 100%;
+}
+
+.margin-10{
+	margin-top: 10px;
+}
+
+.margin-20{
+	margin-top: 20px;
+}
+
+.margin-40{
+	margin-top: 40px;
+}
+
+.margin-50{
+	margin-top: 50px;
+}
+
+.margin-70{
+	margin-top: 70px;
+}
+
+
+.btn{
+	background-image: url("../../imagenes/chimenea/fondo-btn.png");
+    background-position: center center;
+	background-repeat: no-repeat;
+	color: #1D2D5C;
+	font-size: 20px;
+	height: 63px;
+	padding-top: 23px;
+	width: 203px;
+	padding: 0;
+}
+
+ .btn:hover{
+ 	color:#4B97E3 !important;
+ }
+
+.btn-sumbit{ 
+     height: 60px !important;
+    margin-left: 25%;
+    padding-top: 5px !important;
+}
+
+
+.actividad{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+	display: none;
+}
+
+.btn-acepta{ 	
+    cursor: pointer;
+    float: left;    
+    margin-left: 80px;
+    margin-top: 210px;
+}
+
+.btn-continuar{
+	cursor: pointer;
+    float: left;
+    margin-top: 210px;
+    margin-left: 250px;
+}
+
+.btn-registro{
+	background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    height: 41px;
+    margin-left: 180px;
+    margin-top: 565px;
+    padding-bottom: 15px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+ .btn-instruciones{
+    cursor: pointer;
+    float: left;
+    margin-left: 48px;
+    margin-top: 210px;    
+ }
+ 
+
+ 
+ .btn-ranking{
+ 	cursor: pointer;
+    float: left;    
+    margin-left: 48px;
+    margin-top: 210px;    
+}
+ 
+
+.btn-compartir, .btn-invitar, .btn-jugar, .btn-cerrar {    
+   cursor: pointer;
+    float: left;
+    margin-right: 50px;
+}
+
+.btn-cerrar {
+	margin-left: 35%;
+	}
+    	
+
+.logo-app{
+    height: 198px;
+    left: 27%;
+    position: absolute;
+    top: 8%;
+    width: 372px;
+}
+
+	.sombra{
+		position:absolute;
+		width:100%;
+		height: 100%;
+		left:0;
+		top:0;
+		background-color: rgba(255,255, 255, 0.5);
+	}
+	
+	
+	
+.fondo-registro{
+    color: #ce272a;
+    height: 163px;
+    margin-left: 20%;
+    padding-top: 0%;
+    width: 65px;
+}
+
+.container{
+width: 900px !important;
+height: 600px;
+padding: 5%;
+margin: 0 auto;
+color: #fff;
+position: relative;
+font-size: 20px;
+}
+
+
+.inputTexto{
+	background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    height: 27px !important;
+    
+    overflow: hidden !important;
+    padding-top: 0 !important;
+    width: 90% !important;
+}
+
+.registro {
+    height: 250px;
+    left: 188px;
+    position: absolute;
+    top: 12px;
+    width: 300px;
+}
+
+
+
+input{
+	background-color: transparent;    
+    border: medium none;
+    color: #42332a;
+    font-size: 18px;
+    height: 27px;
+    padding-left: 10px;
+    width: 356px;
+}
+
+
+
+
+/***cambio boots******************/
+.modal-dialog {
+    padding-bottom: 30px;
+    padding-top: 15% !important;
+    width: 658px !important;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #ffffff !important;
+}
+
+.modal-dialog{ 
+    width: 658px !important;
+}
+
+.des-1, .des-2,.des-3,.des-4, .des-5, .des-6{
+	opacity: 0;
+}
+
+.form-horizontal .form-group {
+    margin-bottom: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
