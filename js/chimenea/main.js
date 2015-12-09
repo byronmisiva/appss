@@ -56,12 +56,12 @@ function preload() {
     game.load.image('adorno_4', accion+'imagenes/chimenea/jugar/adornos/lampara.png');
     game.load.image('adorno_5', accion+'imagenes/chimenea/jugar/adornos/munecodenieve.png');
 	
-	game.load.spritesheet('invader', accion+'imagenes/chimenea/assets/casa.png', 192, 75);
+    //game.load.spritesheet('invader', accion+'imagenes/chimenea/assets/casa.png', 192, 75);
 	game.load.spritesheet('ship', accion+'imagenes/chimenea/jugar/papanoel.png', 360, 110);
 	game.load.spritesheet('kaboom', accion+'imagenes/chimenea/assets/trineo.png', 192, 75);
 	game.load.image('nubes', accion+'imagenes/chimenea/assets/clouds.png');
 	game.load.image('starfield', accion+'imagenes/chimenea/assets/starfield.png');
-	game.load.image('background', 'imagenes/chimenea/assets/bg.jpg');
+	//game.load.image('background', 'imagenes/chimenea/assets/bg.jpg');
 	game.load.image('vidas', 'imagenes/chimenea/jugar/vida.png');
 }
 

@@ -20,7 +20,7 @@
 <body>
 <div id="fb-root"></div>
 
-<div class="container  contenedor-perfil">
+<div class="container  contenedor-perfil lef">
     <div class="col-md-6 col-sm-6">
         <div class="img-perfil"></div>
         <div class="nombre-perfil"></div>

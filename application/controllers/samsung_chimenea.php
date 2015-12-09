@@ -73,7 +73,6 @@ class Samsung_chimenea extends CI_Controller{
 		}	
 	}
 	
-	
 	function verificarParticipante($id){
 		$participante=$this->usuario_samsung->getUserFbid($id);		
 		if($participante == "0"){
@@ -101,47 +100,4 @@ class Samsung_chimenea extends CI_Controller{
 		$data["usuario"]=$this->modelo->buscarUserFbid($data['user']);
 		$this->load->view( $this->folderView.'/actividad', $data);
 	}
-		
-	
-	
-	
-	
-			
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
