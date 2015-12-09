@@ -219,7 +219,7 @@
 
 </div>
 
-<div class="container secciones instrucciones   ">
+<div class="container secciones instrucciones  hidden ">
     <div class="row">
         <div class="col-lg-6 col-xs-6 col-sm-6">
             <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo.png" class="img-responsive"/>
@@ -237,15 +237,15 @@
             <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12 h2">
                 <p class="text-center ">¡Prepárate para ayudar a Santa en su tour navideño y reparte la mayor cantidad
                     posible de regalos!</p>
-
-
-
-
                 <ol class="instrucciones">
-                    <li>Entrega regalos con un clic del mouse. <img src="imagenes/chimenea/instrucciones/click.png"></li>
-                    <li>Tienes 3 vidas. Perderás una vida si fallas una entrega. <img src="imagenes/chimenea/instrucciones/vidas.png"></li>
-                    <li>Si entregas un regalo en la casa Grinch, pierdes un (1) punto. <img src="imagenes/chimenea/instrucciones/perderpunto.png"></li>
-                    <li>Completa la entrega y participa por un increíble regalo de Navidad Samsung.<img src="imagenes/chimenea/instrucciones/completar.png"></li>
+                    <li>Entrega regalos con un clic del mouse. <img src="imagenes/chimenea/instrucciones/click.png">
+                    </li>
+                    <li>Tienes 3 vidas. Perderás una vida si fallas una entrega. <img
+                            src="imagenes/chimenea/instrucciones/vidas.png"></li>
+                    <li>Si entregas un regalo en la casa Grinch, pierdes un (1) punto. <img
+                            src="imagenes/chimenea/instrucciones/perderpunto.png"></li>
+                    <li>Completa la entrega y participa por un increíble regalo de Navidad Samsung.<img
+                            src="imagenes/chimenea/instrucciones/completar.png"></li>
                 </ol>
 
             </div>
@@ -263,63 +263,88 @@
     </div>
 </div>
 
-<div class="container secciones ranking hidden">
+<div class="container secciones ranking ">
     <div class="row">
-        <div class="col-lg-6">
-            <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo.png"/>
+        <div class="col-lg-6 col-xs-6 col-sm-6">
+            <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo.png" class="img-responsive"/>
         </div>
-        <div class="col-lg-6 pull-right">
-            <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo_samsung.png" class="pull-right"/>
+        <div class="col-lg-6 col-xs-6 col-sm-6 pull-right">
+            <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo_samsung.png"
+                 class="pull-right img-responsive"/>
         </div>
     </div>
+
     <div class="clearfix"></div>
-    <div class="row margin-70">
-        <div class="col-lg-12">
-            <div class="col-lg-12 text-center">
+    <div class="vertical-center">
+        <div class="row  ">
+            <div class="col-sm-2 col-md-2 col-lg-2"></div>
+            <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12 ">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 h2">
+                    <p class="text-center">Rankink</p>
+                </div>
 
-                <p class="text-center">Rankink</p>
-
-            </div>
-            <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
-                Nombre
-            </div>
-            <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
-                Puntos
-            </div>
-            <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
-                Gabriela
-            </div>
-            <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
-                20
-            </div>
-            <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
-                Gabriela
-            </div>
-            <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
-                20
-            </div>
-            <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
-                Gabriela
-            </div>
-            <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
-                20
+                <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
+                    Nombre
+                </div>
+                <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
+                    Puntos
+                </div>
             </div>
 
+            <div class="row margin-70">
+                <div class="col-lg-12">
+
+
+                    <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
+                        Gabriela
+                    </div>
+                    <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
+                        20
+                    </div>
+                    <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
+                        Gabriela
+                    </div>
+                    <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
+                        20
+                    </div>
+                    <div class="col-lg-10 col-sm-10  col-xs-10 colorcuadro">
+                        Gabriela
+                    </div>
+                    <div class="col-lg-2 col-sm-2  col-xs-2  colorcuadro">
+                        20
+                    </div>
+
+                </div>
+
+                <div class="row margin-20">
+                    <div class="col-lg-4">
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="btn text-center js--btn-jugar">Jugar</div>
+                    </div>
+                    <div class="col-lg-4">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2"></div>
+            <div class="clearfix"></div>
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                <div class="btn text-center js--btn-jugar center-block">Jugar</div>
+            </div>
+            <div class="col-lg-4">
+
+            </div>
         </div>
-
-        <div class="row margin-20">
-            <div class="col-lg-4">
-            </div>
-            <div class="col-lg-4">
-                <div class="btn text-center js--btn-jugar">Jugar</div>
-            </div>
-            <div class="col-lg-4">
-
-            </div>
-        </div>
-
-
     </div>
+
+
+
 </div>
 
 <div class="container secciones resultados hidden">
