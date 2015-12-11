@@ -1,3 +1,7 @@
+
+var anchoScreen = window.innerWidth;
+var altoScreen = window.innerHeight;
+
 var game = new Phaser.Game(anchoScreen, altoScreen, Phaser.AUTO, 'fondo-nieve', { preload: preload, create: create, update: update, render: render });
 
 var SPAWN_RATE = 1 / 1.9;
@@ -14,7 +18,7 @@ function preload() {
     
     game.load.image('copos', accion+'imagenes/chimenea/copo.png');    
     
-    game.load.image('casa', accion+'imagenes/chimenea/jugar/casas/casa_1.png');
+    game.load.image('casa1', accion+'imagenes/chimenea/jugar/casas/casa_1.png');
 	game.load.image('casa2', accion+'imagenes/chimenea/jugar/casas/casa_2.png');
 	game.load.image('casa3', accion+'imagenes/chimenea/jugar/casas/casa_3.png');
 	game.load.image('casa4', accion+'imagenes/chimenea/jugar/casas/casa_4.png');
@@ -24,21 +28,7 @@ function preload() {
 	game.load.image('casa8', accion+'imagenes/chimenea/jugar/casas/casa_8.png');
 	game.load.image('casa9', accion+'imagenes/chimenea/jugar/casas/casa_9.png');
 	game.load.image('casa10', accion+'imagenes/chimenea/jugar/casas/casa_10.png');
-	game.load.image('casa11', accion+'imagenes/chimenea/jugar/casas/casa_11.png');
-    game.load.image('casa12', accion+'imagenes/chimenea/jugar/casas/casa_12.png');
-	game.load.image('casa13', accion+'imagenes/chimenea/jugar/casas/casa_13.png');
-	game.load.image('casa14', accion+'imagenes/chimenea/jugar/casas/casa_14.png');
-	game.load.image('casa15', accion+'imagenes/chimenea/jugar/casas/casa_15.png');
-	game.load.image('casa16', accion+'imagenes/chimenea/jugar/casas/casa_16.png');
-    game.load.image('casa17', accion+'imagenes/chimenea/jugar/casas/casa_17.png');
-    game.load.image('casa18', accion+'imagenes/chimenea/jugar/casas/casa_18.png');
-	game.load.image('casa19', accion+'imagenes/chimenea/jugar/casas/casa_19.png');
-	game.load.image('casa20', accion+'imagenes/chimenea/jugar/casas/casa_20.png');
-	game.load.image('casa21', accion+'imagenes/chimenea/jugar/casas/casa_21.png');
-	game.load.image('casa22', accion+'imagenes/chimenea/jugar/casas/casa_22.png');
-    game.load.image('casa23', accion+'imagenes/chimenea/jugar/casas/casa_23.png');
-	game.load.image('casa24', accion+'imagenes/chimenea/jugar/casas/casa_24.png');	
-    
+
     game.load.image('adorno_1', accion+'imagenes/chimenea/jugar/adornos/arbolgrande.png');
     game.load.image('adorno_2', accion+'imagenes/chimenea/jugar/adornos/arbolblanco.png');
     game.load.image('adorno_3', accion+'imagenes/chimenea/jugar/adornos/arbol_verde.png');
@@ -50,7 +40,7 @@ function preload() {
 	game.load.spritesheet('kaboom', accion+'imagenes/chimenea/assets/trineo.png', 192, 75);
 	game.load.image('nubes', accion+'imagenes/chimenea/assets/clouds.png');
 	game.load.image('starfield', accion+'imagenes/chimenea/assets/starfield.png');
-	//game.load.image('background', 'imagenes/chimenea/assets/bg.jpg');
+
 	game.load.image('vidas', 'imagenes/chimenea/jugar/vida.png');
 }
 
@@ -84,18 +74,16 @@ var cuadro;
 var adornos;
 var suelo;
 var enemyBullet;
-var firingTimer = 0;
-var stateText;
-var livingEnemies = [];
 var velocidadCasas = -90;
 
 
 function create() {
-    game.world.setBounds(0, 0, 4844, 600);
-    fondo=game.add.button(0, 0, 'fondo');      
+    game.world.setBounds(0, 0, 4844, altoScreen);
+    fondo=game.add.button(0, 0, 'fondo');
+    fondo.scale.set(anchoScreen/ (fondo.width - 10), altoScreen/ (fondo.height - 10));
     
     luna =game.add.sprite(altoScreen-50,50, 'luna');
-    luna.scale.set(0.7, 0.7);
+    //luna.scale.set(0.7, 0.7);
     game.physics.startSystem(Phaser.Physics.P2JS);
     game.physics.startSystem(Phaser.Physics.ARCADE);
   
@@ -117,13 +105,12 @@ function create() {
     suelo.enableBody = true;
     suelo.physicsBodyType = Phaser.Physics.ARCADE;
     suelo.create(0,altoScreen-72, 'piso');
-            
+    suelo.scale.set(anchoScreen/ (suelo.width - 10), 1);
+
     adornos = game.add.group();
     adornos.enableBody = true;
     adornos.physicsBodyType = Phaser.Physics.ARCADE;
-    
     creatAdorno();
-    
     cuadro = game.add.group();
     cuadro.enableBody = true;
     cuadro.physicsBodyType = Phaser.Physics.ARCADE;
@@ -133,10 +120,9 @@ function create() {
 var elemCasas = [];
 function creatOpciones(){    
     for (var i = 0; i < 15; i++){        
-        var elemento = game.rnd.between(2, 24);                
-        var total = 900+(270*i);
-        var s = houses.create(total, game.world.height-200, 'casa'+elemento);            
-        s.scale.set(0.8, 0.8);
+        var elemento = game.rnd.between(1, 10);
+        var total = 100+(270*i);
+        var s = houses.create(total, altoScreen  - 225, 'casa'+elemento);
         game.physics.arcade.enable(s);
         s.body.velocity.x = velocidadCasas;
         s.autoCull = true;
@@ -146,11 +132,10 @@ function creatOpciones(){
 }
 
 function creatCopos(){
-for (var i = 0; i < 70; i++){
-        var c = copos.create(game.rnd.between(0, anchoScreen), game.rnd.between(0, 600), 'copos');    
-        c.scale.set(0.1, 0.1);
+for (var i = 0; i < 20; i++){
+        var c = copos.create(game.rnd.between(0, anchoScreen), game.rnd.between(0, altoScreen), 'copos');
         game.physics.arcade.enable(c);
-        c.body.velocity.y = 50;
+        c.body.velocity.y = 40;
         c.autoCull = true;
         c.checkWorldBounds = true;
         c.events.onOutOfBounds.add(resetCopo, this);    
@@ -158,9 +143,9 @@ for (var i = 0; i < 70; i++){
 };
 
 function creatAdorno(){
-    for (var i = 0; i < 30; i++){        
+    for (var i = 0; i < 20; i++){
         var posicionAdorno = 10+(150*i);
-        var adorno = adornos.create(posicionAdorno, game.world.height-100, 'adorno_'+game.rnd.between(1, 5));            
+        var adorno = adornos.create(posicionAdorno, altoScreen-150, 'adorno_'+game.rnd.between(1, 5));
         game.physics.arcade.enable(adorno);
         adorno.body.velocity.x = -150;
         adorno.autoCull = true;
