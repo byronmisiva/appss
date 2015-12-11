@@ -468,6 +468,7 @@
 
 </div>
 
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="<?= base_url('js/general/validate.js?refresh=198926546568797915') ?>" type="text/javascript"></script>
 <script src="<?= base_url('js/bootstrap.min.js') ?>" type="text/javascript"></script>
