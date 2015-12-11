@@ -176,6 +176,9 @@
 <div class="container secciones home hidden ">
     <div class="row">
         <div class="col-lg-12 pull-right">
+            <div class="col-lg-6 col-xs-6 col-sm-6 visible-xs">
+                <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo.png" class="img-responsive"/>
+            </div>
             <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo_samsung.png"
                  class="pull-right img-responsive"/>
         </div>
@@ -184,7 +187,7 @@
     <div class="vertical-center">
         <div class="row cuadro-ranking">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 text-center padding-20 ">
-                <img src="<?php echo base_url() ?>imagenes/chimenea/home/logo_christmastour_home.png" class="img-responsive"/>
+                <img src="<?php echo base_url() ?>imagenes/chimenea/home/logo_christmastour_home.png" class="img-responsive center-block"/>
             </div>
             <div class="clearfix"></div>
 
@@ -365,6 +368,14 @@
 
 <div class="container secciones resultados hidden">
     <div class="row">
+        <div class="col-xs-6 visible-xs-6">
+            <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo.png" class="img-responsive"/>
+        </div>
+        <div class="col-lg-6 col-xs-6 col-sm-6 pull-right">
+            <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo_samsung.png"
+                 class="pull-right img-responsive"/>
+        </div>
+
         <div class="col-lg-12 pull-right">
             <img src="<?php echo base_url() ?>imagenes/chimenea/jugar/logo_samsung.png" class="pull-right"/>
         </div>
@@ -372,8 +383,8 @@
     <div class="clearfix"></div>
     <div class="vertical-center">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 text-center padding-20 ">
-                <img src="<?php echo base_url() ?>imagenes/chimenea/home/logo_christmastour_home.png" class="img-responsive"/>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 text-center padding-20 hidden-xs">
+                <img src="<?php echo base_url() ?>imagenes/chimenea/home/logo_christmastour_home.png" class=" center-block img-responsive"/>
             </div>
             <div class="clearfix"></div>
 
@@ -387,10 +398,10 @@
             </div>
             <div class="col-sm-2 col-md-2 col-lg-2  text-center">
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
                 <div class="btn text-center js--btn-jugar pull-right">Volver a Jugar</div>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12">
                 <div class="btn text-center js--btn-ranking pull-left">Ranking</div>
             </div>
             <div class="clearfix"></div>
@@ -430,7 +441,7 @@
                     <p class="text-center ">Voltea tu dispositivo horizontalmente para jugar</p>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 text-center center-block">
-                    <img src="<?= base_url() ?>imagenes/chimenea/samsung_voltear.png" class="center-block">
+                    <img src="<?= base_url() ?>imagenes/chimenea/samsung_voltear.png" class="center-block img-responsive">
                 </div>
             </div>
         </div>
@@ -475,6 +486,18 @@
         type="text/javascript"></script>
 <script>
     var dis = "<?php  echo $data['dispositivo'];?>";
+</script>
+
+<script>
+    var dis = "<?php  echo $data['dispositivo'];?>";
+
+    if (window.matchMedia("(orientation: portrait)").matches) {
+        //alert ( "you're in PORTRAIT mode" );
+    }
+
+    if (window.matchMedia("(orientation: landscape)").matches) {
+        //alert ( " you're in LANDSCAPE mode ");
+    }
 </script>
 
 <script type="text/javascript" src="<?= base_url('js/chimenea/fondo.js?refresh=') . rand(1, 1000) ?>"></script>
